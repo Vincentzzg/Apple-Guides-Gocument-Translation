@@ -1,3 +1,4 @@
-# My Awesome Book
+# iOS技术栈学习笔记
 
-This file file serves as your book's preface, a great place to describe your book's content and ideas.
+本书是我对iOS技术栈学习的一个记录，用文字记录学习，是为了更好的思考、理解和记忆。
+
