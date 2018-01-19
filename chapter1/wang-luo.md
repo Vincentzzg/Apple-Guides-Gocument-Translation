@@ -19,7 +19,7 @@ URL就是资源的地址、位置，互联网上每个资源都有一个唯一�
 1、HTTP
 
 ```
-超文本传输协议，访问的是远程的网络资源  
+超文本传输协议，访问的是远程的网络资源
 ```
 
 2、file  
@@ -158,7 +158,11 @@ DNS（Domain Name System，域名系统）是互联网的一项服务，提供�
 
 **速度**：HTTPDNS、连接多路复用、更好的数据压缩算法
 
-网络优化参考文章：[移动 APP 网络优化概述](https://blog.cnbang.net/tech/3531/)
+
+
+参考文章：
+
+[移动 APP 网络优化概述](https://blog.cnbang.net/tech/3531/)
 
 ## 
 
@@ -178,11 +182,9 @@ DNS（Domain Name System，域名系统）是互联网的一项服务，提供�
 
 
 
+参考文章：
 
-
-网络安全参考文章：[iOS应用安全开发概述](http://blog.devtang.com/2014/05/08/ios-security-dev-overview/)
-
-
+[iOS应用安全开发概述](http://blog.devtang.com/2014/05/08/ios-security-dev-overview/)
 
 ## 
 
