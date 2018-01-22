@@ -6,7 +6,8 @@
   * [框架](chapter1/kuang-jia.md)
   * [内存](chapter1/nei-cun.md)
   * [网络](chapter1/wang-luo.md)
-  * 存储
+    * [Socket](chapter1/wang-luo/socket.md)
+  * [存储](chapter1/cun-chu.md)
   * 渲染
   * 线程
 * 需求
