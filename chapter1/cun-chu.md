@@ -121,6 +121,10 @@ NSFileHandle：主要负责对文件内容的读取和写入操作。支持从�
 反归档工具类：NSKeyedUnarchiver
 
 
+#### XML属性列表（plist）归档
+属性列表是一种XML格式的文件，拓展名plist
+
+
 
 
 
