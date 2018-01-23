@@ -90,11 +90,38 @@ Kache架构图
 
 ### 文件存储
 沙盒机制
+
 默认情况下，沙盒有三个文件夹：Document、Library、tmp，Library包含Caches和Preference
 `Docments`：苹果建议将应用产生的文件数据存在这个目录下，iTunes备份和回复的时候会包括此目录。
-`Library`：存储程序的默认设置和状态信息。
+`Library`：存储程序的默认设置和其他状态信息。
 `Library/Caches`：存放缓存文件，保存应用的持久化数据，用于应用升级或应用关闭后的数据保存，不会被iTunes同步，所以为了减少同步的时间，可以将一些比较大的文件而又不需要备份的文件放在这个目录下。
-`tmp`：提供一个即时创建临时文件的地方，但不需要持久化，在应用关闭后，该目录下的数据会被删除，也可能系统在程序不运行的时候清除。
+`Library/Preferences`：保存应用的所有偏好设置，iOS的Setting应用会在该目录下寻找应用的设置信息，iTunes会自动备份该目录。
+`tmp`：保存应用运行时所需的临时数据，在应用关闭后，该目录下的数据会被删除，也可能系统在程序不运行的时候清除。
+
+`文件对接器`
+NSFileHandle：主要负责对文件内容的读取和写入操作。支持从文件指定位置追加内容
+
+
+#### 文件相关操作
+参考文章：[文件操作（NSFileManager）](http://blog.csdn.net/xyz_lmn/article/details/8968213)
+
+
+#### 复杂对象的读写（I/O）操作
+复杂对象：Foundation中不存在的数据类，比如自定义的Person类，这种自定义的数据类无法直接通过writeToFile写入文件
+
+复杂对象写入文件的过程：复杂对象->序列化（归档）->NSData->写入文件
+从文件中读取复杂对象的过程：读取文件->NSData->反序列化（反归档）->复杂对象
+
+1、首先复杂对象类要遵守<NSCoding>协议
+2、实现两个协议方法：
+* -(void)encodeWithCoder:(NSCoder *)aCoder; 序列化
+* -(id)initWithCoder:(NSCoder *)aDecoder; 反序列化
+
+归档工具类：NSKeyedArchiver
+反归档工具类：NSKeyedUnarchiver
+
+
+
 
 
 
