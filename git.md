@@ -14,25 +14,30 @@ Git中的数据流和存储级别
 
 ## Git常用命令
 
+**创建（Init）**
 ```
-git init //创建Git仓库
-git status //查看当前所在分支、内容更改和提交状态
+git init //创建git仓库
+```
+
+**状态**
+```
+git status //查看仓库状态（当前所在分支、内容更改和提交状态）
 ```
 
 **添加（Adding）**
-
-添加更改到Staging Area，此时改动该没有提交到仓库。提交到仓库之前，改动还可以从Stage中移除，可以指定文件，也可以使用通配符\*指定一个类型的文件，或者直接
+添加更改到Staging Area，此时改动还没有提交到仓库。
+提交到仓库之前，改动还可以从Stage中移除，可以指定文件，也可以使用通配符\*指定一个类型的文件
 
 ```
-git add octocat.txt     #添加单个文件
-git add '*.txt'           #添加一类文件
-git add .               #添加所有文件
+git add <file> #添加单个文件
+git add '*.txt' #添加一类文件
+git add . #添加所有文件
 ```
 
 **提交（Committing）**
 
 ```
-git commit -m "修改记录" //提交修改，并记录修改内容
+git commit -m "修改记录" //提交修改，并添加修改日志
 ```
 
 **历史（History）**
@@ -47,15 +52,15 @@ git log #打印提交日志
 git remote add origin 远程仓库地址
 ```
 
-**推送（Pushing Remotely）    
-**推送本地修改到远程仓库
-
+**推送（Pushing Remotely）**
+推送本地修改到远程仓库
 ```
 git push -u origin master
+git push #自动推送到当前所在分支的远程分支
 ```
 
-**拉取（Pulling Remotely）    
-**检查远程仓库的修改并拉取
+**拉取（Pulling Remotely）**
+检查远程仓库的修改并拉取
 
 ```
 git pull origin master
@@ -68,8 +73,8 @@ git diff HEAD     #
 git diff --staged #
 ```
 
-**重设Stage（Resetting the Stage）    
-**把文件从Stage中移除
+**重设Stage（Resetting the Stage）**
+把文件从Stage中移除
 
 ```
 git reset 文件名 #
@@ -104,8 +109,14 @@ git rm <要删除的文件> #删除文件
 git merge clean_up #合并clean_up分支到master分支（在master分支下执行命令）
 ```
 
-**清除（）
-**
+**清除（Clen）**
+
+
+```
+git branch -d <branch name> #删除分支
+```
+
+
 
 **移除版本控制**
 
