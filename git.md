@@ -15,17 +15,19 @@ Git中的数据流和存储级别
 ## Git常用命令
 
 **创建（Init）**
+
 ```
 git init //创建git仓库
 ```
 
-**状态**
+**状态（Status）**
+
 ```
 git status //查看仓库状态（当前所在分支、内容更改和提交状态）
 ```
 
-**添加（Adding）**
-添加更改到Staging Area，此时改动还没有提交到仓库。
+**添加（Adding）**  
+添加更改到Staging Area，此时改动还没有提交到仓库。  
 提交到仓库之前，改动还可以从Stage中移除，可以指定文件，也可以使用通配符\*指定一个类型的文件
 
 ```
@@ -37,7 +39,7 @@ git add . #添加所有文件
 **提交（Committing）**
 
 ```
-git commit -m "修改记录" //提交修改，并添加修改日志
+git commit -m "修改日志" //提交修改，并添加修改日志
 ```
 
 **历史（History）**
@@ -52,14 +54,15 @@ git log #打印提交日志
 git remote add origin 远程仓库地址
 ```
 
-**推送（Pushing Remotely）**
+**推送（Pushing Remotely）**  
 推送本地修改到远程仓库
+
 ```
 git push -u origin master
 git push #自动推送到当前所在分支的远程分支
 ```
 
-**拉取（Pulling Remotely）**
+**拉取（Pulling Remotely）**  
 检查远程仓库的修改并拉取
 
 ```
@@ -73,7 +76,7 @@ git diff HEAD     #
 git diff --staged #
 ```
 
-**重设Stage（Resetting the Stage）**
+**重设Stage（Resetting the Stage）**  
 把文件从Stage中移除
 
 ```
@@ -95,7 +98,7 @@ git checkout clean_up #切换到clean_up分支
 git checkout master #切回到master分支
 ```
 
-**删除（Removing All The Things）**
+**删除（Removing All The Things）**  
 git rm：移除本地文件并add文件的删除到Stage
 
 ```
@@ -104,19 +107,15 @@ git rm <要删除的文件> #删除文件
 
 **合并（Merge）**
 
-
 ```
 git merge clean_up #合并clean_up分支到master分支（在master分支下执行命令）
 ```
 
 **清除（Clen）**
 
-
 ```
 git branch -d <branch name> #删除分支
 ```
-
-
 
 **移除版本控制**
 
