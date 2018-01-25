@@ -13,12 +13,13 @@ Git是一个`分布式版本控制`软件
 Git中的数据流和存储级别
 
 ## Git常用命令
+
 **帮助文档**
 
-
+```
+git help <command> #查看相关命令的帮助文档
 ```
 
-```
 **创建（Init）**
 
 ```
@@ -74,8 +75,9 @@ git push #自动推送到当前所在分支的远程分支
 git pull origin master
 ```
 
-**差异（Differences）**
+**差异（Differences）**  
 检查更改
+
 ```
 git diff #查看尚未暂存的文件修改了哪些内容
 git diff HEAD #
