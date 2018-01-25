@@ -15,7 +15,7 @@ Git中的数据流和存储级别
 
 Git有三种状态：
 
-`已修改`（modified）：修改了文件，但还没保存到本地数据库中
+`已修改`（modified）：修改了文件，但还没保存到本地数据库中  
 `已暂存`（staged）：对一个已修改文件的当前版本做了标记，使之包含在下次提交的快照中。  
 `已提交`（committed）：数据已经保存到本地数据库中  
 ![](/assets/git的三个工作区域.png)
@@ -26,9 +26,10 @@ Git的工作流程：
 3. 提交更新，找到暂存区域的文件，将快照永久性存储到Git仓库目录
 
 ## Git文件的生命周期
+
 工作目录下的文件状态：已跟踪、未跟踪。已跟踪的文件就是那些被纳入了版本控制的文件，工作目录中除已跟踪文件以外的所有其它文件都属于未跟踪文件。
 
-Git文件的生命周期如下：
+Git文件的生命周期如下：  
 ![](/assets/Git文件的生命周期.png)
 
 ## Git常用命令
@@ -154,6 +155,14 @@ git rm -r --cached  "bin/"     //最终执行命令. 删除bin/文件夹
 git commit -m "remove bin folder all file out of control"    //提交
 git push    //提交到远程服务器
 ```
+
+
+
+
+
+_参考文章：_
+
+[独孤九剑 - git的设计思想揭秘](http://outofmemory.cn/wiki/git-design-secret)
 
 
 
