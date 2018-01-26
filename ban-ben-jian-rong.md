@@ -6,13 +6,9 @@
 
 指的是当前编译所用的SDK版本。
 
-
-
 **Deployment Target**
 
 它控制着运行系统需要的最低系统版本。
-
-
 
 ## 系统预设宏定义 {#iOS版本宏}
 
@@ -58,21 +54,48 @@
 
 另外还有mac、TVOS、WATCHOS的系统版本宏
 
+**2、\_\_IPHONE\_OS\_VERSION\_MIN\_REQUIRED**
 
+当前项目支持运行的最低版本，相当于在Xcode中配置的Deployment Target
 
-2、_**\_\_IPHONE\_OS\_VERSION\_MIN\_REQUIRED**_
+**3、\_\_IPHONE\_OS\_VERSION\_MAX\_ALLOWED**
 
-当前支持运行的最低版本，相当于在Xcode中配置的Deployment Target
-
-
-
-3、_**\_\_IPHONE\_OS\_VERSION\_MAX\_ALLOWED**_
-
-当前支持的最高版本，相当于Xcode中配置的Base SDK
+当前开发环境的系统SDK版本，相当于Xcode中配置的Base SDK
 
 
 
+## 针对编译所用的不同SDK版本使用不同API
 
+```
+#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_4_3    
+	#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_7_0
+		// iOS SDK 7.0 以后版本的处理    
+	#else        
+		// iOS SDK 5.0 ~ 6.1版本的处理    
+	#endif
+#else
+    // iOS SDK 4.3 之前版本的处理
+#endif
+```
+
+
+
+## 判定系统版本，根据运行时的版本号运行代码
+
+
+
+## 对于类可以检测其是否存在
+
+如果要使用的新特性是个类的话，可以使用NSClassFromString来将字符串转为类，如果Runtime没有这个类存在，则返回nil
+
+```
+if(NSClassFromString(@"CLGeocoder")) {//iOS5中新类，替代MKReverseGeocoder
+做位置解析
+    //CLGeocoder存在，可以使用
+} else{
+    //只能使用MKReverseGeocoder
+}
+```
 
 
 
