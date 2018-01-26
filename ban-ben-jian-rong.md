@@ -62,23 +62,19 @@
 
 当前开发环境的系统SDK版本，相当于Xcode中配置的Base SDK
 
-
-
 ## 针对编译所用的不同SDK版本使用不同API
 
 ```
 #if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_4_3    
-	#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_7_0
-		// iOS SDK 7.0 以后版本的处理    
-	#else        
-		// iOS SDK 5.0 ~ 6.1版本的处理    
-	#endif
+    #if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_7_0
+        // iOS SDK 7.0 以后版本的处理    
+    #else        
+        // iOS SDK 5.0 ~ 6.1版本的处理    
+    #endif
 #else
     // iOS SDK 4.3 之前版本的处理
 #endif
 ```
-
-
 
 ## 判定系统版本，根据运行时的版本号运行代码
 
