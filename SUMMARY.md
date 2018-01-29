@@ -17,6 +17,7 @@
 * 进阶
 * [应用安全开发](ying-yong-kai-fa-an-quan.md)
 * [Git](git.md)
-* 算法与数据结构
+* [算法与数据结构](suan-fa-yu-shu-ju-jie-gou.md)
 * [版本兼容](ban-ben-jian-rong.md)
+* [操作系统与编译](cao-zuo-xi-tong-yu-bian-yi.md)
 
