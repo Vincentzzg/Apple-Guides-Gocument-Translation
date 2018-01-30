@@ -34,6 +34,72 @@
 - (void)setTitle:(NSString *)newTitle;
 ```
 
+## 使用strong和weak关键字管理所有权
+
+## 
+
+### **Copy**
+
+Copy关键字修饰的属性，会保留设置给它的对象的一份拷贝。
+
+任何设置给Copy属性的对象必须遵守NSCopying协议。
+
+Copy关键字也是强引用，因为它必须保持它自己创建的新对象。
+
+
+
+**NSString属性如果不使用Copy，会有什么问题？**
+
+例如下面的XYZBadgeView类的接口部分：
+
+```
+@interface XYZBadgeView : NSView
+@property NSString *firstName;
+@property NSString *lastName;
+@end
+```
+
+声明了两个NSString属性，它们都保持对其对象的隐式强引用。
+
+如果另一个对象创建一个NSString字符串来设置给badgeView的firstName属性，如下：
+
+```
+NSMutableString *nameString = [NSMutableString stringWithString:@"John"];
+self.badgeView.firstName = nameString;
+```
+
+这样的赋值是可行的，因为NSMutableString是NSString的一个子类。但是此时firstName已经指向了一个NSMutableString。
+
+此时如果发生了下面的改变：
+
+```
+[nameString appendString:@"ny"];
+```
+
+尽管当时赋值给badgeView.firstName的时候nameString的值是“John”，但现在它的值是“”
+
+badgeView只应该只维护设置给firstName和lastName属性的任何字符串的一份拷贝，以便设置属性的时候捕获当时的字符串值，且不会随设置字符串的值改变而改变。添加一个Copy属性关键字就能解决：
+
+```
+@interface XYZBadgeView : NSView
+@property (copy) NSString *firstName;
+@property (copy) NSString *lastName;
+@end
+```
+
+如果需要直接给一个Copy属性的实例变量赋值，例如在初始化方法中，不要忘记设置原始对象的拷贝：
+
+```
+- (id)initWithSomeOriginalString:(NSString *)aString {
+    self = [super init];
+    if (self) {
+        _instanceVariableForCopyProperty = [aString copy];
+    }
+
+    return self;
+}
+```
+
 
 
 # 属性关键字
@@ -61,13 +127,10 @@
 
 
 
-
-
 参考文章：
 
 苹果官方文档：
 
-[https://developer.apple.com/library/content/documentation/General/Conceptual/DevPedia-CocoaCore/DeclaredProperty.html](https://developer.apple.com/library/content/documentation/General/Conceptual/DevPedia-CocoaCore/DeclaredProperty.html)[https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/EncapsulatingData/EncapsulatingData.html\#//apple\_ref/doc/uid/TP40011210-CH5-SW2](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/EncapsulatingData/EncapsulatingData.html#//apple_ref/doc/uid/TP40011210-CH5-SW2)
-
-
+[DeclaredProperty](https://developer.apple.com/library/content/documentation/General/Conceptual/DevPedia-CocoaCore/DeclaredProperty.html)  
+[Encapsulating Data](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/EncapsulatingData/EncapsulatingData.html#//apple_ref/doc/uid/TP40011210-CH5-SW2)
 
