@@ -6,6 +6,7 @@
     * [属性字段](chapter1/yu-yan/shu-xing-zi-duan.md)
   * [框架](chapter1/kuang-jia.md)
   * [内存](chapter1/nei-cun.md)
+    * [栈与堆](zhan-yu-dui.md)
   * [网络](chapter1/wang-luo.md)
     * [Socket](chapter1/wang-luo/socket.md)
   * [存储](chapter1/cun-chu.md)
