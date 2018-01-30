@@ -46,8 +46,6 @@ Copy关键字修饰的属性，会保留设置给它的对象的一份拷贝。
 
 Copy关键字也是强引用，因为它必须保持它自己创建的新对象。
 
-
-
 **NSString属性如果不使用Copy，会有什么问题？**
 
 例如下面的XYZBadgeView类的接口部分：
@@ -100,8 +98,6 @@ badgeView只应该只维护设置给firstName和lastName属性的任何字符串
 }
 ```
 
-
-
 # 属性关键字
 
 @property的常用属性关键字有nonatomic、atomic、readonly、writeonly、readwrite、assign、retain、copy、strong、weak、unsafe\_unretained、nonnull、nullable、null\_resettable，看着挺多的，但是经常用的也就那几个。
@@ -125,12 +121,13 @@ badgeView只应该只维护设置给firstName和lastName属性的任何字符串
 * copy:拷贝一个新的对象，新对象的引用计数+1，原对象不变。
 * strong:能够维持对象的生命。
 
-
-
 参考文章：
 
 苹果官方文档：
 
-[DeclaredProperty](https://developer.apple.com/library/content/documentation/General/Conceptual/DevPedia-CocoaCore/DeclaredProperty.html)  
+[Programming with Objective-C](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html#//apple_ref/doc/uid/TP40011210-CH1-SW1)
+
+[DeclaredProperty](https://developer.apple.com/library/content/documentation/General/Conceptual/DevPedia-CocoaCore/DeclaredProperty.html)
+
 [Encapsulating Data](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/EncapsulatingData/EncapsulatingData.html#//apple_ref/doc/uid/TP40011210-CH5-SW2)
 
