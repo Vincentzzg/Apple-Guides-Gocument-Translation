@@ -2,7 +2,7 @@
 
 ## **@property**
 
-对象通过属性来封装数据（encapsulates data）
+对象通过属性来封装数据（encapsulates data），属性控制着对象的数据访问
 
 属性声明包含在在一个类的接口中，like this:
 
@@ -33,6 +33,10 @@
 - (NSString *)title;
 - (void)setTitle:(NSString *)newTitle;
 ```
+
+# 属性关键字
+
+属性关键字决定数据的可访问性和存储注意事项
 
 ## 使用strong和weak关键字管理所有权
 
@@ -98,7 +102,9 @@ badgeView只应该只维护设置给firstName和lastName属性的任何字符串
 }
 ```
 
-# 属性关键字
+
+
+
 
 @property的常用属性关键字有nonatomic、atomic、readonly、writeonly、readwrite、assign、retain、copy、strong、weak、unsafe\_unretained、nonnull、nullable、null\_resettable，看着挺多的，但是经常用的也就那几个。
 
