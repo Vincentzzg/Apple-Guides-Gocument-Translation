@@ -19,7 +19,7 @@
 @property (<#attributes#>) <#type#> <#name#>;
 ```
 
-@property声明的属性，编译器会自动合成getter、setter方法
+@property声明的属性，编译器会自动合成存取器（getter、setter）方法
 
 例子：
 
@@ -46,7 +46,7 @@ Copy关键字修饰的属性，会保留设置给它的对象的一份拷贝。
 
 Copy关键字也是强引用，因为它必须保持它自己创建的新对象。
 
-**NSString属性如果不使用Copy，会有什么问题？**
+#### **NSString属性如果不使用Copy，会有什么问题？**
 
 例如下面的XYZBadgeView类的接口部分：
 
