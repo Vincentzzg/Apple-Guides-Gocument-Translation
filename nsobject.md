@@ -1,8 +1,6 @@
 # NSObject
 
-根类不继承自任何其他类，而是定义统一的接口和行为给所有继承自它的对象。根类就是基类。
-
-
+根类不继承自任何其他类，而是统一给所有继承自它的对象定义接口和行为。根类就是基类。
 
 ![](https://developer.apple.com/library/content/documentation/General/Conceptual/DevPedia-CocoaCore/Art/root_class_2x.png)
 
