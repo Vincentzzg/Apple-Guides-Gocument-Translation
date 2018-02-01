@@ -31,7 +31,9 @@ Foundation框架实现了定义对象基础行为的根类NSObject。它实现�
 
 Objective-C是开发Cocoa和Cocoa Touch应用程序的本地主要语言。但是，Cocoa和Cocoa Touch的应用程序工程中也可以包含C++和ANSI C的代码。此外，你也可以使用桥接到Objective-C运行时的脚本语言，例如PyObjcC和RubyCocoa，来开发Cocoa应用程序。
 
-### 
+### Objective-C是动态语言（Dynamic Language）
+
+
 
 ### 
 
