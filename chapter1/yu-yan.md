@@ -15,21 +15,19 @@ Cocoa和Cocoa Touch分别是OS X和iOS的应用程序开发环境。Cocoa和Coco
 
 > 注意：术语“Cocoa”一般用于指基于Objective-C运行时并且从根类NSObject继承任何类或对象。当应用程序开发使用相应平台的任何编程接口时，也是用术语“Cocoa”或“Cocoa Touch”。
 
-
-
 ### 框架（Frameworks）
 
 Foundation框架实现了定义对象基础行为的根类NSObject。它实现了代表基本类型（例如，字符串和数字）和集合的（例如，数组和字典）的类。Foundation还提供了国际化，对象持久性，文件管理和XML处理的能力。你可以使用它里面的类访问底层的系统实体和服务，例如端口，线程，锁和进程。Foundation基于Core Foundation框架，该框架发布了一个程序（ANSI C）接口。
 
 你可以使用AppKit或UIKit框架开发应用程序的用户界面。这两个框架其实是一样的，只是分别针对不同的特定平台。他们包含很多功能类，例如事件处理，绘图，图像处理，文字处理，排版和交互应用程序数据传输。它们也包含用户界面元素，例如表格视图（table views），滑块（sliders），按钮（buttons），文本字段（text fields）和警报对话框（alert dialogs）。
 
-
-
 ### 语言（Language）
 
-Objective-C是本地的，Cocoa和Cocoa Touch应用程序开发的主要语言。然而，Cocoa和Cocoa Touch的应用程序工程中也可以包含C++和ANSI C的代码。另外，你也可以使用桥接到Objective-C运行时的脚本语言，例如PyObjcC和RubyCocoa，来开发Cocoa应用程序。
+Objective-C是开发Cocoa和Cocoa Touch应用程序的本地主要语言。但是，Cocoa和Cocoa Touch的应用程序工程中也可以包含C++和ANSI C的代码。此外，你也可以使用桥接到Objective-C运行时的脚本语言，例如PyObjcC和RubyCocoa，来开发Cocoa应用程序。
 
+### 
 
+### 
 
 ### **给对象增加成员变量**
 
