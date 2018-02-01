@@ -33,9 +33,53 @@ Objective-C是开发Cocoa和Cocoa Touch应用程序的本地主要语言。但�
 
 ### Objective-C是动态语言（Dynamic Language）
 
+之前提到过，我们需要使用指针跟踪内存中的对象。由于Objective-C的动态特性，对象指针使用的具体类型并不重要，在你给相关对象发送消息的时候总会是正确的方法被调用。
+
+id类型定义了一个通用的对象指针。
+
+因为对象的类是在运行时确定的，所以在创建或使用实例时分配给变量什么类型没有区别。
 
 
-### 
+
+### 对象比较
+
+如果你要比较两个对象是否相同，请务必记住你正在使用指针。
+
+标准C的相等运算符==用于测试两个变量的值之间的相等性，如下所示：
+
+```
+if (someInteger == 42) {
+    // someInteger has the value 42
+}
+```
+
+如果处理对象的话，相等运算符是在测试两个单独的指针是否指向同一个对象：
+
+```
+if (firstPerson == secondPerson) {
+    // firstPerson is the same object as secondPerson
+}
+```
+
+如果你需要测试两个对象是否代表相同的数据，你需要调用NSObject中的isEqual:方法：
+
+```
+if ([firstPerson isEqual:secondPerson]) {
+    // firstPerson is identical to secondPerson
+}
+```
+
+如果你需要比较是否一个对象代表的值大于或小于另一个对象，你不能使用标准C的比较运算符&gt;和&lt;。反而，基本的基础类型，比如NSNumber，NSString和NSDate提供饿了一个compare:方法：
+
+```
+if ([someDate compare:anotherDate] == NSOrderedAscending) {
+    // someDate is earlier than anotherDate
+}
+```
+
+
+
+
 
 ### **给对象增加成员变量**
 
