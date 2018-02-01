@@ -104,7 +104,7 @@ badgeView只应该只维护设置给firstName和lastName属性的任何字符串
 
 
 
-
+#### 关键字
 
 @property的常用属性关键字有nonatomic、atomic、readonly、writeonly、readwrite、assign、retain、copy、strong、weak、unsafe\_unretained、nonnull、nullable、null\_resettable，看着挺多的，但是经常用的也就那几个。
 
