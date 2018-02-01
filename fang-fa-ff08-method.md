@@ -20,8 +20,6 @@ void SomeFunction();
 
 方法名前的 - 号说明这是一个`实例方法（Instance Method）`，可以被当前类的所有实例调用。区别于`类方法（Class Method）`，只能被类调用。
 
-
-
 ## 方法带参数
 
 Objective-C方法声明包含参数作为方法名的一部分，如下：
@@ -35,6 +33,12 @@ Objective-C方法声明包含参数作为方法名的一部分，如下：
 ```
 - (void)someMethodWithFirstValue:(SomeType)value1 secondValue:(AnotherType)value2;
 ```
+
+
+
+**基本的消息程序流程**
+
+![](/assets/programflow1.png)
 
 
 
