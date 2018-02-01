@@ -39,8 +39,6 @@ id类型定义了一个通用的对象指针。
 
 因为对象的类是在运行时确定的，所以在创建或使用实例时分配给变量什么类型没有区别。
 
-
-
 ### 对象比较
 
 如果你要比较两个对象是否相同，请务必记住你正在使用指针。
@@ -77,7 +75,23 @@ if ([someDate compare:anotherDate] == NSOrderedAscending) {
 }
 ```
 
+### nil
 
+在声明它们时初始化纯量变量总是一个好主意，否则它们的初始值将包含之前栈内容的垃圾信息：
+
+```
+BOOL success = NO;
+int magicNumber = 42;
+```
+
+不过对于对象指针这不是必须的，因为如果你没有指定初始化值编译器会自动将变量设为nil：
+
+```
+XYZPerson *somePerson;
+// somePerson is automatically set to nil
+```
+
+如果没有其他值可用的话，nil值是初始化对象指针最安全的方式。因为在Objective-C中向nil发送消息是完全可以接受的。如果你向nil发送一个消息，什么事都不会发生。
 
 
 
