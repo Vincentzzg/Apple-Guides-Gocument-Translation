@@ -10,7 +10,7 @@
 
 ```
 @interface ClassName ()
- 
+
 @end
 ```
 
@@ -42,7 +42,35 @@
 
 ## 使用类扩展隐藏私有信息
 
+一个类的主接口用于定义其他类可以与其进行的交互方式。换句话说，它是这个类的公共接口。
 
+类扩展通常被用于通过提供类内部使用的额外的私有方法或属性来扩展公共接口。例如，在接口中将属性定义为只读，但是为了使内部方法可以直接修改其属性，在实现之前在类扩展中定义为可读可写。
+
+例如：
+
+```
+@interface XYZPerson : NSObject
+...
+@property (readonly) NSString *uniqueIdentifier;
+- (void)assignUniqueIdentifier;
+@end
+```
+
+这意味着uniqueIdentifier不可能被外部的其他对象直接设置。如果一个人还没有，必须通过调用assignUniqueIdentifier方法请求分配一个标识符。
+
+为了XYZPerson类能在内部修改修改这个属性，在实现文件顶部定义的类扩展中重新声明这个属性是有意义的。
+
+```
+@interface XYZPerson ()
+@property (readwrite) NSString *uniqueIdentifier;
+@end
+ 
+@implementation XYZPerson
+...
+@end
+```
+
+>
 
 
 
