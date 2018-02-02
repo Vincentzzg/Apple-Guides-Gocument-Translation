@@ -64,13 +64,17 @@
 @interface XYZPerson ()
 @property (readwrite) NSString *uniqueIdentifier;
 @end
- 
+
 @implementation XYZPerson
 ...
 @end
 ```
 
->
+> _readwrite_关键字是可选的，因为它是默认的。为了清晰起见，你可能会在重复声明的时候使用它。
+
+这意味着编译器现在还是会合成一个setter方法，所以XYZPerson实现中的任何方法都能直接使用setter方法或者点语法设置属性。
+
+通过在XYZPerson实现源码文件中声明类扩展，信息对XYZPerson保持私有。如果其他对象试图设置这个属性，编译器会报错。
 
 
 
