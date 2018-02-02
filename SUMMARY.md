@@ -5,6 +5,7 @@
   * [语言](chapter1/yu-yan.md)
     * [NSObject](nsobject.md)
     * [类、对象](lei-he-dui-xiang.md)
+    * [分类（Categories）](fen-lei-ff08-categories.md)
     * [属性（property）](chapter1/yu-yan/shu-xing-zi-duan.md)
     * [方法（Method）](fang-fa-ff08-method.md)
   * [框架](chapter1/kuang-jia.md)
