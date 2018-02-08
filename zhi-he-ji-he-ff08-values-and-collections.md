@@ -15,10 +15,10 @@ double someDoublePrecisionFloatingPointNumber = 6.02214199e23;
 ```
 int someInteger = 42;
 someInteger++;            // someInteger == 43
- 
+
 int anotherInteger = 64;
 anotherInteger--;         // anotherInteger == 63
- 
+
 anotherInteger *= 2;      // anotherInteger == 126
 ```
 
@@ -45,8 +45,6 @@ anotherInteger *= 2;      // anotherInteger == 126
 }
 @end
 ```
-
-
 
 ## Objective-C定义了额外的原始类型
 
@@ -88,7 +86,14 @@ NSMutableString类是NSString的可变子类，允许在运行时通过appendStr
     [name appendString:@"ny"];   // same object, but now represents "Johnny"
 ```
 
+### 格式化字符串被用于从其他对象或值构建字符串
 
+如果你需要构建包含变量值的字符串，你需要使用格式化字符串。这使你可以使用格式说明符来只是如何插入值：
+
+```
+    int magicNumber = ...
+    NSString *magicString = [NSString stringWithFormat:@"The magic number is %i", magicNumber];
+```
 
 
 
