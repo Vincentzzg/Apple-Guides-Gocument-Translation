@@ -105,12 +105,12 @@ NSNumber类被用作表示任何基础C标量类型，包括char，double，floa
     NSNumber *magicNumber = [[NSNumber alloc] initWithInt:42];
     NSNumber *unsignedNumber = [[NSNumber alloc] initWithUnsignedInt:42u];
     NSNumber *longNumber = [[NSNumber alloc] initWithLong:42l];
- 
+
     NSNumber *boolNumber = [[NSNumber alloc] initWithBOOL:YES];
- 
+
     NSNumber *simpleFloat = [NSNumber numberWithFloat:3.14f];
     NSNumber *betterDouble = [NSNumber numberWithDouble:3.1415926535];
- 
+
     NSNumber *someChar = [NSNumber numberWithChar:'T'];
 ```
 
@@ -120,12 +120,12 @@ NSNumber类被用作表示任何基础C标量类型，包括char，double，floa
     NSNumber *magicNumber = @42;
     NSNumber *unsignedNumber = @42u;
     NSNumber *longNumber = @42l;
- 
+
     NSNumber *boolNumber = @YES;
- 
+
     NSNumber *simpleFloat = @3.14f;
     NSNumber *betterDouble = @3.1415926535;
- 
+
     NSNumber *someChar = @'T';
 ```
 
@@ -137,14 +137,65 @@ NSNumber类被用作表示任何基础C标量类型，包括char，double，floa
     int scalarMagic = [magicNumber intValue];
     unsigned int scalarUnsigned = [unsignedNumber unsignedIntValue];
     long scalarLong = [longNumber longValue];
- 
+
     BOOL scalarBool = [boolNumber boolValue];
- 
+
     float scalarSimpleFloat = [simpleFloat floatValue];
     double scalarBetterDouble = [betterDouble doubleValue];
- 
+
     char scalarChar = [someChar charValue];
 ```
+
+NSNumber类也提供了额外的与Objective-C基本类型相关的方法。例如，如果你需要创建一个对象表示标量NSInteger和NSUInteger类型，确保使用正确的方法：
+
+```
+    NSInteger anInteger = 64;
+    NSUInteger anUnsignedInteger = 100;
+ 
+    NSNumber *firstInteger = [[NSNumber alloc] initWithInteger:anInteger];
+    NSNumber *secondInteger = [NSNumber numberWithUnsignedInteger:anUnsignedInteger];
+ 
+    NSInteger integerCheck = [firstInteger integerValue];
+    NSUInteger unsignedCheck = [secondInteger unsignedIntegerValue];
+```
+
+所有的NSNumber实例都是不可变的，而且没有可变子类；如果你需要一个不同的数字，只需要使用另一个NSNumber实例。
+
+> 注意：NSNumber实际上是一个类集群。这意味着当你在运行时创建一个实例，你会得到一个合适的具体子类持有提供的值。只要把创建的对象作为NSNumber的一个实例。
+
+### 使用NSValue类的实例表示其他值
+
+NSNumber类自己就是基础NSValue类的子类，它提供一个围绕单个值和数据项的对象封装。另外对于基础C标量类型，NSValue也可以被用作表示指针和结构体。
+
+NSValue类提供多个工厂方法来创建具有给定标准结构的值，使创建实例表示一个（例如）NSRange变得简单：
+
+```
+    NSString *mainString = @"This is a long string";
+    NSRange substringRange = [mainString rangeOfString:@"long"];
+    NSValue *rangeValue = [NSValue valueWithRange:substringRange];
+```
+
+创建NSValue对象表示自定义的结构也是可以的。如果你有一个特殊需求需要使用C结构（而不是Objective-C对象）来存储信息，如下：
+
+```
+typedef struct {
+    int i;
+    float f;
+} MyIntegerFloatStruct;
+```
+
+你可以创建一个NSValue实例通过提供一个指向结构的指针以及一个Objective-C编码类型。_@encode\(\)_编译器指令用于创建正确的Objective-C类型，如下所示：
+
+```
+    struct MyIntegerFloatStruct aStruct;
+    aStruct.i = 42;
+    aStruct.f = 3.14;
+ 
+    NSValue *structValue = [NSValue value:&aStruct
+                             withObjCType:@encode(MyIntegerFloatStruct)];
+```
+
+标准C参考运算符（&）用于为止参数提供aStruct的地址。
 
 
 
