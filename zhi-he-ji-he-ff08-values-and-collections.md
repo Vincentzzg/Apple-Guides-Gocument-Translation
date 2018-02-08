@@ -95,5 +95,56 @@ NSMutableString类是NSString的可变子类，允许在运行时通过appendStr
     NSString *magicString = [NSString stringWithFormat:@"The magic number is %i", magicNumber];
 ```
 
+## 数字由NSNumber类的实例表示
+
+NSNumber类被用作表示任何基础C标量类型，包括char，double，float，int，long，short，和每个的无符号变体，以及Objective-C布尔值BOOL。
+
+像NSString一样，你有很多种选择去创建NSNumber实例，包括分配和初始化或类工厂方法：
+
+```
+    NSNumber *magicNumber = [[NSNumber alloc] initWithInt:42];
+    NSNumber *unsignedNumber = [[NSNumber alloc] initWithUnsignedInt:42u];
+    NSNumber *longNumber = [[NSNumber alloc] initWithLong:42l];
+ 
+    NSNumber *boolNumber = [[NSNumber alloc] initWithBOOL:YES];
+ 
+    NSNumber *simpleFloat = [NSNumber numberWithFloat:3.14f];
+    NSNumber *betterDouble = [NSNumber numberWithDouble:3.1415926535];
+ 
+    NSNumber *someChar = [NSNumber numberWithChar:'T'];
+```
+
+也可以使用Objective-C字面值语法创建NSNumber实例：
+
+```
+    NSNumber *magicNumber = @42;
+    NSNumber *unsignedNumber = @42u;
+    NSNumber *longNumber = @42l;
+ 
+    NSNumber *boolNumber = @YES;
+ 
+    NSNumber *simpleFloat = @3.14f;
+    NSNumber *betterDouble = @3.1415926535;
+ 
+    NSNumber *someChar = @'T';
+```
+
+这些例子等价于使用NSNumber类工厂方法。
+
+一旦你创建了一个NSNumber实例，就可以使用其中一个访问器方法来请求标量值：
+
+```
+    int scalarMagic = [magicNumber intValue];
+    unsigned int scalarUnsigned = [unsignedNumber unsignedIntValue];
+    long scalarLong = [longNumber longValue];
+ 
+    BOOL scalarBool = [boolNumber boolValue];
+ 
+    float scalarSimpleFloat = [simpleFloat floatValue];
+    double scalarBetterDouble = [betterDouble doubleValue];
+ 
+    char scalarChar = [someChar charValue];
+```
+
 
 
