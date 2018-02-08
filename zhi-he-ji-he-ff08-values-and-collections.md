@@ -151,10 +151,10 @@ NSNumber类也提供了额外的与Objective-C基本类型相关的方法。例�
 ```
     NSInteger anInteger = 64;
     NSUInteger anUnsignedInteger = 100;
- 
+
     NSNumber *firstInteger = [[NSNumber alloc] initWithInteger:anInteger];
     NSNumber *secondInteger = [NSNumber numberWithUnsignedInteger:anUnsignedInteger];
- 
+
     NSInteger integerCheck = [firstInteger integerValue];
     NSUInteger unsignedCheck = [secondInteger unsignedIntegerValue];
 ```
@@ -190,12 +190,14 @@ typedef struct {
     struct MyIntegerFloatStruct aStruct;
     aStruct.i = 42;
     aStruct.f = 3.14;
- 
+
     NSValue *structValue = [NSValue value:&aStruct
                              withObjCType:@encode(MyIntegerFloatStruct)];
 ```
 
 标准C参考运算符（&）用于为止参数提供aStruct的地址。
+
+大部分集合是对象
 
 
 
