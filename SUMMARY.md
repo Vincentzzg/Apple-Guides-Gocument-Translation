@@ -10,6 +10,7 @@
     * [属性（property）](chapter1/yu-yan/shu-xing-zi-duan.md)
     * [方法（Method）](fang-fa-ff08-method.md)
     * [协议（Protocols）](xie-yi-ff08-protocols.md)
+    * [值和集合（Values and Collections）](zhi-he-ji-he-ff08-values-and-collections.md)
   * [框架](chapter1/kuang-jia.md)
   * [内存](chapter1/nei-cun.md)
     * [栈与堆](zhan-yu-dui.md)
@@ -27,5 +28,5 @@
 * [Git](git.md)
 * [算法与数据结构](suan-fa-yu-shu-ju-jie-gou.md)
 * [版本兼容](ban-ben-jian-rong.md)
-* [操作系统与编译](cao-zuo-xi-tong-yu-bian-yi.md)
+* 值和集合（Values and Collections）
 
