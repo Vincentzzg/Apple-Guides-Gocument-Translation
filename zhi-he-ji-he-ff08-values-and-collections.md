@@ -197,7 +197,60 @@ typedef struct {
 
 标准C参考运算符（&）用于为止参数提供aStruct的地址。
 
-大部分集合是对象
+## 大多数集合是对象
+
+尽管可以使用C数组保存标量值的集合，甚至对象指针，大多数Objective-C代码中的集合是Cocoa和Cocoa Touch集合类其中一个类的实例，比如NSArray，NSSet和NSDictionary。
+
+这些类被用于管理一组对象，意味着任何你想添加到一个集合的项必须是一个Objective-C雷的实例。如果你需要添加一个标量值，必须先创建一个合适的NSNumber或NSValue实例去表示它。
+
+集合类使用强引用跟中它的内容，而不是以某种方式维护每个收集的对象的单独的拷贝。这意味着任何添加到集合中的对象将至少存活的像集合一样长。
+
+为了跟踪它们的内容，每一个Cocoa和Cocoa Touch集合类使执行某些任务变得简单，例如枚举，访问特定的项目，或找出一个特定对象是否是集合的一部分。
+
+基础的NSArray，NSSet和NSDictionary类是不可变的，意味着他们的内容在初始化是设置的。都各有一个可变子类允许你在需要的时候去添加或者移除对象。
+
+### 数组是有序集合
+
+数组被用作表示对象的有序集合。唯一的要求是每一个项目都是一个Objective-C对象，不要求每一个对象都是以同一个类的实例。
+
+要维护数组中的顺序，每个元素都存储在从零开始的索引处，如下所示：
+
+![](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Art/orderedarrayofobjects.png)
+
+#### 创建数组
+
+有很多不同的初始化和工厂方法可用，具体取决于对象的数量：
+
+```
++ (id)arrayWithObject:(id)anObject;
++ (id)arrayWithObjects:(id)firstObject, ...;
+- (id)initWithObjects:(id)firstObject, ...;
+```
+
+_arrayWithObjects:_和_initWithObjects:_方法都采用一个nil结尾的可变数量的参数，这意味着你必须包含nil作为最后一个值，如下所示：
+
+```
+NSArray *someArray = [NSArray arrayWithObjects:someObject, someString, someNumber, someValue, nil];
+```
+
+如果其中一个值为零，则可能会无意中中断项目列表，如下所示：
+
+```
+   id firstObject = @"someString";
+    id secondObject = nil;
+    id thirdObject = @"anotherString";
+    NSArray *someArray = [NSArray arrayWithObjects:firstObject, secondObject, thirdObject, nil];
+```
+
+这种情况，_someArray_只会包含firstObject，因为nil _secondObject_将被解释为列表的最后一项。
+
+#### 字面值语法
+
+也可以使用Objective-C字面值创建数组，如下所示：
+
+```
+    NSArray *someArray = @[firstObject, secondObject, thirdObject];
+```
 
 
 
