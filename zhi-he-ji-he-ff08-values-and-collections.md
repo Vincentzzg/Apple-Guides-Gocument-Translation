@@ -215,8 +215,6 @@ typedef struct {
 
 要维护数组中的顺序，每个元素都存储在从零开始的索引处，如下所示：
 
-
-
 #### 创建数组
 
 有很多不同的初始化和工厂方法可用，具体取决于对象的数量：
@@ -258,7 +256,7 @@ NSArray *someArray = [NSArray arrayWithObjects:someObject, someString, someNumbe
 
 ```
     NSUInteger numberOfItems = [someArray count];
- 
+
     if ([someArray containsObject:someString]) {
         ...
     }
@@ -321,7 +319,7 @@ NSArray *immutableArray = @[mutableString];
     [mutableArray addObject:@"gamma"];
     [mutableArray addObject:@"alpha"];
     [mutableArray addObject:@"beta"];
- 
+
     [mutableArray replaceObjectAtIndex:0 withObject:@"epsilon"];
 ```
 
