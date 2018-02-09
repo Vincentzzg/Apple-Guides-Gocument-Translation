@@ -432,7 +432,7 @@ NSArray和NSDictionary类可以很容易的将其内容直接存储到磁盘，�
 ```
     NSURL *fileURL = ...
     NSArray *array = @[@"first", @"second", @"third"];
- 
+
     BOOL success = [array writeToURL:fileURL atomically:YES];
     if (!success) {
         // an error occured...
@@ -449,5 +449,48 @@ NSArray和NSDictionary类可以很容易的将其内容直接存储到磁盘，�
     }
 ```
 
+### 使用最有效的集合枚举技术
 
+Objective-C和Cocoa或Cocoa Touch提供多种方式枚举集合中的内容。尽管也可以使用传统C for循环遍历内容，如下所示：
+
+```
+    int count = [array count];
+    for (int index = 0; index < count; index++) {
+        id eachObject = [array objectAtIndex:index];
+        ...
+    }
+```
+
+最好的做法是使用这个部分描述的其他技术。
+
+#### 快速枚举使枚举一个集合变得简单
+
+许多集合类符合_NSFastEnumeration_协议，包括NSArray，NSSet和NSDictionary。这意味着你可以使用快速枚举，一个Objective-C语言级别的特性。
+
+枚举数组或集合内容的快速枚举语法像这样：
+
+```
+    for (<Type> <variable> in <collection>) {
+        ...
+    }
+```
+
+例如，有可能使用快速枚举打印数组中每个对象的描述日志，如下所示：
+
+```
+    for (id eachObject in array) {
+        NSLog(@"Object: %@", eachObject);
+    }
+```
+
+如果你快速遍历一个字典，遍历字典键，如下所示：
+
+```
+    for (NSString *eachKey in dictionary) {
+        id object = dictionary[eachKey];
+        NSLog(@"Object: %@ for key: %@", object, eachKey);
+    }
+```
+
+快速遍历很像标准C for循环，所以你可以使用break关键字打断循环，或者continue继续前进到下一个元素。
 
