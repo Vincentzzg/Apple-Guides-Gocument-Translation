@@ -215,7 +215,7 @@ typedef struct {
 
 要维护数组中的顺序，每个元素都存储在从零开始的索引处，如下所示：
 
-![](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Art/orderedarrayofobjects.png)
+
 
 #### 创建数组
 
@@ -250,6 +250,106 @@ NSArray *someArray = [NSArray arrayWithObjects:someObject, someString, someNumbe
 
 ```
     NSArray *someArray = @[firstObject, secondObject, thirdObject];
+```
+
+#### 查询数组对象
+
+一旦你创建了一个数组，你可以查询它的信息，比如对象个数，或者是否包含某个给定的项目：
+
+```
+    NSUInteger numberOfItems = [someArray count];
+ 
+    if ([someArray containsObject:someString]) {
+        ...
+    }
+```
+
+你也可以查询数组中给定下标的项目。如果你试图请求一个非法的下标，你将得到一个越界的异常，所以首先你应该先检查项目数：
+
+```
+    if ([someArray count] > 0) {
+        NSLog(@"First item is: %@", [someArray objectAtIndex:0]);
+    }
+```
+
+##### 下标
+
+还有个下标语法作为objectAtIndex:方法的替代，就像在标准C数组中获取一个值一样。上面的例子可以重写成这样：
+
+```
+    if ([someArray count] > 0) {
+        NSLog(@"First item is: %@", someArray[0]);
+    }
+```
+
+#### 排序数组对象
+
+NSArray类也提供各种方法来对其收集的对象进行排序。因为NSArray是不可变的，每个这些方法都会返回一个新的数组，其中包含按排序顺序排列的项目。
+
+例如，你可以通过对每一个字符串调用_compare:_方法返回的结果排序一个字符串数组，如下所示：
+
+```
+    NSArray *unsortedStrings = @[@"gammaString", @"alphaString", @"betaString"];
+    NSArray *sortedStrings =
+                 [unsortedStrings sortedArrayUsingSelector:@selector(compare:)];
+```
+
+#### 可变性
+
+尽管NSArray类自己是不可变的，但这对任何收集的对象都没有影响。如果你添加一个可变字符串到数组，例如：
+
+```
+NSMutableString *mutableString = [NSMutableString stringWithString:@"Hello"];
+NSArray *immutableArray = @[mutableString];
+```
+
+没有什么可以阻止你修改这个字符串：
+
+```
+    if ([immutableArray count] > 0) {
+        id string = immutableArray[0];
+        if ([string isKindOfClass:[NSMutableString class]]) {
+            [string appendString:@" World!"];
+        }
+    }
+```
+
+如果你需要在一个数组创建之后向其中添加或从中移除对象，有需要使用NSMutableArray，其中添加了很多方法去添加、移除或替换一个或多个对象：
+
+```
+    NSMutableArray *mutableArray = [NSMutableArray array];
+    [mutableArray addObject:@"gamma"];
+    [mutableArray addObject:@"alpha"];
+    [mutableArray addObject:@"beta"];
+ 
+    [mutableArray replaceObjectAtIndex:0 withObject:@"epsilon"];
+```
+
+可以一步到位的排序一个可变数组，而不用创建第二个数组：
+
+```
+[mutableArray sortUsingSelector:@selector(caseInsensitiveCompare:)];
+```
+
+### 集合是无需的集合
+
+一个NSSet类似于一个数组，但是维护一个无序的不同对象集合，如下所示：
+
+由于集合不维护顺序，因此在测试成员资格时，它们提供了比数组更好的性能改进。
+
+基础NSSet类也是不可变的，所以它的内容必须在创建时使用分配和初始化方法或者类工厂方法指定，如下所示：
+
+```
+    NSSet *simpleSet = [NSSet setWithObjects:@"Hello, World!", @42, aValue, anObject, nil];
+```
+
+集合仅存储一个单独对象的引用，即使你尝试和添加一个对象多次：
+
+```
+    NSNumber *number = @42;
+    NSSet *numberSet =
+      [NSSet setWithObjects:number, number, number, number, nil];
+    // numberSet only contains one object
 ```
 
 
