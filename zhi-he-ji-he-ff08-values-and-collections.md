@@ -46,7 +46,7 @@ anotherInteger *= 2;      // anotherInteger == 126
 @end
 ```
 
-## Objective-C定义了额外的原始类型
+### Objective-C定义了额外的原始类型
 
 像NSInteger和NSUInteger这些类型，根据目标体系结构不同有不同的定义。在32位环境构建时（比如iOS），它们分别是32位有符号和无符号整数；在64环境构建时（如现代OS X运行时），它们分别是64位有符号和无符号整数。
 
@@ -54,7 +54,7 @@ anotherInteger *= 2;      // anotherInteger == 126
 
 对于局部变量，比如循环中的计数器，如果你知道该值在标准范围内，则可以使用基本C类型。
 
-## C结构可以保持原始值
+### C结构可以保持原始值
 
 ## 
 
@@ -95,7 +95,7 @@ NSMutableString类是NSString的可变子类，允许在运行时通过appendStr
     NSString *magicString = [NSString stringWithFormat:@"The magic number is %i", magicNumber];
 ```
 
-## 数字由NSNumber类的实例表示
+### 数字由NSNumber类的实例表示
 
 NSNumber类被用作表示任何基础C标量类型，包括char，double，float，int，long，short，和每个的无符号变体，以及Objective-C布尔值BOOL。
 
@@ -407,7 +407,7 @@ Objective-C也提供了字典创建的字面值语法，如下所示：
     [dictionary removeObjectForKey:@"anObject"];
 ```
 
-#### 使用NSNull表示nil
+### 使用NSNull表示nil
 
 不能添加nil到这个章节描述的集合类中因为nil在Objective-C中意味着“没有对象”。如果你需要在集合中表示“没有对象”，你可以使用NSNull类：
 
@@ -425,7 +425,7 @@ NSNull是一个单例类，意味着null方法会一直返回同样的实例。�
     }
 ```
 
-### 使用集合存储对象图
+## 使用集合存储对象图
 
 NSArray和NSDictionary类可以很容易的将其内容直接存储到磁盘，如下所示：
 
@@ -449,7 +449,7 @@ NSArray和NSDictionary类可以很容易的将其内容直接存储到磁盘，�
     }
 ```
 
-### 使用最有效的集合枚举技术
+## 使用最有效的集合枚举技术
 
 Objective-C和Cocoa或Cocoa Touch提供多种方式枚举集合中的内容。尽管也可以使用传统C for循环遍历内容，如下所示：
 
@@ -463,7 +463,7 @@ Objective-C和Cocoa或Cocoa Touch提供多种方式枚举集合中的内容。�
 
 最好的做法是使用这个部分描述的其他技术。
 
-#### 快速枚举使枚举一个集合变得简单
+### 快速枚举使枚举一个集合变得简单
 
 许多集合类符合_NSFastEnumeration_协议，包括NSArray，NSSet和NSDictionary。这意味着你可以使用快速枚举，一个Objective-C语言级别的特性。
 
@@ -494,9 +494,9 @@ Objective-C和Cocoa或Cocoa Touch提供多种方式枚举集合中的内容。�
 
 快速遍历很像标准C for循环，所以你可以使用break关键字打断循环，或者continue继续前进到下一个元素。
 
-即便集合是可变的，也不能在**快速遍历**时改变一个集合。如果你试图在循环中添加或移除一个集合对象，你将得到一个运行时异常（_Terminating app due to uncaught exception 'NSGenericException', reason: '\*\*\* Collection &lt;\_\_NSArrayM: 0x608000056c80&gt; was mutated while being enumerated.'_）。使用传统C for循环遍历一个可变集合时修改集合内容，不会崩溃。
+即便集合是可变的，也不能在**快速遍历**时改变一个集合。如果你试图在循环中添加或移除一个集合对象，你将得到一个运行时异常（_Terminating app due to uncaught exception 'NSGenericException', reason: '\*\*\* Collection &lt;\_\_NSArrayM: 0x608000056c80&gt; was mutated while being enumerated.'\_）。使用传统C for循环遍历一个可变集合时修改集合内容，不会崩溃。
 
-#### 大部分集合也支持枚举器对象
+### 大部分集合也支持枚举器对象
 
 也可以通过使用NSEnumerator对象遍历许多Cocoa和Cocoa Touch集合。
 
@@ -521,9 +521,7 @@ Objective-C和Cocoa或Cocoa Touch提供多种方式枚举集合中的内容。�
 
 在这个例子中，一个_while_循环被用于在每一次循环设置_eachObject_到下一个对象。当没有更多对象的时候，nextObject方法将返回nil，其逻辑值为false，所以循环停止。
 
-#### 一些集合支持基于Block的枚举
+### 一些集合支持基于Block的枚举
 
 也可以使用块（block）枚举NSArray，NSSet和NSDictionary。
-
-
 
