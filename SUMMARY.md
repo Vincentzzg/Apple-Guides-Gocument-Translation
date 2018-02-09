@@ -11,6 +11,7 @@
     * [方法（Method）](fang-fa-ff08-method.md)
     * [协议（Protocols）](xie-yi-ff08-protocols.md)
     * [值和集合（Values and Collections）](zhi-he-ji-he-ff08-values-and-collections.md)
+    * [块（Blocks）](kuai-ff08-blocks.md)
   * [框架](chapter1/kuang-jia.md)
   * [内存](chapter1/nei-cun.md)
     * [栈与堆](zhan-yu-dui.md)
@@ -28,5 +29,4 @@
 * [Git](git.md)
 * [算法与数据结构](suan-fa-yu-shu-ju-jie-gou.md)
 * [版本兼容](ban-ben-jian-rong.md)
-* 值和集合（Values and Collections）
 
