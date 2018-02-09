@@ -350,5 +350,104 @@ NSArray *immutableArray = @[mutableString];
     // numberSet only contains one object
 ```
 
+### 字典收集键值对
+
+字典不是简单的维护一个有序的或无序的对象集合，而是根据给定的键存储对象，然后可以用它来找回。
+
+用字符串对象作为字典键是最好的做法，如下：
+
+> 注意：用其他对象作为键也是可以的，但是重要的是需要注意到每个键被拷贝供字典使用，所以必须支持NSCopying协议。
+
+#### 创建字典
+
+你可以使用分配和初始化创建字典，或者类工厂方法，如下所示：
+
+```
+    NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                   someObject, @"anObject",
+             @"Hello, World!", @"helloString",
+                          @42, @"magicNumber",
+                    someValue, @"aValue",
+                             nil];
+```
+
+##### 字面值语法
+
+Objective-C也提供了字典创建的字面值语法，如下所示：
+
+```
+    NSDictionary *dictionary = @{
+                  @"anObject" : someObject,
+               @"helloString" : @"Hello, World!",
+               @"magicNumber" : @42,
+                    @"aValue" : someValue
+    };
+```
+
+#### 查询字典
+
+一旦你创建了一个字典，你可以查询一个键对应的存储对象，如下所示：
+
+```
+    NSNumber *storedNumber = [dictionary objectForKey:@"magicNumber"];
+```
+
+也有下标语法替代使用_objectForKey:_方法，像这样：
+
+```
+    NSNumber *storedNumber = dictionary[@"magicNumber"];
+```
+
+#### 可变性
+
+如果在创建字典之后需要添加或移除对象，你需要使用NSMutableDictionary子类，如下所示：
+
+```
+    [dictionary setObject:@"another string" forKey:@"secondString"];
+    [dictionary removeObjectForKey:@"anObject"];
+```
+
+#### 使用NSNull表示nil
+
+不能添加nil到这个章节描述的集合类中因为nil在Objective-C中意味着“没有对象”。如果你需要在集合中表示“没有对象”，你可以使用NSNull类：
+
+```
+    NSArray *array = @[ @"string", @42, [NSNull null] ];
+```
+
+NSNull是一个单例类，意味着null方法会一直返回同样的实例。这意味着你可以检测数组中的一个对象是否等于共享的NSNull实例：
+
+```
+    for (id object in array) {
+        if (object == [NSNull null]) {
+            NSLog(@"Found a null object");
+        }
+    }
+```
+
+### 使用集合存储对象图
+
+NSArray和NSDictionary类可以很容易的将其内容直接存储到磁盘，如下所示：
+
+```
+    NSURL *fileURL = ...
+    NSArray *array = @[@"first", @"second", @"third"];
+ 
+    BOOL success = [array writeToURL:fileURL atomically:YES];
+    if (!success) {
+        // an error occured...
+    }
+```
+
+如果每一个包含的对象都是属性列表类型之一（NSArray，NSDictionary，NSString，NSData，NSDate和NSNumber），可以从磁盘重新创建整个层次结构，如下所示：
+
+```
+    NSURL *fileURL = ...
+    NSArray *array = [NSArray arrayWithContentsOfURL:fileURL];
+    if (!array) {
+        // an error occurred...
+    }
+```
+
 
 
