@@ -494,3 +494,36 @@ Objective-C和Cocoa或Cocoa Touch提供多种方式枚举集合中的内容。�
 
 快速遍历很像标准C for循环，所以你可以使用break关键字打断循环，或者continue继续前进到下一个元素。
 
+即便集合是可变的，也不能在**快速遍历**时改变一个集合。如果你试图在循环中添加或移除一个集合对象，你将得到一个运行时异常（_Terminating app due to uncaught exception 'NSGenericException', reason: '\*\*\* Collection &lt;\_\_NSArrayM: 0x608000056c80&gt; was mutated while being enumerated.'_）。使用传统C for循环遍历一个可变集合时修改集合内容，不会崩溃。
+
+#### 大部分集合也支持枚举器对象
+
+也可以通过使用NSEnumerator对象遍历许多Cocoa和Cocoa Touch集合。
+
+例如，你可以从NSArray请求一个_objectEnumerator_或一个_reverseObjectEnumerator。_可以对这些对象使用快速枚举，如下所示：
+
+```
+    for (id eachObject in [array reverseObjectEnumerator]) {
+        ...
+    }
+```
+
+这个例子中，循环将倒序枚举集合对象，所以最后一个对象将变成第一个，以此类推。
+
+也可以通过重复调用枚举器的_nextObject_方法来枚举内容，如下所示：
+
+```
+    id eachObject;
+    while ( (eachObject = [enumerator nextObject]) ) {
+        NSLog(@"Current object is: %@", eachObject);
+    }
+```
+
+在这个例子中，一个_while_循环被用于在每一次循环设置_eachObject_到下一个对象。当没有更多对象的时候，nextObject方法将返回nil，其逻辑值为false，所以循环停止。
+
+#### 一些集合支持基于Block的枚举
+
+也可以使用块（block）枚举NSArray，NSSet和NSDictionary。
+
+
+
