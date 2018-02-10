@@ -22,11 +22,53 @@
 void (^simpleBlock)(void);//定义一个变量跟踪一个块
 ```
 
+这个例子声明了一个名为_simpleBlock_的变量去指向一个没有参数也没有返回值的块，这意味着这个变量可以被赋值上面展示的块字面值，如下所示：
+
+```
+    simpleBlock = ^{
+        NSLog(@"This is a block");
+    };
+```
+
+也可以合并变量声明和赋值：
+
+```
+    void (^simpleBlock)(void) = ^{
+        NSLog(@"This is a block");
+    };
+```
+
+一旦你声明和赋值了一个块变量，你可以使用它调用块：
+
+```
+simpleBlock();
+```
+
+> 如果你尝试使用一个没有赋值的变量调用一个块（一个nil块变量），你的APP会崩溃。
+
+### Blocks有参数和返回值
+
+块也可以像方法和函数一样有参数和返回值。
+
+例如，考虑一个变量指向一个块返回两个值乘积的块：
+
+```
+    double (^multiplyTwoValues)(double, double);
+```
+
+相应的块字面值可能是这个样子：
+
+```
+    ^ (double firstValue, double secondValue) {
+        return firstValue * secondValue;
+    }
+```
+
+firstValue和secondValue用于引用块调用时提供的值，就像任何函数定义一样。这个例子中，返回类型是从块内的return语句推断出来的。
+
 
 
 ### 
-
-### Blocks有参数和返回值
 
 ### Blocks可以捕捉括号范围内的值
 
@@ -45,8 +87,6 @@ void (^simpleBlock)(void);//定义一个变量跟踪一个块
 ### 操作队列使用Block操作
 
 ### 使用GCD调度队列时调度Blocks
-
-
 
 
 
