@@ -96,21 +96,47 @@ firstValue和secondValue用于引用块调用时提供的值，就像任何函�
 ```
 - (void)testMethod {
     int anInteger = 42;
- 
+
     void (^testBlock)(void) = ^{
         NSLog(@"Integer is: %i", anInteger);
     };
- 
+
     testBlock();
 }
 ```
 
-在这个例子中，anInteger被声明在块外部，但是值在块定义的时候被捕获。
+在这个例子中，_anInteger_被声明在块外部，但是值在块定义的时候被捕获。
 
 只有值被捕获，除非你另有指定。这意味着如果你在块定义和调用之间修改了变量的外部值，如下所示：
 
 ```
     int anInteger = 42;
+
+    void (^testBlock)(void) = ^{
+        NSLog(@"Integer is: %i", anInteger);
+    };
+
+    anInteger = 84;
+
+    testBlock();
+```
+
+块捕获的值不受影响。这意味着日志输出依然是：
+
+```
+Integer is: 42
+```
+
+这也意味着块不能修改原始变量的值，甚至是捕获的值（它被捕获为一个常量变量）。强行修改会报错：_Variable is not assignable \(missing \_\_block type specifier\)_。
+
+#### 使用\_\_block变量共享存储
+
+如果你需要在块内部修改捕获的变量的值，你可以在原始变量声明中使用_\_\_block_存储类型修改器。这意味着存储中的变量在原始变量的词法范围和任何该范围内声明的块之间共享。
+
+例如，你可以重写上面的例子如下：
+
+```
+    __block int anInteger = 42;
  
     void (^testBlock)(void) = ^{
         NSLog(@"Integer is: %i", anInteger);
@@ -121,21 +147,58 @@ firstValue和secondValue用于引用块调用时提供的值，就像任何函�
     testBlock();
 ```
 
-块捕获的值不受影响。这意味着日志输出依然是：
+因为_anInteger_被声明为_\_\_block_变量，它的存储在块声明中共享。这意味着日志输出现在显示为：
+
+```
+Integer is: 84
+```
+
+这也意味着块可以修改原始值，如下所示：
+
+```
+    __block int anInteger = 42;
+ 
+    void (^testBlock)(void) = ^{
+        NSLog(@"Integer is: %i", anInteger);
+        anInteger = 100;
+    };
+ 
+    testBlock();
+    NSLog(@"Value of original variable is now: %i", anInteger);
+```
+
+这次，输出是：
 
 ```
 Integer is: 42
+Value of original variable is now: 100
 ```
 
-这也意味着块不能修改原始变量的值，甚至是捕获的值（它被捕获为一个常量变量）。强行修改会报错：Variable is not assignable \(missing \_\_block type specifier\)。
-
-#### 使用\_\_block变量共享存储
-
-如果你需要在块内部修改捕获的变量的值，你可以在原始变量声明中使用\_\_block存储类型修改器。这意味着存储中的变量在原始变量的词法范围和任何该范围内声明的块之间共享。
-
-
-
 ### 可以把Blocks作为参数传递给方法或函数
+
+在实践中，把块传递给函数或方法在其他地方调用很普遍。例如，你可能会使用Grand Central Dispatch在后台调用一个块，或者定义一个块表示一个需要重复调用的任务，比如枚举一个集合。
+
+块也用于回调，定义代码在任务完成时执行。例如，你的APP可能需要通过创建一个完成复杂任务的对象响应用户的行为，比如从Web服务器请求信息。因为任务可能需要很长时间，在任务执行时你需要展示某种进度指示器，然后任务完成时隐藏指示器。
+
+这也可以使用委托来实现：你需要创建一个合适的委托协议，实现必要的方法，设置对象作为任务的委托，然后等待任务完成时调用对象的委托方法。
+
+然而，块使这个更简单，因为你可以在发起任务时定义回调行为，如下所示：
+
+```
+- (IBAction)fetchRemoteInformation:(id)sender {
+    [self showProgressIndicator];
+ 
+    XYZWebTask *task = ...
+ 
+    [task beginTaskWithCallbackBlock:^{
+        [self hideProgressIndicator];
+    }];
+}
+```
+
+
+
+
 
 ### 使用类型定义来简化Block语法
 
