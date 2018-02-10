@@ -127,27 +127,27 @@ firstValue和secondValue用于引用块调用时提供的值，就像任何函�
 Integer is: 42
 ```
 
-这也意味着块不能修改原始变量的值，甚至是捕获的值（它被捕获为一个常量变量）。强行修改会报错：_Variable is not assignable \(missing \_\_block type specifier\)_。
+这也意味着块不能修改原始变量的值，甚至是捕获的值（它被捕获为一个常量变量）。强行修改会报错：_Variable is not assignable \(missing \_\_block type specifier\)\_。
 
 #### 使用\_\_block变量共享存储
 
-如果你需要在块内部修改捕获的变量的值，你可以在原始变量声明中使用_\_\_block_存储类型修改器。这意味着存储中的变量在原始变量的词法范围和任何该范围内声明的块之间共享。
+如果你需要在块内部修改捕获的变量的值，你可以在原始变量声明中使用_\_\_block\_存储类型修改器。这意味着存储中的变量在原始变量的词法范围和任何该范围内声明的块之间共享。
 
 例如，你可以重写上面的例子如下：
 
 ```
     __block int anInteger = 42;
- 
+
     void (^testBlock)(void) = ^{
         NSLog(@"Integer is: %i", anInteger);
     };
- 
+
     anInteger = 84;
- 
+
     testBlock();
 ```
 
-因为_anInteger_被声明为_\_\_block_变量，它的存储在块声明中共享。这意味着日志输出现在显示为：
+因为_anInteger_被声明为_\_\_block\_变量，它的存储在块声明中共享。这意味着日志输出现在显示为：
 
 ```
 Integer is: 84
@@ -157,12 +157,12 @@ Integer is: 84
 
 ```
     __block int anInteger = 42;
- 
+
     void (^testBlock)(void) = ^{
         NSLog(@"Integer is: %i", anInteger);
         anInteger = 100;
     };
- 
+
     testBlock();
     NSLog(@"Value of original variable is now: %i", anInteger);
 ```
@@ -187,16 +187,58 @@ Value of original variable is now: 100
 ```
 - (IBAction)fetchRemoteInformation:(id)sender {
     [self showProgressIndicator];
- 
+
     XYZWebTask *task = ...
- 
+
     [task beginTaskWithCallbackBlock:^{
         [self hideProgressIndicator];
     }];
 }
 ```
 
+```
+代码可读性方面，该块使得在一个地方很容易看到任务完成之前和之后会发生什么，避免了跟踪代理方法去查看将要发生什么的必要性。
+```
 
+这个例子中展示的_beginTaskWithCallbackBlock_:方法看起来将会是这个样子：
+
+```
+- (void)beginTaskWithCallbackBlock:(void (^)(void))callbackBlock;
+```
+
+\(void \(^\)\(void\)\)说明参数是一个没有任何参数也没有任何返回值的块。该方法的实现可以以通常的方式调用该块：
+
+```
+- (void)beginTaskWithCallbackBlock:(void (^)(void))callbackBlock {
+    ...
+    callbackBlock();
+}
+```
+
+带有一个或多个参数的块的方法参数的指定方式与块变量相同：
+
+```
+- (void)doSomethingWithBlock:(void (^)(double, double))block {
+    ...
+    block(21.0, 2.0);
+}
+```
+
+#### 块应该始终是方法的最后一个参数
+
+最好的做法是一个方法中只使用一个块参数。如果方法也需要其他非块的参数，块应该在最后：
+
+```
+- (void)beginTaskWithName:(NSString *)name completion:(void(^)(void))callback;
+```
+
+这使得在内联指定块时方法调用更易读，如下所示：
+
+```
+    [self beginTaskWithName:@"MyTask" completion:^{
+        NSLog(@"The task is complete");
+    }];
+```
 
 
 
