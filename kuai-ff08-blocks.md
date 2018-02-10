@@ -81,13 +81,59 @@ firstValue和secondValue用于引用块调用时提供的值，就像任何函�
                               ^(double firstValue, double secondValue) {
                                   return firstValue * secondValue;
                               };
- 
+
     double result = multiplyTwoValues(2,4);
- 
+
     NSLog(@"The result is %f", result);
 ```
 
 ### Blocks可以捕捉括号范围内的值
+
+由于包含了执行代码，一个块也可有能力从封闭的范围中捕获状态。
+
+例如，如果在一个方法内声明一个块字面值，可以捕获方法范围内任何可以获取的值，如下所示：
+
+```
+- (void)testMethod {
+    int anInteger = 42;
+ 
+    void (^testBlock)(void) = ^{
+        NSLog(@"Integer is: %i", anInteger);
+    };
+ 
+    testBlock();
+}
+```
+
+在这个例子中，anInteger被声明在块外部，但是值在块定义的时候被捕获。
+
+只有值被捕获，除非你另有指定。这意味着如果你在块定义和调用之间修改了变量的外部值，如下所示：
+
+```
+    int anInteger = 42;
+ 
+    void (^testBlock)(void) = ^{
+        NSLog(@"Integer is: %i", anInteger);
+    };
+ 
+    anInteger = 84;
+ 
+    testBlock();
+```
+
+块捕获的值不受影响。这意味着日志输出依然是：
+
+```
+Integer is: 42
+```
+
+这也意味着块不能修改原始变量的值，甚至是捕获的值（它被捕获为一个常量变量）。强行修改会报错：Variable is not assignable \(missing \_\_block type specifier\)。
+
+#### 使用\_\_block变量共享存储
+
+如果你需要在块内部修改捕获的变量的值，你可以在原始变量声明中使用\_\_block存储类型修改器。这意味着存储中的变量在原始变量的词法范围和任何该范围内声明的块之间共享。
+
+
 
 ### 可以把Blocks作为参数传递给方法或函数
 
