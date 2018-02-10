@@ -66,9 +66,26 @@ simpleBlock();
 
 firstValue和secondValue用于引用块调用时提供的值，就像任何函数定义一样。这个例子中，返回类型是从块内的return语句推断出来的。
 
+如果你喜欢，你可以通过在插入符和参数之间显式指定返回类型：
 
+```
+    ^ double (double firstValue, double secondValue) {
+        return firstValue * secondValue;
+    }
+```
 
-### 
+一旦你声明定义了块，你就可以像调用函数一样调用它：
+
+```
+    double (^multiplyTwoValues)(double, double) =
+                              ^(double firstValue, double secondValue) {
+                                  return firstValue * secondValue;
+                              };
+ 
+    double result = multiplyTwoValues(2,4);
+ 
+    NSLog(@"The result is %f", result);
+```
 
 ### Blocks可以捕捉括号范围内的值
 
