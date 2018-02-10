@@ -240,13 +240,85 @@ Value of original variable is now: 100
     }];
 ```
 
-
-
-
-
 ### 使用类型定义来简化Block语法
 
+如果你需要定义具有相同签名的多个块，咋可能需要为改签名定义自己的类型。
+
+例如，你可以为一个没有参数或返回值的简单的块定义一个类型，如下所示：
+
+```
+typedef void (^XYZSimpleBlock)(void);
+```
+
+你可以在块作为方法参数或创建块变量时使用你的自定义类型：
+
+```
+    XYZSimpleBlock anotherBlock = ^{
+        ...
+    };
+```
+
+```
+- (void)beginFetchWithCallbackBlock:(XYZSimpleBlock)callbackBlock {
+    ...
+    callbackBlock();
+}
+```
+
+处理块返回或将其他块作为参数时，自定义类型定义尤其有用。考虑下面的例子：
+
+```
+void (^(^complexBlock)(void (^)(void)))(void) = ^ (void (^aBlock)(void)) {
+    ...
+    return ^{
+        ...
+    };
+};
+```
+
+complexBlock变量指向一个使用其他块作为参数（aBlock）且返回另外一个块的块。
+
+使用一个类型定义重写这段代码使代码更可读：
+
+```
+XYZSimpleBlock (^betterBlock)(XYZSimpleBlock) = ^ (XYZSimpleBlock aBlock) {
+    ...
+    return ^{
+        ...
+    };
+};
+```
+
 ### 对象可以使用属性跟踪Blocks
+
+定义一个跟踪块的属性语法跟块变量相似：
+
+```
+@interface XYZObject : NSObject
+@property (copy) void (^blockProperty)(void);
+@end
+```
+
+> 注意：你应该指定copy作为属性关键字，因为块需要被拷贝以跟踪它在原始范围外捕获的状态。
+
+一个块属性被设置或调用就像任何其他块变量一样：
+
+```
+    self.blockProperty = ^{
+        ...
+    };
+    self.blockProperty();
+```
+
+也可以使用类型定义声明块属性，如下所示：
+
+```
+typedef void (^XYZSimpleBlock)(void);
+ 
+@interface XYZObject : NSObject
+@property (copy) XYZSimpleBlock blockProperty;
+@end
+```
 
 ### 使用self时避免强引用循环
 
