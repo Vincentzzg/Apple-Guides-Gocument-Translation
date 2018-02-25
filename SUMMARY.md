@@ -5,11 +5,13 @@
   * [用Objective-C编程（Programming with Objective-C）](chapter1/yu-yan.md)
     * [NSObject](nsobject.md)
     * [类、对象](lei-he-dui-xiang.md)
+    * [封装数据（Encapsulating Data）](feng-zhuang-shu-ju-ff08-encapsulating-data.md)
     * [定制现有类（Customizing Existing Classes）](ding-zhi-xian-you-leiff08-customizing-existing-classes.md)
     * [属性（property）](chapter1/yu-yan/shu-xing-zi-duan.md)
     * [方法（Method）](fang-fa-ff08-method.md)
     * [使用协议（Working with Protocols）](xie-yi-ff08-protocols.md)
     * [值和集合（Values and Collections）](zhi-he-ji-he-ff08-values-and-collections.md)
+    * []
   * [框架](chapter1/kuang-jia.md)
   * [内存](chapter1/nei-cun.md)
     * [栈与堆](zhan-yu-dui.md)
@@ -26,4 +28,6 @@
 * [应用安全开发](ying-yong-kai-fa-an-quan.md)
 * [Git](git.md)
 * [算法与数据结构](suan-fa-yu-shu-ju-jie-gou.md)
+
+
 
