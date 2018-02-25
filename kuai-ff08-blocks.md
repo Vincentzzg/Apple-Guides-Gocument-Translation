@@ -328,7 +328,6 @@ typedef void (^XYZSimpleBlock)(void);
 @interface XYZBlockKeeper : NSObject
 @property (copy) void (^block)(void);
 @end
-
 ```
 
 ```
@@ -396,6 +395,19 @@ typedef void (^XYZSimpleBlock)(void);
         ...
     }];
 ```
+
+这个标志指明枚举块调用可能分布在多个线程中，如果块代码是处理器密集型的时候提供一个可能的性能提升。请注意，使用此选项时枚举顺序未定义。
+
+NSDictionary类也提供了基于基于块的方法，包括：
+
+```
+    NSDictionary *dictionary = ...
+    [dictionary enumerateKeysAndObjectsUsingBlock:^ (id key, id obj, BOOL *stop) {
+        NSLog(@"key: %@, value: %@", key, obj);
+    }];
+```
+
+这使枚举每一个键值对比使用传统的循环更方便。
 
 
 
