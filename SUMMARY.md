@@ -12,6 +12,7 @@
     * [使用块（Working with Blocks）](kuai-ff08-blocks.md)
     * [属性（property）](chapter1/yu-yan/shu-xing-zi-duan.md)
     * [处理错误（Dealing with Errors）](chu-li-cuo-wu-ff08-dealing-with-errors.md)
+    * [约定（Conventions）](yue-ding-ff08-conventions.md)
   * [框架](chapter1/kuang-jia.md)
   * [内存](chapter1/nei-cun.md)
     * [栈与堆](zhan-yu-dui.md)
