@@ -1,4 +1,4 @@
-# 协议（Protocols）
+# 使用协议（Working with Protocols）
 
 Objective-C允许定义_协议（protocols）_，声明预期将用于特定情况的方法_。_
 

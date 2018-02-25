@@ -9,17 +9,17 @@
     * [类扩展（Class Extensions）](lei-kuo-zhan-ff08-class-extensions.md)
     * [属性（property）](chapter1/yu-yan/shu-xing-zi-duan.md)
     * [方法（Method）](fang-fa-ff08-method.md)
-    * [协议（Protocols）](xie-yi-ff08-protocols.md)
+    * [使用协议（Working with Protocols）](xie-yi-ff08-protocols.md)
     * [值和集合（Values and Collections）](zhi-he-ji-he-ff08-values-and-collections.md)
-    * [块（Blocks）](kuai-ff08-blocks.md)
+    * [使用块（Working with Blocks）](kuai-ff08-blocks.md)
   * [框架](chapter1/kuang-jia.md)
   * [内存](chapter1/nei-cun.md)
     * [栈与堆](zhan-yu-dui.md)
   * [网络](chapter1/wang-luo.md)
     * [Socket](chapter1/wang-luo/socket.md)
   * [存储](chapter1/cun-chu.md)
-  * 渲染
-  * 线程
+  * [渲染](chapter1/xuan-ran.md)
+  * [并发编程指南](chapter1/xian-cheng.md)
   * [运行时（Runtime）](chapter1/yun-xing-shi-ff08-runtime.md)
 * 需求
 * 质量
