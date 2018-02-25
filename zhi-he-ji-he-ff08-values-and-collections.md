@@ -215,6 +215,8 @@ typedef struct {
 
 要维护数组中的顺序，每个元素都存储在从零开始的索引处，如下所示：
 
+![](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Art/orderedarrayofobjects.png)
+
 #### 创建数组
 
 有很多不同的初始化和工厂方法可用，具体取决于对象的数量：
@@ -333,6 +335,8 @@ NSArray *immutableArray = @[mutableString];
 
 一个NSSet类似于一个数组，但是维护一个无序的不同对象集合，如下所示：
 
+![](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Art/unorderedsetofobjects.png)
+
 由于集合不维护顺序，因此在测试成员资格时，它们提供了比数组更好的性能改进。
 
 基础NSSet类也是不可变的，所以它的内容必须在创建时使用分配和初始化方法或者类工厂方法指定，如下所示：
@@ -355,6 +359,8 @@ NSArray *immutableArray = @[mutableString];
 字典不是简单的维护一个有序的或无序的对象集合，而是根据给定的键存储对象，然后可以用它来找回。
 
 用字符串对象作为字典键是最好的做法，如下：
+
+![](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Art/dictionaryofobjects.png)
 
 > 注意：用其他对象作为键也是可以的，但是重要的是需要注意到每个键被拷贝供字典使用，所以必须支持NSCopying协议。
 
