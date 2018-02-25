@@ -433,7 +433,7 @@ NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
 // schedule task on main queue:
 NSOperationQueue *mainQueue = [NSOperationQueue mainQueue];
 [mainQueue addOperation:operation];
- 
+
 // schedule task on background queue:
 NSOperationQueue *queue = [[NSOperationQueue alloc] init];
 [queue addOperation:operation];
@@ -445,7 +445,7 @@ NSOperationQueue *queue = [[NSOperationQueue alloc] init];
 
 ### 使用GCD调度队列时调度Blocks
 
-如果你需要安排一个任意的代码块去执行，你可以直接操作GCD控制的调度队列。调度队列使按照调用者的期望或同步或异步执行任务变得简单，而且以先进先出的顺序执行他们的任务。
+如果你需要安排一个任意的代码块去执行，你可以直接操作GCD控制的调度队列。调度队列可以方便地对调用者同步或异步执行任务，并以先进先出的顺序执行任务。
 
 你也可以创建你自己的调度队列或者使用GCD自动提供的队列之一。例如，如果你需要安排一个并发执行的任务，你可以使用dispatch\_get\_global\_queue\(\)函数获得一个已有队列的引用，然后指定一个队列优先级，如下所示：
 
@@ -464,6 +464,4 @@ dispatch_async(queue, ^{
 dispatch\_sync\(\)函数不会返回，知道块执行结束；你可能会在这种情况下使用它，例如，当一个并发块需要等待另一个任务在主线程完成时。
 
 更多关于调度队列和GCD的信息，请查看[Dispatch Queues](https://developer.apple.com/library/content/documentation/General/Conceptual/ConcurrencyProgrammingGuide/OperationQueues/OperationQueues.html#//apple_ref/doc/uid/TP40008091-CH102)。
-
-
 
