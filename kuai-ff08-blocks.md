@@ -4,7 +4,7 @@
 
 块是添加到C，Objective-C和C++的一个语言级别的特性，它允许创建可以像值一样在方法或函数间传递的不同的代码段。块（Blocks）是Objective-C对象，这意味着他们可以被添加到像NSArray或NSDictionary这样的集合中。他们也有能力捕捉封闭范围的值，这使它们与其他编程语言中的闭包（closures）或lambdas（lambdas）类似。
 
-## 块（Block）语法
+## 块（Block）语法 {#kuaiyufa}
 
 定义一个块字面值的语法使用插入符号（^），如下所示：
 
