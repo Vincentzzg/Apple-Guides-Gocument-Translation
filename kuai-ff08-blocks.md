@@ -314,7 +314,7 @@ XYZSimpleBlock (^betterBlock)(XYZSimpleBlock) = ^ (XYZSimpleBlock aBlock) {
 
 ```
 typedef void (^XYZSimpleBlock)(void);
- 
+
 @interface XYZObject : NSObject
 @property (copy) XYZSimpleBlock blockProperty;
 @end
@@ -322,7 +322,82 @@ typedef void (^XYZSimpleBlock)(void);
 
 ### 使用self时避免强引用循环
 
+块保持对任何捕获的对象（包括self）强应用，这意味着例如如果一个对象为捕获自己（self）的块保持一个copy属性，则很容易产生一个强应用循环：
+
+```
+@interface XYZBlockKeeper : NSObject
+@property (copy) void (^block)(void);
+@end
+
+```
+
+```
+@implementation XYZBlockKeeper
+- (void)configureBlock {
+    self.block = ^{
+        [self doSomething];    // capturing a strong reference to self
+                               // creates a strong reference cycle
+    };
+}
+...
+@end
+```
+
+像上面例子的简单情况编译器会警告你，但是一个更复杂的例子可能包含多个对象间的强引用产生的循环，诊断起来更困难。
+
+避免这个问题，最好的方法是捕获一个self的弱引用，如下所示：
+
+```
+- (void)configureBlock {
+    XYZBlockKeeper * __weak weakSelf = self;
+    self.block = ^{
+        [weakSelf doSomething];   // capture the weak reference
+                                  // to avoid the reference cycle
+    }
+}
+```
+
+通过捕获self的弱指针，块对XYZBlockKeeper对象将不再保持强关系关键。如果对象在块调用前释放，weakSelf指针将简单的被置为nil。
+
 ## Blocks可以简化枚举
+
+除了一般的完成处理程序，许多Cocoa和Cocoa Touch API使用块简化共同的事务，比如集合枚举。例如，NSArray类提供了三个基于block的方法，包括：
+
+```
+- (void)enumerateObjectsUsingBlock:(void (^)(id obj, NSUInteger idx, BOOL *stop))block;
+```
+
+这个方法只有一个方法，是一个要为数组中每一个元素调用一次的块：
+
+```
+    NSArray *array = ...
+    [array enumerateObjectsUsingBlock:^ (id obj, NSUInteger idx, BOOL *stop) {
+        NSLog(@"Object at index %lu is %@", idx, obj);
+    }];
+```
+
+块自己有三个参数，前面两个指向当前的对象和它在数组中的下标。第三个参数是一个指向布尔变量的指针，你可以使用它停止枚举，如下所示：
+
+```
+    [array enumerateObjectsUsingBlock:^ (id obj, NSUInteger idx, BOOL *stop) {
+        if (...) {
+            *stop = YES;
+        }
+    }];
+```
+
+也可以通过使用_enumerateObjectsWithOptions:usingBlock:_方法自定义枚举。例如，指定_NSEnumerationReverse_选项，将会倒序遍历集合。
+
+如果枚举块内的代码处理器密集型和并发执行安全的，你可以使用_NSEnumerationConcurrent_选项：
+
+```
+    [array enumerateObjectsWithOptions:NSEnumerationConcurrent
+                            usingBlock:^ (id obj, NSUInteger idx, BOOL *stop) {
+        ...
+    }];
+```
+
+
 
 ## Blocks可以简化并发任务
 
