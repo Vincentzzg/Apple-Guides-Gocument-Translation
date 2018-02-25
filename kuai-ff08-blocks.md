@@ -409,13 +409,61 @@ NSDictionary类也提供了基于基于块的方法，包括：
 
 这使枚举每一个键值对比使用传统的循环更方便。
 
-
-
 ## Blocks可以简化并发任务
 
-### 操作队列使用Block操作
+一个块代表一个不同的工作单元，将可执行代码与周围内的可选状态相结合。这使使用一个OS X和iOS可用的并发选项实现异步调用变得理想。你可以简单地使用块定义你的任务然后让系统在处理器资源可用的时候执行这些任务，而不是必须弄清楚如果使用线程等低级机制。
+
+OS X和iOS提供各种各样的并发技术，包括两个任务调度机制：操作队列（Operation queues）和大中央调度（Grand Central Dispatch）。这些机制解决了围绕等待被调用的任务队列的想法。你添加一个块到一个队列中目的是你需要它们被调用，系统在处理器时间和资源可用的时候将它们取出以供调用。一个串行队列一次只允许一个任务执行，队列中的下一个任务将不会被取出和调用直到前面的任务完成。并发队列调用尽可能多的事物，不需要等待前面的任务完成。
+
+### 使用Block操作操作队列
+
+操作队列是用于任务调度的Cocoa和Cocoa Touch的方法。你可以创建一个NSOperation实例封装一个业务单元和任何需要的数据，探后添加操作到一个操作队列去执行。
+
+尽管你可以创建你自己的自定义NSOperation子类去实现复杂的任务，使用NSBlockOperation创建一个使用块的操作也是可以的，如下所示：
+
+```
+NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
+    ...
+}];
+```
+
+可以手动执行一个操作，但是通常操作被添加到要么一个已经存在的队列或者一个你自己创建的队列，准备好执行：
+
+```
+// schedule task on main queue:
+NSOperationQueue *mainQueue = [NSOperationQueue mainQueue];
+[mainQueue addOperation:operation];
+ 
+// schedule task on background queue:
+NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+[queue addOperation:operation];
+```
+
+如果你使用操作队列，你可以配置优先级或者操作间的依赖，比如指定一个操作不应该执行直到一组其他操作完成。你也可以通过键值观察监控你的操作的状态变化，这使更新一个进度指示器变得简单，例如，当一个任务结束。
+
+更多关于操作和操作队列的信息，请看[Operation Queues](https://developer.apple.com/library/content/documentation/General/Conceptual/ConcurrencyProgrammingGuide/OperationObjects/OperationObjects.html#//apple_ref/doc/uid/TP40008091-CH101)。
 
 ### 使用GCD调度队列时调度Blocks
+
+如果你需要安排一个任意的代码块去执行，你可以直接操作GCD控制的调度队列。调度队列使按照调用者的期望或同步或异步执行任务变得简单，而且以先进先出的顺序执行他们的任务。
+
+你也可以创建你自己的调度队列或者使用GCD自动提供的队列之一。例如，如果你需要安排一个并发执行的任务，你可以使用dispatch\_get\_global\_queue\(\)函数获得一个已有队列的引用，然后指定一个队列优先级，如下所示：
+
+```
+dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+```
+
+将块分派给队列，你可以使用dispatch\_async\(\)或者dispatch\_sync\(\)函数。dispatch\_async\(\)函数立即返回，不会等待块被调用：
+
+```
+dispatch_async(queue, ^{
+    NSLog(@"Block for asynchronous execution");
+});
+```
+
+dispatch\_sync\(\)函数不会返回，知道块执行结束；你可能会在这种情况下使用它，例如，当一个并发块需要等待另一个任务在主线程完成时。
+
+更多关于调度队列和GCD的信息，请查看[Dispatch Queues](https://developer.apple.com/library/content/documentation/General/Conceptual/ConcurrencyProgrammingGuide/OperationQueues/OperationQueues.html#//apple_ref/doc/uid/TP40008091-CH102)。
 
 
 
