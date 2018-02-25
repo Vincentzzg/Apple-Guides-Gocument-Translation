@@ -4,7 +4,7 @@
 * [基础](chapter1.md)
   * [用Objective-C编程（Programming with Objective-C）](chapter1/yu-yan.md)
     * [NSObject](/nsobject.md)
-  * * [类、对象](lei-he-dui-xiang.md)
+    * [类、对象](lei-he-dui-xiang.md)
     * [定制现有类（Customizing Existing Classes）](ding-zhi-xian-you-leiff08-customizing-existing-classes.md)
     * [方法（Method）](fang-fa-ff08-method.md)
     * [使用协议（Working with Protocols）](xie-yi-ff08-protocols.md)
