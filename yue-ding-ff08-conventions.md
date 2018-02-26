@@ -20,7 +20,17 @@ Objective-C类必须命名唯一不仅在你项目中编写的代码中，而且
 | CA | Core Animation |
 | CI | Core Image |
 
-### 
+你自己的类应该使用三个字母前缀。前缀可能涉及您的公司名称和您的应用名称的结合，甚至可能与应用程序中的特定组件有关。
+
+你应该也使用一个能使类的代表清晰的名词命名你的类，像这些Cocoa和Cocoa Touch的例子：
+
+|  | NSWindow | CAAnimation | NSWindowController | NSManagedObjectContext |
+| :--- | :--- | :--- | :--- | :--- |
+
+
+
+
+
 
 ### 方法名应该在一个类内具有表现性和唯一性
 
