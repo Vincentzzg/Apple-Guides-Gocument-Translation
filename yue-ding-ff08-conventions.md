@@ -30,6 +30,30 @@ Objective-C类必须命名唯一不仅在你项目中编写的代码中，而且
 
 ### 方法名应该在一个类内具有表现性和唯一性
 
+方法名不需要前缀，且应该以小写字母开头；多个单词时也使用驼峰命名，像NSString类里的这些例子:
+
+| length | characterAtIndex: | lengthOfBytesUsingEncoding: |
+| :--- | :--- | :--- |
+
+
+如果方法有一个或多个参数，方法名应该指明每个参数：
+
+| substringFromIndex: | writeToURL:atomically:encoding:error: | enumerateSubstringsInRange:options:usingBlock: |
+| :--- | :--- | :--- |
+
+
+
+
+方法名的第一部分应该指明主要的意图或调用方法的结果。例如，如果一个方法返回一个值，第一个单词通常指明将返回什么，像length，character...和substring...这些前面展示的方法。如果你需要指明一些重要的返回值，可以使用多个单词，像NSString类中的mutableCopy，capitalizedString或lastPathComponent方法。如果一个方法执行一个动作，比如写入磁盘或者枚举内容，第一个单词应该指明动作，像write...和enumerate...方法展示的一样。
+
+如果一个方法包含一个用来在产生错误时设置的_error_指针参数，它应该是最后一个参数。如果一个方法有块参数，块参数应该作为最有一个参数，目的是当指定一个内联块时任何方法调用都尽可能易读。同样的原因，尽可能避免使用多个块参数的方法。
+
+清晰而简洁的方法名也很重要。清晰并不一定意味着详尽，但简洁并不一定会清晰，所以最好
+
+
+
+
+
 ### 局部变量必须在同一范围内唯一
 
 ## 一些方法名必须遵循约定
