@@ -55,6 +55,12 @@ Objective-C类必须命名唯一不仅在你项目中编写的代码中，而且
 
 
 
+方法名中应该避免缩写单词，除非你很确定缩写在多种语言和文化中广为人知。常用的缩写列表在[Acceptable Abbreviations and Acronyms](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/CodingGuidelines/Articles/APIAbbreviations.html#//apple_ref/doc/uid/20001285)给出。
+
+
+
+### 
+
 ### 局部变量必须在同一范围内唯一
 
 ## 一些方法名必须遵循约定
