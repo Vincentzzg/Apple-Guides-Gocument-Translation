@@ -55,9 +55,13 @@ Objective-C类必须命名唯一不仅在你项目中编写的代码中，而且
 
 方法名中应该避免缩写单词，除非你很确定缩写在多种语言和文化中广为人知。常用的缩写列表在[Acceptable Abbreviations and Acronyms](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/CodingGuidelines/Articles/APIAbbreviations.html#//apple_ref/doc/uid/20001285)中给出。
 
-### 
+#### 框架类的分类中方法名总是使用前缀
+
+当使用分类给已有的框架类添加方法时，你应该在方法名中包含一个前缀以避免冲突，就像[Avoid Category Method Name Clashes](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/CustomizingExistingClasses/CustomizingExistingClasses.html#//apple_ref/doc/uid/TP40011210-CH6-SW4)中描述的一样。
 
 ### 局部变量必须在同一范围内唯一
+
+
 
 ## 一些方法名必须遵循约定
 
