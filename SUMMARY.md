@@ -16,6 +16,11 @@
   * [框架](chapter1/kuang-jia.md)
   * [内存](chapter1/nei-cun.md)
     * [栈与堆](zhan-yu-dui.md)
+    * [高级内存管理指南（Advanced Memory Management Programming Guide）](gao-ji-nei-cunguan-li-zhi-nan-ff08-advanced-memory-management-programming-guide.md)
+      * [介绍（Introduction）](gao-ji-nei-cunguan-li-zhi-nan-ff08-advanced-memory-management-programming-guide/jie-shaoff08-introduction.md)
+      * [内存管理策略（Memory Management Policy）](gao-ji-nei-cunguan-li-zhi-nan-ff08-advanced-memory-management-programming-guide/nei-cun-guan-li-ce-lveff08-memory-management-policy.md)
+      * [实用的内存管理（Practical Memory Management）](gao-ji-nei-cunguan-li-zhi-nan-ff08-advanced-memory-management-programming-guide/shi-yong-de-nei-cun-guan-li-ff08-practical-memory-management.md)
+      * 使用自动释放池块（Using Autorelease Pool Blocks）
   * [网络](chapter1/wang-luo.md)
     * [Socket](chapter1/wang-luo/socket.md)
   * [存储](chapter1/cun-chu.md)
