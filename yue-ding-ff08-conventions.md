@@ -12,9 +12,15 @@ Objective-C类必须命名唯一不仅在你项目中编写的代码中，而且
 
 为了保持类名的唯一，协议是在所有类上使用前缀。你应该已经看到Cocoa和Cocoa Touch类名总是以NS或UI开头。像这样的两个单词的前缀被苹果保留用在框架类上。随着你对Cocoa和Cocoa Touch的了解更多，你将见到各种各样跟特定框架相关的其他前缀：
 
+| Prefix | Framework |
+| :--- | :--- |
+| NS | Foundation \(OS X and iOS\) and Application Kit \(OS X\) |
+| UI | UIKit \(iOS\) |
+| AB | Address Book |
+| CA | Core Animation |
+| CI | Core Image |
 
-
-
+### 
 
 ### 方法名应该在一个类内具有表现性和唯一性
 
