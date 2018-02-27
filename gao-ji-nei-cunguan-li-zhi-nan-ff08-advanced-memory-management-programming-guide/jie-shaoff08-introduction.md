@@ -4,11 +4,23 @@
 
 尽管内存管理总是考虑单独对象层面的问题，你的目标实际上是管理对象图（[object graphs]()）。你应该确保内存中的对象没有比实际需要的更多。
 
-
-
 ## 预览
 
-良好的做法可以防止与内存相关的问题（Good Practices Prevent Memory-Related Problems）
+Objective-C提供了两种应用程序内存管理方法。
+
+1. 
+
+
+### 良好的做法可以防止与内存相关的问题（Good Practices Prevent Memory-Related Problems）
+
+### 使用分析工具调试内存问题（Use Analysis Tools to Debug Memory Problems）
+
+要在编译时识别代码中的问题，可以使用内置于Xcode中的Clang静态分析器（Clang Static Analyzer）。
+
+如果出现内存管理问题，还可以使用其他工具和技术来识别和诊断问题。
+
+* Technical Note TN2239，[_iOS Debugging Magic_](https://developer.apple.com/library/content/technotes/tn2239/_index.html#//apple_ref/doc/uid/DTS40010638)中介绍了许多工具和技术，特别是使用NSZombie来帮助查找过度释放的对象。
+* 您可以使用工具来跟踪引用计数事件并查找内存泄漏。 请参阅[Collecting Data on Your App](https://developer.apple.com/library/content/documentation/DeveloperTools/Conceptual/InstrumentsUserGuide/TheInstrumentsWorkflow.html#//apple_ref/doc/uid/TP40004652-CH5)。
 
 
 
