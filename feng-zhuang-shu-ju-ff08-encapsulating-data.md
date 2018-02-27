@@ -38,10 +38,8 @@
 ```
 
 > 注意：属性的原子性与对象线程安全不是同义的。
-
-
-
-
+>
+> [_Concurrency Programming Guide_](https://developer.apple.com/library/content/documentation/General/Conceptual/ConcurrencyProgrammingGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40008091)中更详细地介绍了线程安全。
 
 ## 通过所有权和责任来管理对象图
 
