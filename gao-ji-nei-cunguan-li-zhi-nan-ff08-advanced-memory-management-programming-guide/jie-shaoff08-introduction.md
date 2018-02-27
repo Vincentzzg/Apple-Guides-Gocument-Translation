@@ -4,5 +4,11 @@
 
 尽管内存管理总是考虑单独对象层面的问题，你的目标实际上是管理对象图（[object graphs]()）。你应该确保内存中的对象没有比实际需要的更多。
 
+![](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/MemoryMgmt/Art/memory_management_2x.png)
+
+## 预览
+
+良好的做法可以防止与内存相关的问题（Good Practices Prevent Memory-Related Problems）
+
 
 
