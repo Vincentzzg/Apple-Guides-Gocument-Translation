@@ -9,10 +9,10 @@
 * **你拥有任何你创建的对象**  
   使用名字以“alloc”、“new”、“copy”或“mutableCopy”（例如，alloc、newObject或mutableCopy）开头的方法创建对象。
 
-* **你可以使用保留（retain）取得对象的所有权          
+* **你可以使用保留（retain）取得对象的所有权            
   **接收的对象通常保证在接收它的方法内保持可用，并且方法也可以安全的返回这个对象给它的调用者。两种情况下使用retain：（1）访问器方法声明或初始化（init）方法，获取你想存储为属性值的对象的所有权；（2）防止某个对象作为其他操作的副作用而失效（像[Avoid Causing Deallocation of Objects You’re Using](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/20000043-1000922)中解释的一样）。
 
-* **当你不再需要时，你必须放弃你拥有的对象的所有权          
+* **当你不再需要时，你必须放弃你拥有的对象的所有权            
   **通过给对方发送release消息或autorelease消息放弃所有权。因此，在Cocoa术语中，放弃对象的所有权通常被称为“释放”对象。
 
 * **你不得放弃你不拥有的对象的所有权**  
@@ -72,9 +72,23 @@ Person对象是使用alloc方法创建的，所以当它不再被需要时随后
 
 根据命名约定，没有什么可以表示fullName方法的调用者拥有返回的字符串。因此调用者没有理由释放返回的字符串，它会因此泄漏。
 
-
-
 ### 你不拥有引用返回的对象
+
+Cocoa中的一些方法指定一个对象对象是通过引用返回的（也就是说，它们接收一个ClassName \*\*或id \*类型的参数）。一种常见模式是如果发生错误时使用一个NSError对象包含错误相关的信息，如[initWithContentsOfURL:options:error:](https://developer.apple.com/documentation/foundation/nsdata/1407864-init)\(NSData\)和[initWithContentsOfFile:encoding:error:](https://developer.apple.com/documentation/foundation/nsstring/1412610-initwithcontentsoffile)\(NSString\)所示。
+
+这种情况下， 适用的规则与已描述的相同。当你调用任何这些方法，你没有创建NSError对象，所以你不拥有它。因此不需要释放它，如本例所示：
+
+```
+NSString *fileName = <#Get a file name#>;
+NSError *error;
+NSString *string = [[NSString alloc] initWithContentsOfFile:fileName
+                        encoding:NSUTF8StringEncoding error:&error];
+if (string == nil) {
+    // Deal with error...
+}
+// ...
+[string release];
+```
 
 
 
