@@ -1,5 +1,7 @@
 # 内存管理策略（Memory Management Policy）
 
+引用计数
+
 ## 基础内存管理规则
 
 ### 一个简单的例子
