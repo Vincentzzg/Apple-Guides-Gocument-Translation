@@ -9,10 +9,10 @@
 * **你拥有任何你创建的对象**  
   使用名字以“alloc”、“new”、“copy”或“mutableCopy”（例如，alloc、newObject或mutableCopy）开头的方法创建对象。
 
-* **你可以使用保留（retain）取得对象的所有权      
+* **你可以使用保留（retain）取得对象的所有权        
   **接收的对象通常保证在接收它的方法内保持可用，并且方法也可以安全的返回这个对象给它的调用者。两种情况下使用retain：（1）访问器方法声明或初始化（init）方法，获取你想存储为属性值的对象的所有权；（2）防止某个对象作为其他操作的副作用而失效（像[Avoid Causing Deallocation of Objects You’re Using](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/20000043-1000922)中解释的一样）。
 
-* **当你不再需要时，你必须放弃你拥有的对象的所有权      
+* **当你不再需要时，你必须放弃你拥有的对象的所有权        
   **通过给对方发送release消息或autorelease消息放弃所有权。因此，在Cocoa术语中，放弃对象的所有权通常被称为“释放”对象。
 
 * **你不得放弃你不拥有的对象的所有权**  
@@ -32,11 +32,25 @@
 }
 ```
 
-
+Person对象是使用alloc方法创建的，所以当它不再被需要时随后被发送了一个释放消息。person对象的名字不是使用任何拥有方法检索的，所以它不会发送释放消息。尽管如此，注意，例子使用的是release而不是autorelease。
 
 
 
 ### 使用autorelease发送延迟的释放
+
+当你需要发送一个延迟的释放消息时使用autorelease，通常是从方法中返回一个对象。例如，你可以像这样实现fullName方法：
+
+```
+- (NSString *)fullName {
+    NSString *string = [[[NSString alloc] initWithFormat:@"%@ %@",
+                                          self.firstName, self.lastName] autorelease];
+    return string;
+}
+```
+
+你拥有alloc方法返回的字符串。为了遵守内存管理规则，你必须在失去对字符串的引用之前放对它的所有权。然而，如果使用release，该字符串会在返回前解除分配（方法将返回一个无效对象）。使用autorelease，表示你想要放弃所有权，但是你允许方法的调用者在它解除分配前使用该返回的字符串。
+
+
 
 ### 你不拥有引用返回的对象
 
