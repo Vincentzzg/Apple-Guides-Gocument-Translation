@@ -8,7 +8,9 @@
 
 Objective-C提供了两种应用程序内存管理方法。
 
-1. 
+1. 在本指南中描述的称为“手动保留释放”或MRR的方法中，您通过跟踪您拥有的对象来显式管理内存。 这是通过使用称为引用计数的模型实现的，该模型是Foundation类NSObject与运行时环境一起提供的。
+2. 在自动引用计数或ARC中，系统使用与MRR相同的引用计数系统，但它会在编译时为您插入适当的内存管理方法调用。 强烈建议您将ARC用于新项目。 如果使用ARC，通常不需要理解本文档中描述的底层实现，尽管它在某些情况下可能会有所帮助。 有关ARC的更多信息，请参阅[_Transitioning to ARC Release Notes_](https://developer.apple.com/library/content/releasenotes/ObjectiveC/RN-TransitioningToARC/Introduction/Introduction.html#//apple_ref/doc/uid/TP40011226)。
+
 ### 良好的做法可以防止与内存相关的问题（Good Practices Prevent Memory-Related Problems）
 
 内存管理不正确会导致两种主要问题：
