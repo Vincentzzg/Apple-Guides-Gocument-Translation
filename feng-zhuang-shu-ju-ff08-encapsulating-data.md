@@ -53,13 +53,63 @@
 
 在某些情况下，对象可能希望对设置给他的属性的任何对象保留一份自己的拷贝。
 
+例如下面的XYZBadgeView类的接口部分：
+
+```
+@interface XYZBadgeView : NSView
+@property NSString *firstName;
+@property NSString *lastName;
+@end
+
+```
+
+声明了两个NSString属性，它们都保持对其对象的隐式强引用。
+
+如果另一个对象创建一个NSString字符串来设置给badgeView的firstName属性，如下：
+
+```
+NSMutableString *nameString = [NSMutableString stringWithString:@"John"];
+self.badgeView.firstName = nameString;
+
+```
+
+这样的赋值是可行的，因为NSMutableString是NSString的一个子类。但是此时firstName已经指向了一个NSMutableString。
+
+此时如果发生了下面的改变：
+
+```
+[nameString appendString:@"ny"];
+
+```
+
+尽管当时赋值给badgeView.firstName的时候nameString的值是“John”，但现在它的值是“Johnny”，因为可变字符串被修改了。
+
+badgeView只应该只维护设置给firstName和lastName属性的任何字符串的一份拷贝，以便设置属性的时候捕获当时的字符串值，且不会随设置字符串的值改变而改变。添加一个Copy属性关键字就能解决：
+
+```
+@interface XYZBadgeView : NSView
+@property (copy) NSString *firstName;
+@property (copy) NSString *lastName;
+@end
+```
+
+视图现在维持了两个字符串的自己的拷贝。即使被设置了一个可变字符串并随后改变，徽章视图（the badge view）捕获了它在设置时的值。例如：
+
+```
+    NSMutableString *nameString = [NSMutableString stringWithString:@"John"];
+    self.badgeView.firstName = nameString;
+    [nameString appendString:@"ny"];
+```
+
+这次，徽章视图持有的firstName将是原始“John”字符串的一份不受影响的拷贝。
+
+
+
 copy属性关键字意味着属性将使用强引用，因为它必须持有它创建的新对象。
 
 > 注意：任何想设置给copy属性的对象必须支持NSCopying，这意味着它应该符合NSCopying协议。
 >
 > 关于NSCopying的更多信息，请参阅[_Advanced Memory Management Programming Guide_](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/MemoryMgmt.html#//apple_ref/doc/uid/10000011i)中的[NSCopying](https://developer.apple.com/documentation/foundation/nscopying)。
-
-
 
 如果你需要直接设置一个copy属性的实例变量，例如在初始化方法中，不要忘记设置原始对象的拷贝：
 
