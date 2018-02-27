@@ -43,11 +43,35 @@
 
 ## 通过所有权和责任来管理对象图
 
-避免强引用循环（Avoid Strong Reference Cycles）
+### 避免强引用循环（Avoid Strong Reference Cycles）
 
-使用strong和weak声明来管理所有权（Use Strong and Weak Declarations to Manage Ownership）
+### 使用strong和weak声明来管理所有权（Use Strong and Weak Declarations to Manage Ownership）
 
-对某些类使用不安全的未保留引用（Use Unsafe Unretained References for Some Classes）
+### 对某些类使用不安全的未保留引用（Use Unsafe Unretained References for Some Classes）
 
-拷贝属性保持它们自己的拷贝（Copy Properties Maintain Their Own Copies）
+### copy属性保持它们自己的拷贝（Copy Properties Maintain Their Own Copies）
+
+在某些情况下，对象可能希望对设置给他的属性的任何对象保留一份自己的拷贝。
+
+copy属性关键字意味着属性将使用强引用，因为它必须持有它创建的新对象。
+
+> 注意：任何想设置给copy属性的对象必须支持NSCopying，这意味着它应该符合NSCopying协议。
+>
+> 关于NSCopying的更多信息，请参阅[_Advanced Memory Management Programming Guide_](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/MemoryMgmt.html#//apple_ref/doc/uid/10000011i)中的[NSCopying](https://developer.apple.com/documentation/foundation/nscopying)。
+
+
+
+如果你需要直接设置一个copy属性的实例变量，例如在初始化方法中，不要忘记设置原始对象的拷贝：
+
+```
+- (id)initWithSomeOriginalString:(NSString *)aString {
+    self = [super init];
+    if (self) {
+        _instanceVariableForCopyProperty = [aString copy];
+    }
+    return self;
+}
+```
+
+
 
