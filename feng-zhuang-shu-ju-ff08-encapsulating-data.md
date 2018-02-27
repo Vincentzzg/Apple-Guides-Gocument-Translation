@@ -43,5 +43,11 @@
 
 ## 通过所有权和责任来管理对象图
 
+避免强引用循环（Avoid Strong Reference Cycles）
 
+使用strong和weak声明来管理所有权（Use Strong and Weak Declarations to Manage Ownership）
+
+对某些类使用不安全的未保留引用（Use Unsafe Unretained References for Some Classes）
+
+拷贝属性保持它们自己的拷贝（Copy Properties Maintain Their Own Copies）
 
