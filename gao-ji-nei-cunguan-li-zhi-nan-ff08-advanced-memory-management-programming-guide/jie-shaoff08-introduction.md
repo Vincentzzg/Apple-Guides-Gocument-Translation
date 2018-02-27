@@ -9,9 +9,28 @@
 Objective-C提供了两种应用程序内存管理方法。
 
 1. 
-
-
 ### 良好的做法可以防止与内存相关的问题（Good Practices Prevent Memory-Related Problems）
+
+内存管理不正确会导致两种主要问题：
+
+* 释放或覆盖仍在使用的数据
+  这会导致内存损坏，并且通常会导致应用程序崩溃，甚至导致用户数据损坏。
+* 不释放不再使用的数据会导致内存泄漏
+  内存泄漏是分配的内存未被释放的地方，即使它不再被使用。 泄漏导致您的应用程序使用不断增加的内存量，这反过来可能导致系统性能下降或应用程序终止。
+
+然而，从引用计数的角度考虑内存管理通常会适得其反，因为您往往会根据实现细节而不是实际目标来考虑内存管理。相反，您应该从对象所有权和对象图（[object graphs]()）的角度考虑内存管理。
+
+Cocoa使用一个简单的命名约定来表明你何时拥有一个方法返回的对象。
+
+请参阅[Memory Management Policy](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmRules.html#//apple_ref/doc/uid/20000994-BAJHFBGH)。
+
+尽管基本策略很简单，但您可以采取一些实际步骤来简化内存管理，并帮助确保程序的可靠性和可靠性，同时最大限度地减少资源需求。
+
+请参阅[Practical Memory Management](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW1)。
+
+自动释放池块提供了一种机制，您可以向对象发送“延迟”释放消息。这在您想放弃对象所有权但希望避免立即释放它的可能性（例如从方法返回对象）的情况下非常有用。有时你可能会使用自己的自动释放池块。
+
+请参阅[Using Autorelease Pool Blocks](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmAutoreleasePools.html#//apple_ref/doc/uid/20000047-CJBFBEDI)。
 
 ### 使用分析工具调试内存问题（Use Analysis Tools to Debug Memory Problems）
 
