@@ -56,11 +56,54 @@ property声明了两个访问器方法。通常，你应该让编译器合成这
 
 注意两种方法都是用了设置访问器方法。
 
+下面的代码简单情况下都能正常工作，但是尽可能的避免使用访问器方法，这样做在一些情况下几乎肯定会导致失误（例如，当你忘记保留或释放，或者实例变量的内存管理语义发生变化）。
 
+```
+- (void)reset {
+    NSNumber *zero = [[NSNumber alloc] initWithInteger:0];
+    [_count release];
+    _count = zero;
+}
+```
 
-
+注意，如果你使用键值观察，那么以这种方式更改变量不符合KVO。
 
 ### 在初始化方法和dealloc方法中不要使用访问器方法
+
+唯一不应该使用访问器方法的地方是在初始化方法或dealloc方法中设置一个实例变量。用一个为零的数字对象初始化一个计数器对象，你应该向下面这样实现初始化方法：
+
+```
+- init {
+    self = [super init];
+    if (self) {
+        _count = [[NSNumber alloc] initWithInteger:0];
+    }
+    return self;
+}
+```
+
+如果允许计数器以非零点数初始化，你应该像下面这样实现一个initWithCount:方法：
+
+```
+- initWithCount:(NSNumber *)startingCount {
+    self = [super init];
+    if (self) {
+        _count = [startingCount copy];
+    }
+    return self;
+}
+```
+
+由于Counter类有一个对象实例变量，你必须实现dealloc方法。该方法应该通过给它们发送释放消息放弃所有实例变量的所有权，最后它应该调用父类的实现：
+
+```
+- (void)dealloc {
+    [_count release];
+    [super dealloc];
+}
+```
+
+
 
 ## 使用弱引用避免循环保持
 
