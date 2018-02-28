@@ -142,8 +142,6 @@ heisenObject = [[array objectAtIndex:n] retain];
 
 ## 不要使用dealloc来管理稀缺资源
 
-
-
 ## 集合拥有它包含的对象
 
 当你添加一个对象到集合（如数组，字典，或集合），这个集合就拥有该对象。当对象被从集合中移除或集合自己释放时，集合将放弃所有权。因此，例如，如果你想创建一个数字数组，你应该执行以下任一操作：
@@ -157,6 +155,23 @@ for (i = 0; i < 10; i++) {
     [array addObject:convenienceNumber];
 }
 ```
+
+这种情况，你没有调用分配（alloc）方法，所以不需要调用release。也不需要保留新数字（convenienceNumber），因为数组会这样做。
+
+```
+NSMutableArray *array = <#Get a mutable array#>;
+NSUInteger i;
+// ...
+for (i = 0; i < 10; i++) {
+    NSNumber *allocedNumber = [[NSNumber alloc] initWithInteger:i];
+    [array addObject:allocedNumber];
+    [allocedNumber release];
+}
+```
+
+这种情况，你的确需要在for循环内给allocNumber发送一个释放消息来平衡alloc。由于当它被使用addObject：添加时数组保会留数字，所以当它在数组中时将不会被解除分配。
+
+
 
 
 
