@@ -118,6 +118,7 @@ Cocoa的所有权策略指出收到的对象在调用方法的整个范围内应
 这条规则偶尔有例外，主要分为两类。
 
 1. 当对象被从一个基本集合类（[collection classes]()）中移出。
+
    ```
    heisenObject = [array objectAtIndex:n];
    [array removeObjectAtIndex:n];
@@ -126,8 +127,8 @@ Cocoa的所有权策略指出收到的对象在调用方法的整个范围内应
 
    当一个对象被从一个基本集合类中移出，它将收到一个release消息。如果这个集合是被移出对象的唯一一个拥有者，这个移出的对象会马上解除分配。
 
-2. 当一个“父对象”被解除分配  
-  
+2. 当一个“父对象”被解除分配
+
    一些情况下，你从另一个对象中检索一个对象，然后直接或间接地释放了父对象。如果释放的父对象导致其被解除分配，且这个父对象是该子对象的唯一拥有者，则该子对象将同时被解除分配。
 
 为了避免这些情况，你应该在接收时保留heisenObject对象，并在完成时释放它。例如：
@@ -141,7 +142,23 @@ heisenObject = [[array objectAtIndex:n] retain];
 
 ## 不要使用dealloc来管理稀缺资源
 
+
+
 ## 集合拥有它包含的对象
+
+当你添加一个对象到集合（如数组，字典，或集合），这个集合就拥有该对象。当对象被从集合中移除或集合自己释放时，集合将放弃所有权。因此，例如，如果你想创建一个数字数组，你应该执行以下任一操作：
+
+```
+NSMutableArray *array = <#Get a mutable array#>;
+NSUInteger i;
+// ...
+for (i = 0; i < 10; i++) {
+    NSNumber *convenienceNumber = [NSNumber numberWithInteger:i];
+    [array addObject:convenienceNumber];
+}
+```
+
+
 
 ## 使用保留计数实现所有权策略
 
