@@ -35,6 +35,29 @@ property声明了两个访问器方法。通常，你应该让编译器合成这
 
 ### 使用访问器方法设置属性值
 
+假设你想实现一个方法来重设计数器。你有几个选择。第一种实现是使用alloc方法创建NSNumber实例，所以你用一个释放来平衡它。
+
+```
+- (void)reset {
+    NSNumber *zero = [[NSNumber alloc] initWithInteger:0];
+    [self setCount:zero];
+    [zero release];
+}
+```
+
+第二种方法是使用使用方便的构造函数创建新的NSNumber对象。因此不需要retain或release消息。
+
+```
+- (void)reset {
+    NSNumber *zero = [NSNumber numberWithInteger:0];
+    [self setCount:zero];
+}
+```
+
+注意两种方法都是用了设置访问器方法。
+
+
+
 
 
 ### 在初始化方法和dealloc方法中不要使用访问器方法
