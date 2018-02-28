@@ -24,11 +24,18 @@ property声明了两个访问器方法。通常，你应该让编译器合成这
 
 “set”方法中，如果其他人都按照相同的规则玩牌，则必须假定新的点数可以随时处置，因此你必须通过发送一个保留（retain）消息获取该对象的所有权--以确保它不会。你也必须通过给它发送一个释放（release）消息放弃对老的数量对象的所有权。（在Objective-C中给nil发送消息是被允许的，所以如果\_count还没有被设置实现依然可以工作。）如果两者是同一个对象，则必须在\[newCount retain\]后发送，你不想无意中导致它被释放。
 
-
-
-
+```
+- (void)setCount:(NSNumber *)newCount {
+    [newCount retain];
+    [_count release];
+    // Make the new assignment.
+    _count = newCount;
+}
+```
 
 ### 使用访问器方法设置属性值
+
+
 
 ### 在初始化方法和dealloc方法中不要使用访问器方法
 
