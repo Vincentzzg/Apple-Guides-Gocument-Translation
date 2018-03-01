@@ -46,7 +46,7 @@ Cocoa总是期望代码在自动释放池块内执行，否则自动释放的对
 ```
 NSArray *urls = <# An array of file URLs #>;
 for (NSURL *url in urls) {
- 
+
     @autoreleasepool {
         NSError *error;
         NSString *fileContents = [NSString stringWithContentsOfURL:url
@@ -62,20 +62,20 @@ for循环每次处理一个文件。自动释放池块内任何发送自动释�
 
 ```
 – (id)findMatchingObject:(id)anObject {
- 
+
     id match;
     while (match == nil) {
         @autoreleasepool {
- 
+
             /* Do a search that creates a lot of temporary objects. */
             match = [self expensiveSearchForObject:anObject];
- 
+
             if (match != nil) {
                 [match retain]; /* Keep match around. */
             }
         }
     }
- 
+
     return [match autorelease];   /* Let match go and return it. */
 }
 ```
@@ -83,6 +83,8 @@ for循环每次处理一个文件。自动释放池块内任何发送自动释�
 发送retain以匹配autorelease池内的autorelease池会阻止并发送autorelease给autorelease池后的autorelease池块扩展匹配的生存期并允许它在循环外接收消息并返回给findMatchingObject：的调用者。
 
 ## 自动释放池块和线程
+
+Cocoa应用程序中的每一个线程都有自己的自动释放池块栈。如果你正在编写一个仅基础的程序，或者你分离了一个线程，你需要创建你自己的autorelease池块。
 
 
 
