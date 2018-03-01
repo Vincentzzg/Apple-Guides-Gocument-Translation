@@ -39,6 +39,49 @@ Cocoa总是期望代码在自动释放池块内执行，否则自动释放的对
 
 ## 使用本地自动释放池块来降低峰值内存占用
 
+许多程序创建自动释放的临时对象。这些对象添加到程序的内存占用空间直到块结束。许多情况下，允许临时对象积累知道当前事件循环迭代结束不会导致过度的开销；然而一些情况，你可能创建大量的临时对象基本上都添加到内存占用，而且你向更快速的处理。后面一种情况，你可以创建自己的自动释放池块。在块的末尾，临时对象被释放，这通常会导致其释放，从而减少程序的内存占用。
+
+下面的例子展示了你应该怎样为一个for循环使用本地自动释放池块。
+
+```
+NSArray *urls = <# An array of file URLs #>;
+for (NSURL *url in urls) {
+ 
+    @autoreleasepool {
+        NSError *error;
+        NSString *fileContents = [NSString stringWithContentsOfURL:url
+                                         encoding:NSUTF8StringEncoding error:&error];
+        /* Process the string, creating and autoreleasing more objects. */
+    }
+}
+```
+
+for循环每次处理一个文件。自动释放池块内任何发送自动释放消息的对象将会在块的末尾释放。
+
+在自动释放池块后，你应该将在块内自动释放的任何对象视为“已处理”。不要给这些对象发送消息或将其返回给方法调用者。如果你必须在自动释放池块外使用临时对象，你可以通过在块内发送一个保留消息给该对象，然后在块后给它发送自动释放消息，如下例子所示：
+
+```
+– (id)findMatchingObject:(id)anObject {
+ 
+    id match;
+    while (match == nil) {
+        @autoreleasepool {
+ 
+            /* Do a search that creates a lot of temporary objects. */
+            match = [self expensiveSearchForObject:anObject];
+ 
+            if (match != nil) {
+                [match retain]; /* Keep match around. */
+            }
+        }
+    }
+ 
+    return [match autorelease];   /* Let match go and return it. */
+}
+```
+
+发送retain以匹配autorelease池内的autorelease池会阻止并发送autorelease给autorelease池后的autorelease池块扩展匹配的生存期并允许它在循环外接收消息并返回给findMatchingObject：的调用者。
+
 ## 自动释放池块和线程
 
 
