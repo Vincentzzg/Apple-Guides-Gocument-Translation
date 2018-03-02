@@ -30,7 +30,7 @@ Cocoa使用一个简单的命名约定来表明你何时拥有一个方法返回
 
 请参阅[Practical Memory Management](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW1)。
 
-自动释放池块提供了一种机制，您可以向对象发送“延迟”释放消息。这在您想放弃对象所有权但希望避免立即释放它的可能性（例如从方法返回对象）的情况下非常有用。有时你可能会使用自己的自动释放池块。
+自动释放池块提供了一种机制，您可以向对象发送“延迟”释放消息。这在您想放弃对象所有权但希望避免它被立即释放的可能性（例如从方法返回对象）的情况下非常有用。有时你可能会使用自己的自动释放池块。
 
 请参阅[Using Autorelease Pool Blocks](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmAutoreleasePools.html#//apple_ref/doc/uid/20000047-CJBFBEDI)。
 
