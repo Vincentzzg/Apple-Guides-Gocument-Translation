@@ -26,7 +26,16 @@
   * [存储](chapter1/cun-chu.md)
   * [渲染](chapter1/xuan-ran.md)
   * [并发编程指南](chapter1/xian-cheng.md)
-  * [运行时（Runtime）](chapter1/yun-xing-shi-ff08-runtime.md)
+  * [Objective-C运行时编程指南（Objective-C Runtime Programming Guide）](chapter1/yun-xing-shi-ff08-runtime.md)
+    * 介绍（Introduction）
+    * 运行时版本和平台（Runtime Versions and Platforms）
+    * 与运行时交互（Interacting with the Runtime）
+    * 消息（Messaging）
+    * 动态方法解析（Dynamic Method Resolution）
+    * 消息转发（Message Forwarding）
+    * 类型编码（Type Encodings）
+    * 声明的属性（Declared Properties）
+  * [Objective-C中的编程概念（Concepts in Objective-C Programming）](chapter1/objective-czhong-de-bian-cheng-gai-nian-ff08-concepts-in-objective-c-programming.md)
 * 需求
 * 质量
 * 效率
