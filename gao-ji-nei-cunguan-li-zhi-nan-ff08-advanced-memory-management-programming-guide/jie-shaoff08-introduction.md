@@ -26,7 +26,7 @@ Cocoa使用一个简单的命名约定来表明你何时拥有一个方法返回
 
 请参阅[Memory Management Policy](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmRules.html#//apple_ref/doc/uid/20000994-BAJHFBGH)。
 
-尽管基本策略很简单，但您可以采取一些实际步骤来简化内存管理，并帮助确保程序的可靠性和可靠性，同时最大限度地减少资源需求。
+尽管基本策略很简单，但您可以采取一些实际步骤来简化内存管理，并帮助确保程序的可靠和强大，同时最大限度地减少资源需求。
 
 请参阅[Practical Memory Management](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW1)。
 
