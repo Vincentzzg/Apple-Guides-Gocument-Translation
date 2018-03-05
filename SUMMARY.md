@@ -29,7 +29,7 @@
   * [Objective-C运行时编程指南（Objective-C Runtime Programming Guide）](chapter1/yun-xing-shi-ff08-runtime.md)
     * [介绍（Introduction）](chapter1/yun-xing-shi-ff08-runtime/jie-shaoff08-introduction.md)
     * [运行时版本和平台（Runtime Versions and Platforms）](chapter1/yun-xing-shi-ff08-runtime/yun-xing-shi-ban-ben-he-ping-tai-ff08-runtime-versions-and-platforms.md)
-    * 与运行时交互（Interacting with the Runtime）
+    * [与运行时交互（Interacting with the Runtime）](chapter1/yun-xing-shi-ff08-runtime/yu-yun-xing-shi-jiao-hu-ff08-interacting-with-the-runtime.md)
     * 消息（Messaging）
     * 动态方法解析（Dynamic Method Resolution）
     * 消息转发（Message Forwarding）
