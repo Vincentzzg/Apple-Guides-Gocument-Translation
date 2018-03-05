@@ -18,5 +18,13 @@ Objective-C语言从编译时和链接时推迟尽可能多的决定到运行时
 * 类型编码
 * 声明的属性
 
+## 也可以看看
+
+[_Objective-C Runtime Reference_](https://developer.apple.com/documentation/objectivec/objective_c_runtime)描述了Objective-C运行时支持的库的数据结构和函数。你的程序可以使用这些接口跟Objective-C运行时系统交互。例如，你可以添加类或方法，或获取加载类的所有类定义的列表。
+
+[_Programming with Objective-C_](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html#//apple_ref/doc/uid/TP40011210)描述Objective-C语言。
+
+[_Objective-C Release Notes_](https://developer.apple.com/library/content/releasenotes/Cocoa/RN-ObjectiveC/index.html#//apple_ref/doc/uid/TP40004309)描述最近发布的OS X中的一些Objective-C运行时的改动。
+
 
 
