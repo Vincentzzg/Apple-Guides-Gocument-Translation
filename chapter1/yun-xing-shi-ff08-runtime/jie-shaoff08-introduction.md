@@ -14,9 +14,9 @@ Objective-C语言从编译时和链接时推迟尽可能多的决定到运行时
 * 与运行时交互（[Interacting with the Runtime](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtInteracting.html#//apple_ref/doc/uid/TP40008048-CH103-SW1)）
 * 消息（[Messaging](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtHowMessagingWorks.html#//apple_ref/doc/uid/TP40008048-CH104-SW1)）
 * 动态方法解析（[Dynamic Method Resolution](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtDynamicResolution.html#//apple_ref/doc/uid/TP40008048-CH102-SW1)）
-* 消息转发（）
-* 类型编码（）
-* 声明的属性（）
+* 消息转发
+* 类型编码
+* 声明的属性
 
 
 
