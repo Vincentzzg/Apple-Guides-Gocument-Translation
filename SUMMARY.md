@@ -27,7 +27,7 @@
   * [渲染](chapter1/xuan-ran.md)
   * [并发编程指南](chapter1/xian-cheng.md)
   * [Objective-C运行时编程指南（Objective-C Runtime Programming Guide）](chapter1/yun-xing-shi-ff08-runtime.md)
-    * 介绍（Introduction）
+    * [介绍（Introduction）](chapter1/yun-xing-shi-ff08-runtime/jie-shaoff08-introduction.md)
     * 运行时版本和平台（Runtime Versions and Platforms）
     * 与运行时交互（Interacting with the Runtime）
     * 消息（Messaging）
