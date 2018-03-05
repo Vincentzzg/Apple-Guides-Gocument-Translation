@@ -6,6 +6,13 @@
 
 Objective-C运行时有两个版本--“现代”和“传统”。Objective-C2.0引入了现代版本，并包含了许多新特性。Objective-C 1运行时参考中描述了传统版本运行时编程接口；[_Objective-C Runtime Reference_](https://developer.apple.com/documentation/objectivec/objective_c_runtime)中描述了现代版运行时编程接口。
 
+最显著的新特性是现代版运行时中实例变量是“非易碎”的：
+
+* 在传统运行时中，如果你改变了一个类中实例变量的布局，你必须重新编译继承自它的类。
+* 在现代运行时中，如果你改变了一个类中实例变量的布局，你不需要重新编辑继承自它的类。
+
+
+
 ## 平台（Platforms）
 
 
