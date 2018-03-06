@@ -37,6 +37,8 @@ objc_msgSend(receiver, selector, arg1, arg2, ...)
 
 当一个新对象创建，它的内存被分配，它的实例变量被初始化。对象的变量中的第一个是一个指向它的类结构的指针。这个名为isa的指针为对象提供对其类的访问权限，并通过该类访问所有从它继承的类。
 
+> 注意：尽管不是该语言的一部分，对象需要使用isa指针才能与Objective-C运行时系统一起工作。一个对象需要与结构objc\_object（在objc/objc.h中定义）在结构定义的任何字段中“等价”。但是，如果你曾经很少需要创建自己的根对象，并且从NSObject或NSProxy继承的对象自动具有isa变量。
+
 ## 使用隐藏的参数（Using Hidden Arguments）
 
 ## 获取方法的地址（Getting a Method Address）
