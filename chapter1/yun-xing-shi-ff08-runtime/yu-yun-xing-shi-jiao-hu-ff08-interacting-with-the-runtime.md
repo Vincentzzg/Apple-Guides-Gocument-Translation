@@ -18,5 +18,5 @@ Cocoa中的大部分对象是NSObject类的子类，所以大部分对象继承�
 
 ## 运行时函数（Runtime Functions）
 
-运行时系统是一个动态共享库，其公共接口由位于/usr/include/objc目录中的头文件中的一组函数和数据结构组成。许多这些函数允许你使用C复制当你编译Objective-C代码时编译器的功能。
+运行时系统是一个动态共享库，其公共接口由位于/usr/include/objc目录中的头文件中的一组函数和数据结构组成。许多这些函数允许你使用C复制当你编译Objective-C代码时编译器的功能。其他形成了通过NSObject类的方法导出功能的基础。这些功能使开发运行时系统的其他接口变得可能，并生成增强开发环境的工具；当用Objective-C编程时不再需要它们。然而，在编写Objective-C程序时，一些运行时功能可能会很有用。所有这些函数都记录在[_Objective-C Runtime Reference_](https://developer.apple.com/documentation/objectivec/objective_c_runtime)中。
 
