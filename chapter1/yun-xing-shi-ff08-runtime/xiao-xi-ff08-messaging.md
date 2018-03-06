@@ -22,7 +22,13 @@ objc_msgSend(receiver, selector)
 objc_msgSend(receiver, selector, arg1, arg2, ...)
 ```
 
+消息传递功能完成动态绑定所需的一切：
 
+* 它首先找到选择器引用的过程（方法实现）。
+
+
+
+## 
 
 ## 使用隐藏的参数（Using Hidden Arguments）
 
