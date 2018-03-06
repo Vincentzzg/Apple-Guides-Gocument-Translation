@@ -4,6 +4,26 @@
 
 ## objc\_msgSend函数（The objc\_msgSend Function）
 
+在Objective-C，消息直到运行时才被绑定到方法实现。编译器转换一个消息表达式，
+
+```
+[receiver message]
+```
+
+到一个消息函数的调用，objc\_msgSend。这个函数将接受者和消息中提到的方法实现的名称（即方法选择器）作为其两个主要参数：
+
+```
+objc_msgSend(receiver, selector)
+```
+
+消息中传递的任何参数也将传递给objc\_msgSend：
+
+```
+objc_msgSend(receiver, selector, arg1, arg2, ...)
+```
+
+
+
 ## 使用隐藏的参数（Using Hidden Arguments）
 
 ## 获取方法的地址（Getting a Method Address）
