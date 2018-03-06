@@ -30,7 +30,7 @@
     * [介绍（Introduction）](chapter1/yun-xing-shi-ff08-runtime/jie-shaoff08-introduction.md)
     * [运行时版本和平台（Runtime Versions and Platforms）](chapter1/yun-xing-shi-ff08-runtime/yun-xing-shi-ban-ben-he-ping-tai-ff08-runtime-versions-and-platforms.md)
     * [与运行时交互（Interacting with the Runtime）](chapter1/yun-xing-shi-ff08-runtime/yu-yun-xing-shi-jiao-hu-ff08-interacting-with-the-runtime.md)
-    * 消息（Messaging）
+    * [消息（Messaging）](chapter1/yun-xing-shi-ff08-runtime/xiao-xi-ff08-messaging.md)
     * 动态方法解析（Dynamic Method Resolution）
     * 消息转发（Message Forwarding）
     * 类型编码（Type Encodings）
