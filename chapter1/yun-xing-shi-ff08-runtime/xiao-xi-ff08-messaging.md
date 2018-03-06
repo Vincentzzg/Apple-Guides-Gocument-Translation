@@ -43,6 +43,8 @@ objc_msgSend(receiver, selector, arg1, arg2, ...)
 
 当消息发送到一个对象时，消息传递函数跟随对象的isa指针，指向查找调度表中的方法选择器的类结构。如果在那里没能发现选择器，objc\_msgSend跟随指针到超类，并尝试在该类的调度表中发现选择器。连续失败导致objc\_msgSend爬上类层次结构，直到它到达NSObject类。一旦他定位到选择器，该函数将调用在表中输入的方法并将接收对象的数据结构传递给它。
 
+这就是运行时选择方法实现的方式--或者，在面向对象的术语中，方法是动态绑定到消息的。
+
 ## 使用隐藏的参数（Using Hidden Arguments）
 
 ## 获取方法的地址（Getting a Method Address）
