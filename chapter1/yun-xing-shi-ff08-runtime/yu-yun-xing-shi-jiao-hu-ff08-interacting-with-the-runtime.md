@@ -12,6 +12,8 @@ Objective-C程序在三个不同的层次上与运行时系统的交互：通过
 
 Cocoa中的大部分对象是NSObject类的子类，所以大部分对象继承了它定义的方法。（显著的异常是NSProxy类，更多信息请参阅[Message Forwarding](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtForwarding.html#//apple_ref/doc/uid/TP40008048-CH105-SW1)。）因此，它的方法建立了每个实例和每个类对象所固有的行为。然而，少数情况下，NSObject类仅仅定义了了一个模板，用于如何完成某些工作；它不提供所有必须要的代码本身。
 
+例如，NSObject类定义了一个返回一个描述类的内容的字符串的description实例方法。这尤其用在调试--GCD print-object命令打印该方法返回的字符串。NSObject这个方法的实现不知道类包含什么，所以它返回一个对象名称和地址的字符串。
+
 ## 运行时函数（Runtime Functions）
 
 
