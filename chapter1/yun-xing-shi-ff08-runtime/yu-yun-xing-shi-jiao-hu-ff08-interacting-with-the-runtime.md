@@ -10,7 +10,7 @@ Objective-C程序在三个不同的层次上与运行时系统的交互：通过
 
 ## NSObject方法（NSObject Methods）
 
-Cocoa中的大部分对象是NSObject类的子类，所以大部分对象继承了它定义的方法。（显著的异常是NSProxy类，更多信息请参阅[Message Forwarding](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtForwarding.html#//apple_ref/doc/uid/TP40008048-CH105-SW1)。）
+Cocoa中的大部分对象是NSObject类的子类，所以大部分对象继承了它定义的方法。（显著的异常是NSProxy类，更多信息请参阅[Message Forwarding](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtForwarding.html#//apple_ref/doc/uid/TP40008048-CH105-SW1)。）因此它的方法
 
 ## 运行时函数（Runtime Functions）
 
