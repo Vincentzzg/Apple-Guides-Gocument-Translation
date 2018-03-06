@@ -56,6 +56,22 @@ objc_msgSend(receiver, selector, arg1, arg2, ...)
 
 这些参数为每个方法提供了关于调用它的消息表达式的两半的确切信息。它们被称作“隐藏的”，因为它们没有在方法定义的源码中声明。它们在代码编译时被插入到实现中。
 
+尽管这些方法没有被明确的声明，源码依然可以引用他们（就像它可以引用接收对象的实例变量一样）。方法引用接收对象称为self，他自己的选择器作为cmd。下面的例子中，\_cmd引用strange方法的选择器，self引用接收strange方法的对象。
+
+```
+- strange
+{
+    id  target = getTheReceiver();
+    SEL method = getTheMethod();
+ 
+    if ( target == self || method == _cmd )
+        return nil;
+    return [target performSelector:method];
+}
+```
+
+两个参数中self更有用。实际上，接收对象的实例变量可用以方法定义。
+
 ## 获取方法的地址（Getting a Method Address）
 
 
