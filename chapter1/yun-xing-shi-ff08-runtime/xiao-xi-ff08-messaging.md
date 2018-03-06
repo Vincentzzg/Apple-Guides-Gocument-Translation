@@ -30,8 +30,11 @@ objc_msgSend(receiver, selector, arg1, arg2, ...)
 
 > 注意：编译器生成对消息传递函数的调用。你不应该在你写的代码中直接调用它。
 
-## 
+消息传递的关键在于编译器为每个类和对象构建的结构。每个类结构包含着两个基本要素：
 
+* 一个指向超类的指针。
+* 一个类调度表。该表具有将方法选择器和它们识别的方法的类特定地址相关联的条目。_setOrigin::_方法的选择器跟_setOrigin::_的地址（实现的过程）相关联，display方法的选择器跟display的地址相关联，以此类推。
+* 
 ## 使用隐藏的参数（Using Hidden Arguments）
 
 ## 获取方法的地址（Getting a Method Address）
