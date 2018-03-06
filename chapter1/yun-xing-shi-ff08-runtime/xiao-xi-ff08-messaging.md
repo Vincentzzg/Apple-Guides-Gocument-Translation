@@ -34,7 +34,9 @@ objc_msgSend(receiver, selector, arg1, arg2, ...)
 
 * 一个指向超类的指针。
 * 一个类调度表。该表具有将方法选择器和它们识别的方法的类特定地址相关联的条目。_setOrigin::_方法的选择器跟_setOrigin::_的地址（实现的过程）相关联，display方法的选择器跟display的地址相关联，以此类推。
-* 
+
+当一个新对象创建，它的内存被分配，它的实例变量被初始化。对象的变量中的第一个是一个指向它的类结构的指针。这个名为isa的指针为对象提供对其类的访问权限，并通过该类访问所有从它继承的类。
+
 ## 使用隐藏的参数（Using Hidden Arguments）
 
 ## 获取方法的地址（Getting a Method Address）
