@@ -10,6 +10,8 @@ Objective-C程序在三个不同的层次上与运行时系统的交互：通过
 
 ## NSObject方法（NSObject Methods）
 
+大部分
+
 ## 运行时函数（Runtime Functions）
 
 
