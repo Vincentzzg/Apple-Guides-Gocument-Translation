@@ -39,6 +39,12 @@ objc_msgSend(receiver, selector, arg1, arg2, ...)
 
 > 注意：尽管不是该语言的一部分，对象需要使用isa指针才能与Objective-C运行时系统一起工作。一个对象需要与结构objc\_object（在objc/objc.h中定义）在结构定义的任何字段中“等价”。但是，你很少需要创建自己的根对象，并且从NSObject或NSProxy继承的对象自动具有isa变量。
 
+这些类和对象结构的元素如下图所示。
+
+
+
+当消息发送到一个对象时，消息传递函数跟随对象的isa指针，指向查找调度表中的方法选择器的类结构。如果在那里没能发现选择器，objc\_msgSend跟随指针到超类，并尝试在该类的调度表中发现选择器。连续失败导致objc\_msgSend爬上类层次结构，直到它到达NSObject类。
+
 ## 使用隐藏的参数（Using Hidden Arguments）
 
 ## 获取方法的地址（Getting a Method Address）
