@@ -1,4 +1,4 @@
-# 消息（Messaging）
+# 消息传递（Messaging）
 
 这个章节描述消息表达式如何被转换成objc\_msgSend函数调用，以及如何通过名称引用方法。然后解释如何利用objc\_msgSend，以及如果需要你如何绕过动态绑定。
 
