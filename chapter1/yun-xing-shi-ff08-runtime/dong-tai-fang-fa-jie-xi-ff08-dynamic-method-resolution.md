@@ -47,5 +47,5 @@ Objective-C程序在运行时可以加载并链接新的类和类别。新代码
 
 在Cocoa环境下，动态加载通常被用来允许应用程序定制。其他人可以编写程序在运行时加载的模块-就像Interface Builder加载自定义调色板一样，OS X系统偏好设置应用程序加载自定义首选项模块。可加载模块拓展了应用程序可以执行的操作。他们以你允许的方法为其做出贡献，但无法预期或定义你自己。你提供了框架，但其他人提供了代码。
 
-
+尽管在Mach-O文件（objc\_loadModules，在objc/objc-load.h中定义）中有一个运行时函数负责执行Objective-C模块的动态加载，Cocoa的NSBundle类为动态加载提供了更便捷的接口-一个是面向对象并与相关服务相结合。有关NSBundle类及其用法的信息，请参阅Foundation framework reference中的NSBundle类规范。有关Mach-O文件的信息，请参阅OS X ABI Mach-O文件格式参考。
 
