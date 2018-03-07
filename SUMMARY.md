@@ -31,7 +31,7 @@
     * [运行时版本和平台（Runtime Versions and Platforms）](chapter1/yun-xing-shi-ff08-runtime/yun-xing-shi-ban-ben-he-ping-tai-ff08-runtime-versions-and-platforms.md)
     * [与运行时交互（Interacting with the Runtime）](chapter1/yun-xing-shi-ff08-runtime/yu-yun-xing-shi-jiao-hu-ff08-interacting-with-the-runtime.md)
     * [消息传递（Messaging）](chapter1/yun-xing-shi-ff08-runtime/xiao-xi-ff08-messaging.md)
-    * 动态方法解析（Dynamic Method Resolution）
+    * [动态方法解析（Dynamic Method Resolution）](chapter1/yun-xing-shi-ff08-runtime/dong-tai-fang-fa-jie-xi-ff08-dynamic-method-resolution.md)
     * 消息转发（Message Forwarding）
     * 类型编码（Type Encodings）
     * 声明的属性（Declared Properties）
