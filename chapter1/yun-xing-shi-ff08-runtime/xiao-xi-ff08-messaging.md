@@ -49,7 +49,7 @@ objc_msgSend(receiver, selector, arg1, arg2, ...)
 
 ## 使用隐藏的参数（Using Hidden Arguments）
 
-当objc\_msgSend发现实现一个方法的过程，它调用过程并把消息中的所有参数传递给它。它也传递给过程两个隐藏的参数：
+当_objc\_msgSend_发现实现一个方法的过程，它调用过程并把消息中的所有参数传递给它。它也传递给过程两个隐藏的参数：
 
 * 接收对象
 * 方法的选择器
