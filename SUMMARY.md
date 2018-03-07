@@ -32,7 +32,7 @@
     * [与运行时交互（Interacting with the Runtime）](chapter1/yun-xing-shi-ff08-runtime/yu-yun-xing-shi-jiao-hu-ff08-interacting-with-the-runtime.md)
     * [消息传递（Messaging）](chapter1/yun-xing-shi-ff08-runtime/xiao-xi-ff08-messaging.md)
     * [动态方法解析（Dynamic Method Resolution）](chapter1/yun-xing-shi-ff08-runtime/dong-tai-fang-fa-jie-xi-ff08-dynamic-method-resolution.md)
-    * 消息转发（Message Forwarding）
+    * [消息转发（Message Forwarding）](chapter1/yun-xing-shi-ff08-runtime/xiao-xi-zhuan-fa-ff08-message-forwarding.md)
     * 类型编码（Type Encodings）
     * 声明的属性（Declared Properties）
   * [Objective-C中的编程概念（Concepts in Objective-C Programming）](chapter1/objective-czhong-de-bian-cheng-gai-nian-ff08-concepts-in-objective-c-programming.md)
