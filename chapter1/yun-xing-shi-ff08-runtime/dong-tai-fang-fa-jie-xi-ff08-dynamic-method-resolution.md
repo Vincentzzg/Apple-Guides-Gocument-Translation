@@ -37,11 +37,7 @@ void dynamicMethodIMP(id self, SEL _cmd) {
 @end
 ```
 
-转发方法（如[Message Forwarding](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtForwarding.html#//apple_ref/doc/uid/TP40008048-CH105-SW1)描述的）和动态方法解析在很大程度上是正交的。类有机会再转发机制生效前动态解析一个方法。如果调用[respondsToSelector:](https://developer.apple.com/documentation/objectivec/nsobjectprotocol/1418583-responds)或[instancesRespondToSelector:](https://developer.apple.com/documentation/objectivec/nsobject/1418555-instancesrespondtoselector)，动态方法解析器首先提供一个为选择器提供IMP的机会。你如你实现了[resolveInstanceMethod:](https://developer.apple.com/documentation/objectivec/nsobject/1418500-resolveinstancemethod)方法但是希望特定的选择器通过转发机制实际转发，则为这些选择器返回NO。
-
-
-
-
+转发方法（如[Message Forwarding](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtForwarding.html#//apple_ref/doc/uid/TP40008048-CH105-SW1)描述的）和动态方法解析在很大程度上是正交的。类有机会再转发机制生效前动态解析一个方法。如果调用[respondsToSelector:](https://developer.apple.com/documentation/objectivec/nsobjectprotocol/1418583-responds)或[instancesRespondToSelector:](https://developer.apple.com/documentation/objectivec/nsobject/1418555-instancesrespondtoselector)，动态方法解析器有机会首先为选择器提供IMP。你如你实现了[resolveInstanceMethod:](https://developer.apple.com/documentation/objectivec/nsobject/1418500-resolveinstancemethod)方法但是希望特定的选择器通过转发机制实际转发，则为这些选择器返回NO。
 
 ## 动态加载（Dynamic Loading）
 
