@@ -41,5 +41,7 @@ void dynamicMethodIMP(id self, SEL _cmd) {
 
 ## 动态加载（Dynamic Loading）
 
+Objective-C程序在运行时可以加载并链接新的类和类别。新代码被合并到程序中，并且跟最开始加载的类和类别处理方式相同。
+
 
 
