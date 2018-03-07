@@ -94,5 +94,5 @@ for ( i = 0 ; i < 1000 ; i++ )
 
 使用methodForSelector:规避动态绑定节省了消息传递所需的大部分时间。然而，只有当在特定消息重复多次的情况下，节省才会显著，如上面所示的for循环。
 
-注意methodForSelector:是Cocoa运行时系统提供的；它不是Objective-C语言自己的特性。
+请注意，_methodForSelector:_是由Cocoa运行时系统提供的；它不是Objective-C语言自己的特性。
 
