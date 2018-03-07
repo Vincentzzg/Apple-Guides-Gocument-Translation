@@ -78,17 +78,17 @@ objc_msgSend(receiver, selector, arg1, arg2, ...)
 
 使用NSObject类中定义的方法methodForSelector:，你可以获得一个指向实现方法过程的指针，然后使用该指针调用过程。methodForSelector:方法返回的指针必须小心转换为正确的函数类型。返回类型和参数类型也必须包括在转换中。
 
-下面的例子展示了实现setFilled:方法的过程将如何被调用：
+下面的例子展示了如何调用实现setFilled:方法的过程：
 
 ```
 void (*setter)(id, SEL, BOOL);
 int i;
- 
+
 setter = (void (*)(id, SEL, BOOL))[target
     methodForSelector:@selector(setFilled:)];
 for ( i = 0 ; i < 1000 ; i++ )
     setter(targetList[i], @selector(setFilled:), YES);
 ```
 
-
+传递给过程的前面两个参数是接收对象（self）和方法选择器（\_cmd）。这些参数在方法语法中是隐藏的，但是当方法像函数一样被调用时必须明确。
 
