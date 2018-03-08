@@ -12,6 +12,19 @@
 
 更进一步，假设你希望你的对象对negotiate方法的响应完全是另外一个类中实现的响应。实现这个的一种方式是使你的类从其他类继承该方法。然而，不可能按照这种方式安排事情。为什么你的类和实现negotiate方法的类在继承层次结构的不同分支中可能有很好的理由。
 
+即使你的类不能继承negotiate方法，你依然可以通过实现一个只将消息传递给其他类的实例的方法来“借”它：
+
+```
+- (id)negotiate
+{
+    if ( [someOtherObject respondsTo:@selector(negotiate)] )
+        return [someOtherObject negotiate];
+    return self;
+}
+```
+
+这样做事有点笨重，尤其如果你希望你的对象传递很多消息给其他对象。你必须实现一个方法覆盖每一个你想从其他类借的方法。此外，在你编写代码的时候，处理你不知道的情况是不可能的，你可能想要转发的全部消息。该集合可能取决于运行时的事件，并且可能随着未来实现新的方法和类而改变。
+
 ## 转发与多继承（Forwarding and Multiple Inheritance）
 
 ## 代理对象（Surrogate Objects）
