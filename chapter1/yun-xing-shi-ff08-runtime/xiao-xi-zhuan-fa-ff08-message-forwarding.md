@@ -67,6 +67,8 @@ _forwardInvocation:_方法就像是未识别的消息的分发中心，将他们
 
 转发不仅仅模仿多继承，它还可以开发代表或”覆盖“更多实体对象的轻量级对象。代理人代表另一个对象并向其发送消息。
 
+_The Objective-C Programming Language_中的”远程消息“中讨论的代理就是这样的代理。
+
 ## 转发和继承（Forwarding and Inheritance）
 
 尽管转发模仿继承，NSObject类永远不会混淆这两者。像respondsToSelector:和isKindOfClass:这些方法，金查看继承层次结构，从不查看转发链。例如，如果一个Warrior对象被询问它是否响应negotiate方法，
