@@ -111,7 +111,5 @@ respondsToSelector:和isKindOfClass:之外，instancesRespondToSelector:方法�
 
 > 注意：这是一个高级技术，仅适用在其他解决方案都不可能的情况下。它不打算作为继承的替代。如果你必须适用该技术，确保你完全理解做转发的类和你要转发的类的行为。
 
-本节中提到的方法在Foundation框架参考中的NSObject类规范中进行了描述。 有关invokeWithTarget的信息，请参阅Foundation框架参考中的NSInvocation类规范。
-
-
+本节中提到的方法在Foundation框架参考（Foundation framework reference）中的NSObject类规范中进行了描述。 有关invokeWithTarget的信息，请参阅Foundation框架参考（Foundation framework reference）中的NSInvocation类规范。
 
