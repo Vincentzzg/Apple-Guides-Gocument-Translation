@@ -65,7 +65,38 @@ _forwardInvocation:_方法就像是未识别的消息的分发中心，将他们
 
 ## 代理对象（Surrogate Objects）
 
+
+
+
+
+## 
+
 ## 转发和继承（Forwarding and Inheritance）
+
+尽管转发模仿继承，NSObject类永远不会混淆这两者。像respondsToSelector:和isKindOfClass:这些方法，金查看继承层次结构，从不查看转发链。例如，如果一个Warrior对象被询问它是否响应negotiate方法，
+
+```
+if ( [aWarrior respondsToSelector:@selector(negotiate)] )
+    ...
+```
+
+答案是NO，尽管从某种意义上说，它可以无错地接收negotiate消息并且响应它们，通过转发它们给Diplomat类。
+
+一些情况下，NO是对的答案。但也不一定。如果你使用转发来设置代理对象或者拓展类的功能，则转发机制应该与继承一样透明。如果你希望你的对象表现的好像它们真的继承了它们转发消息的对象的行为一样，你需要重新实现respondsToSelector:和isKindOfClass:方法以包括你的转发算法：
+
+```
+- (BOOL)respondsToSelector:(SEL)aSelector
+{
+    if ( [super respondsToSelector:aSelector] )
+        return YES;
+    else {
+        /* Here, test whether the aSelector message can     *
+         * be forwarded to another object and whether that  *
+         * object can respond to it. Return YES if it can.  */
+    }
+    return NO;
+}
+```
 
 
 
