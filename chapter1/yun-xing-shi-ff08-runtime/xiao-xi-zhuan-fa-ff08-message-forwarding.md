@@ -65,10 +65,6 @@ _forwardInvocation:_方法就像是未识别的消息的分发中心，将他们
 
 ## 代理对象（Surrogate Objects）
 
-
-
-
-
 ## 
 
 ## 转发和继承（Forwarding and Inheritance）
@@ -97,6 +93,25 @@ if ( [aWarrior respondsToSelector:@selector(negotiate)] )
     return NO;
 }
 ```
+
+respondsToSelector:和isKindOfClass:之外，instancesRespondToSelector:方法也应该镜像转发算法。如果使用了协议，conformsToProtocol:方法同样应该添加到列表中。同样，如果一个对象转发了任何它接收的远程消息，它应该实现methodSignatureForSelector:方法以返回方法的准确描述最终响应转发的消息；例如，如果对象能够转发消息给它的代理，你应该像下面这样实现methodSignatureForSelector:：
+
+```
+- (NSMethodSignature*)methodSignatureForSelector:(SEL)selector
+{
+    NSMethodSignature* signature = [super methodSignatureForSelector:selector];
+    if (!signature) {
+       signature = [surrogate methodSignatureForSelector:selector];
+    }
+    return signature;
+}
+```
+
+你可能考虑将转发算法放在私密代码的某个位置，并使用所有这些方法（包括forwardInvocation:方法），将其调用。
+
+> 注意：这是一个高级技术，仅适用在其他解决方案都不可能的情况下。它不打算作为继承的替代。如果你必须适用该技术，确保你完全理解做转发的类和你要转发的类的行为。
+
+本节中提到的方法在Foundation框架参考中的NSObject类规范中进行了描述。 有关invokeWithTarget的信息，请参阅Foundation框架参考中的NSInvocation类规范。
 
 
 
