@@ -29,6 +29,22 @@ forwardInvocation:方法提供的第二次机会提供了一个这个问题的�
 
 转发一个消息，所有forwardInvocation:方法需要做的就是：
 
+* 决定消息的去向，并且
+* 带着它的原始参数发送
+
+该消息可以通过invokeWithTarget:方法发送：
+
+```
+- (void)forwardInvocation:(NSInvocation *)anInvocation
+{
+    if ([someOtherObject respondsToSelector:
+            [anInvocation selector]])
+        [anInvocation invokeWithTarget:someOtherObject];
+    else
+        [super forwardInvocation:anInvocation];
+}
+```
+
 
 
 ## 转发与多继承（Forwarding and Multiple Inheritance）
