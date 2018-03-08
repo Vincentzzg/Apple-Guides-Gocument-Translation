@@ -57,11 +57,7 @@ _forwardInvocation:_方法就像是未识别的消息的分发中心，将他们
 
 转发模仿继承，并可用于将多继承的一些效果提供给Objective-C编程。通过转发来响应消息的对象视乎借用或“继承”了另一个类中定义的方法实现，如下图所示：
 
-这个例子中
-
-
-
-
+这个例子中，Warrior类的实例转发一个negotiate消息到Diplomat类的实例。战士（Warrior）视乎会像外交官（Diplomat）一样进行谈判（negotiate）。它视乎对negotiate消息做出了响应，并且出于所有实际目的，它确实做出了响应（尽管它确实是一名外交官在做这项工作）。
 
 ## 代理对象（Surrogate Objects）
 
