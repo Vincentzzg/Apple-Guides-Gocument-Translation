@@ -55,6 +55,14 @@ _forwardInvocation:_方法就像是未识别的消息的分发中心，将他们
 
 ## 转发与多继承（Forwarding and Multiple Inheritance）
 
+转发模仿继承，并可用于将多继承的一些效果提供给Objective-C编程。通过转发来响应消息的对象视乎借用或“继承”了另一个类中定义的方法实现，如下图所示：
+
+这个例子中
+
+
+
+
+
 ## 代理对象（Surrogate Objects）
 
 ## 转发和继承（Forwarding and Inheritance）
