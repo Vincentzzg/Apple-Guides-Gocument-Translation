@@ -49,6 +49,10 @@ forwardInvocation:方法提供的第二次机会提供了一个这个问题的�
 
 forwardInvocation:方法就像是未识别的消息的分发中心，将他们分发给不同的接受者。或者它也可以是一个中转站，发送所有的消息到同一个目的地。它可以将一个对象翻译成另一个，或者只是“吞下”一些信息，所以没有回应，也没有错误。forwardInvocation:方法也可以将多个消息合并为一个响应。forwardInvocation:做什么取决于实现。但是，它提供的在一个转发链中链接对象的机会为程序设计提供了可能。
 
+> 注意：forwardInvocation:方法只有在它们标称接收方法中的现有方法是才会处理消息。例如，如果你希望对象转发negotiate消息到另一个对象，则它自己不能拥有negotiate方法。如果它有，则消息永远不会抵达forwardInvocation:。
+
+
+
 ## 转发与多继承（Forwarding and Multiple Inheritance）
 
 ## 代理对象（Surrogate Objects）
