@@ -94,7 +94,7 @@ if ( [aWarrior respondsToSelector:@selector(negotiate)] )
 }
 ```
 
-respondsToSelector:和isKindOfClass:之外，instancesRespondToSelector:方法也应该镜像转发算法。如果使用了协议，conformsToProtocol:方法同样应该添加到列表中。同样，如果一个对象转发了任何它接收的远程消息，它应该实现methodSignatureForSelector:方法以返回方法的准确描述最终响应转发的消息；例如，如果对象能够转发消息给它的代理，你应该像下面这样实现methodSignatureForSelector:：
+respondsToSelector:和isKindOfClass:之外，instancesRespondToSelector:方法也应该镜像转发算法。如果使用了协议，conformsToProtocol:方法同样应该添加到列表中。同样，如果一个对象转发了任何它接收的远程消息，它应该实现methodSignatureForSelector:方法，它可以返回最终响应转发的消息的方法的准确描述；例如，如果对象能够转发消息给它的代理，你应该像下面这样实现methodSignatureForSelector:：
 
 ```
 - (NSMethodSignature*)methodSignatureForSelector:(SEL)selector
