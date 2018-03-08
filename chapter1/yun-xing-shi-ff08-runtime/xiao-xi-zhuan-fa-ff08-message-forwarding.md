@@ -65,7 +65,7 @@ _forwardInvocation:_方法就像是未识别的消息的分发中心，将他们
 
 ## 代理对象（Surrogate Objects）
 
-## 
+转发不仅仅模仿多继承，它还可以开发代表或”覆盖“更多实体对象的轻量级对象。代理人代表另一个对象并向其发送消息。
 
 ## 转发和继承（Forwarding and Inheritance）
 
