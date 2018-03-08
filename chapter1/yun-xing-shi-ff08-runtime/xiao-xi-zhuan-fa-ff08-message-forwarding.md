@@ -59,6 +59,8 @@ _forwardInvocation:_方法就像是未识别的消息的分发中心，将他们
 
 这个例子中，Warrior类的实例转发一个negotiate消息到Diplomat类的实例。战士（Warrior）视乎会像外交官（Diplomat）一样进行谈判（negotiate）。它视乎对negotiate消息做出了响应，并且出于所有实际目的，它确实做出了响应（尽管它确实是一名外交官在做这项工作）。
 
+转发消息的对象因此从继承层次结构中的两个分支”继承“了方法--它自己的分支以及响应消息的对象的分支。上面的例子中，好像Warrior类继承Diplomat作为它自己的超类。
+
 ## 代理对象（Surrogate Objects）
 
 ## 转发和继承（Forwarding and Inheritance）
