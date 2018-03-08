@@ -8,6 +8,8 @@
 
 你可以实现forwardInvocation:方法给这个消息一个默认的响应，或者以其他方式避免错误。顾名思义，forwardInvocation:通常被用作转发消息到其他对象。
 
+了解转发的范围和意图，想象下面的场景：首先，假设你设计了一个可以响应名为negotiate的消息的对象，并且你希望它的响应包括另外一类对象的响应。你可以通过在你实现的negotiate方法体中发送negotiate消息给其他对象，轻松的实现这些。
+
 
 
 ## 转发与多继承（Forwarding and Multiple Inheritance）
