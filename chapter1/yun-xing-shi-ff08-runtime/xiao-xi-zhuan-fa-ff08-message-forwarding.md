@@ -47,7 +47,7 @@ forwardInvocation:方法提供的第二次机会提供了一个这个问题的�
 
 被转发消息的返回值被返回到原始发送者。可以将所有类型的返回值传递给发件人，包括ids，结构和双精度浮点数。
 
-## 
+
 
 ## 转发与多继承（Forwarding and Multiple Inheritance）
 
