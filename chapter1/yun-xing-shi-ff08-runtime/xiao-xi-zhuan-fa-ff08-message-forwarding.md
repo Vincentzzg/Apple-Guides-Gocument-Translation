@@ -27,6 +27,8 @@
 
 forwardInvocation:方法提供的第二次机会提供了一个这个问题的不太专门的解决方案，并且是动态的而不是静态。它像这样工作：当对象因为它没有匹配消息选择器的方法不能响应消息时，运行时系统通过给对象发送forwardInvocation:消息通知该对象。每个对象都从NSObject类继承了forwardInvocation:方法。但是，NSObject的方法版本只是调用了doesNotRecognizeSelector:。通过覆盖NSObject的版本并实现你自己的，你可以利用forwardInvocation:方法提供的机会转发消息到其他对象。
 
+转发一个消息，所有forwardInvocation:方法需要做的就是：
+
 
 
 ## 转发与多继承（Forwarding and Multiple Inheritance）
