@@ -51,7 +51,7 @@ forwardInvocation:方法就像是未识别的消息的分发中心，将他们�
 
 > 注意：forwardInvocation:方法只有在它们标称接收方法中的现有方法是才会处理消息。例如，如果你希望对象转发negotiate消息到另一个对象，则它自己不能拥有negotiate方法。如果它有，则消息永远不会抵达forwardInvocation:。
 
-
+更多关于转发和调用的信息，参阅基础框架参考（Foundation framework reference）中的NSInvocation类规范。
 
 ## 转发与多继承（Forwarding and Multiple Inheritance）
 
