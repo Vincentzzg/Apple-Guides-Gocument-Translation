@@ -38,7 +38,33 @@ char *buf3 = @encode(Rectangle);
 
 > 重要：Objective-C不支持long double类型。@encode\(long double\)返回d，跟double的编码一样。
 
+数组的类型代码包括在方括号内；数组中元素的个数在开括号的之后立即给出，在数组类型之前。例如，一个包含12个指向浮点数的数组将会这样编码：
 
+```
+[12^f]
+```
+
+结构体在大括号内指定，而联合在括号内。首先列出结构体标签，然后是等号和序列中列出的结构体字段的代码。例如结构：
+
+```
+typedef struct example {
+    id   anObject;
+    char *aString;
+    int  anInt;
+} Example;
+```
+
+将会这样编码：
+
+```
+{example=@*i}
+```
+
+不管定义的类型名称（Example）还是结构标记（example）都传递给@encode（），相同的编码都会生成。 结构指针的编码携带有关结构字段的相同数量的信息：
+
+```
+^{example=@*i}
+```
 
 
 
