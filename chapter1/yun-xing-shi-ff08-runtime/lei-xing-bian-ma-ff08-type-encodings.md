@@ -12,9 +12,9 @@ char *buf3 = @encode(Rectangle);
 
 | Code | Meaning |
 | :--- | :--- |
-| c | **A** char |
-| i | **An** int |
-| s | **A** short |
+| c | A char |
+| i | An int |
+| s | A short |
 | l | A long. 1 is treated as a 32-bit quantity on 64-bit programs. |
 | q | A long long |
 | C | An unsigned char |
@@ -32,7 +32,7 @@ char *buf3 = @encode(Rectangle);
 | : | A method selector \(SEL\) |
 | \[array type\] | An array |
 | {name=type...} | A structure |
-| _b_num | A bit field of num bits |
+| \_b\_num | A bit field of num bits |
 | ^type | A pointer to type |
 | ? | An unknown type \(among other things, this code is used for fucntion pointers\) |
 |  |  |
