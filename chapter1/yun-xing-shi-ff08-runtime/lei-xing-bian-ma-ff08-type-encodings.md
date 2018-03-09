@@ -36,5 +36,9 @@ char *buf3 = @encode(Rectangle);
 | ^type | A pointer to type |
 | ? | An unknown type \(among other things, this code is used for fucntion pointers\) |
 
+> 重要：Objective-C不支持long double类型。@encode\(long double\)返回d，跟double的编码一样。
+
+
+
 
 
