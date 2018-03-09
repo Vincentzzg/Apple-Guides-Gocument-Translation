@@ -66,5 +66,33 @@ typedef struct example {
 ^{example=@*i}
 ```
 
+但是，另外一个间接级别删除了内部类型规范：
+
+```
+^^{example}
+```
+
+对象被视为结构体。例如，将NSObject类名称传递给@encode\(\)会产生以下编码：
+
+```
+{NSObject=#}
+```
+
+NSObject类只声明一个类型为Class的实例变量isa。
+
+请注意，虽然@encode\(\)指令不会返回它们，但是运行时系统用于声明协议中的方法时，它使用表6-2中列出的其他编码作为类型限定符。
+
+表6-2 Objective-C方法编码
+
+| Code | Meaning |
+| :--- | :--- |
+| r | const |
+| n | in |
+| N | inout |
+| o | out |
+| O | bycopy |
+| R | byref |
+| V | oneway |
+
 
 
