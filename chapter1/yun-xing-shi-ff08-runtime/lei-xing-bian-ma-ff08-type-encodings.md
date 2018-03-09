@@ -10,3 +10,33 @@ char *buf3 = @encode(Rectangle);
 
 下面的表格列出了类型代码。注意它们中的许多与用于存档或分发目时编码对象的代码重叠。然而，这里列出的有些代码你不能用作编写编码器，并且你想用作编写编码器的代码有些不是通过@encode\(\)产生的。（有关编码用于归档或分发的编码对象的更多信息，请参阅Foundation Framework参考中的NSCoder类规范。）
 
+| Code | Meaning |
+| :--- | :--- |
+| c | **A** char |
+| i | **An** int |
+| s | **A** short |
+| l | A long. 1 is treated as a 32-bit quantity on 64-bit programs. |
+| q | A long long |
+| C | An unsigned char |
+| I | An unsigned int |
+| S | An unsigned short |
+| L | An unsigned long |
+| Q | An unsigned long long |
+| f | A float |
+| d | A double |
+| B | A C++ bool or a C99 \_Bool |
+| v | A void |
+| \* | A character string \(char \*\) |
+| @ | An object \(whether statically typed or typed id\) |
+| \# | A class object \(Class\) |
+| : | A method selector \(SEL\) |
+| \[array type\] | An array |
+| {name=type...} | A structure |
+| _b_num | A bit field of num bits |
+| ^type | A pointer to type |
+| ? | An unknown type \(among other things, this code is used for fucntion pointers\) |
+|  |  |
+|  |  |
+
+
+
