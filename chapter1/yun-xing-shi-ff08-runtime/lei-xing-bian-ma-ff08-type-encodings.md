@@ -35,8 +35,6 @@ char *buf3 = @encode(Rectangle);
 | \_b\_num | A bit field of num bits |
 | ^type | A pointer to type |
 | ? | An unknown type \(among other things, this code is used for fucntion pointers\) |
-|  |  |
-|  |  |
 
 
 
