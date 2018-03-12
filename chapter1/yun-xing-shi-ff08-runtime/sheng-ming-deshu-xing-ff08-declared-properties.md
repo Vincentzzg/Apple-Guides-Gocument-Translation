@@ -87,13 +87,7 @@ for (i = 0; i < outCount; i++) {
 | P | The property is eligible for garbage collection. |
 | t&lt;encoding&gt; | Specifies the type using old-style encoding. |
 
-
-
-
-
-
-
-
+例子，请参阅[Property Attribute Description Examples](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtPropertyIntrospection.html#//apple_ref/doc/uid/TP40008048-CH101-SW5)。
 
 ## 属性关键字描述示例（Property Attribute Description Examples）
 
