@@ -91,5 +91,40 @@ for (i = 0; i < outCount; i++) {
 
 ## 属性关键字描述示例（Property Attribute Description Examples）
 
+鉴于这些定义：
+
+```
+enum FooManChu { FOO, MAN, CHU };
+struct YorkshireTeaStruct { int pot; char lady; };
+typedef struct YorkshireTeaStruct YorkshireTeaStructType;
+union MoneyUnion { float alone; double down; };
+```
+
+下表显示了示例属性声明和property\_getAttributes返回的相应字符串：
+
+| Property | Property description |
+| :--- | :--- |
+| @property char charDefault; | Tc,VcharDefault |
+| @property double doubleDefault; | Td,VdoubleDefault |
+| @property enum FooManChu enumDefault; | Ti,VenumDefault |
+| @property float floatDefault; | Tf,VfloatDefault |
+| @property int intDefault; | Ti,VintDefault |
+| @property long longDefault; | Tl,VlongDefault |
+| @property short shortDefault; | Ts,VshortDefault |
+| @property signed signedDefault; | Ti,VsignedDefault |
+| @property struct YorkshireTeaStruct structDefault; | T{YorkshireTeaStruct="pot"i"lady"c},VstructDefault |
+| @property YorkshireTeaStructType typedefDefault; | T{YorkshireTeaStruct="pot"i"lady"c},VtypedefDefault |
+| @property union MoneyUnion unionDefault; | T\(MoneyUnion="alone"f"down"d\),VunionDefault |
+| @property unsigned unsignedDefault; | TI,VunsignedDefault |
+| @property int \(\*functionPointerDefault\)\(char \*\); | T^?,VfunctionPointerDefault |
+| @property id idDefault; |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+
 
 
