@@ -68,6 +68,33 @@ for (i = 0; i < outCount; i++) {
 
 ## 属性类型字符串（Property Type String）
 
+你可以使用property\_getAttributes函数发现属性的名称、@encode类型字符串和属性的其他属性。
+
+该字符串以T开头，后跟@encode类型和逗号，并以V结尾，后面跟着支持实例变量的名称。 在这些之间，属性由以下描述符指定，用逗号分隔：
+
+声明的属性类型编码
+
+| Code | Meaning |
+| :--- | :--- |
+| R | The property is read-only \(readonly\). |
+| C | The property is a copy of the value last assigned \(copy\). |
+| & | The property is a reference to the value last assigned \(retain\). |
+| N | The property is non-atomic \(nonatomic\). |
+| G&lt;name&gt; | The property defines a custom getter selector name. The name follows the G \(for example, GcustomGetter,\). |
+| S&lt;name&gt; | The property defines a custom setter selector name. The name follows the S \(for example, ScustomSetter:,\). |
+| D | The property is dynamic \(@dynamic\). |
+| W | The property is a weak reference \(\_\_weak\). |
+| P | The property is eligible for garbage collection. |
+| t&lt;encoding&gt; | Specifies the type using old-style encoding. |
+
+
+
+
+
+
+
+
+
 ## 属性关键字描述示例（Property Attribute Description Examples）
 
 
