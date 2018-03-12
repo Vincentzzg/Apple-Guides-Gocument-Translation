@@ -124,7 +124,13 @@ union MoneyUnion { float alone; double down; };
 | @property\(getter=intGetFoo, setter=intSetFoo:\) int intSetterGetter; | Ti,GintGetFoo,SintSetFoo:,VintSetterGetter |
 | @property\(readonly\) int intReadonly; | Ti,R,VintReadonly |
 | @property\(getter=isIntReadOnlyGetter, readonly\) int intReadonlyGetter; | Ti,R,GisIntReadOnlyGetter |
-|  |  |
+| @property\(readwrite\) int intReadwrite; | Ti,VintReadwrite |
+| @property\(assign\) int intAssign; | Ti,VintAssign |
+| @property\(retain\) id idRetain; | T@,&,VidRetain |
+| @property\(copy\) id idCopy; | T@,C,VidCopy |
+| @property\(nonatomic\) int intNonatomic; | Ti,VintNonatomic |
+| @property\(nonatomic, readonly, copy\) id idReadonlyCopyNonatomic; | T@,R,C,VidReadonlyCopyNonatomic |
+| @property\(nonatomic, readonly, retain\) id idReadonlyRetainNonatomic; | T@,R,&,VidReadonlyRetainNonatomic |
 
 
 
