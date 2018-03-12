@@ -117,13 +117,13 @@ union MoneyUnion { float alone; double down; };
 | @property union MoneyUnion unionDefault; | T\(MoneyUnion="alone"f"down"d\),VunionDefault |
 | @property unsigned unsignedDefault; | TI,VunsignedDefault |
 | @property int \(\*functionPointerDefault\)\(char \*\); | T^?,VfunctionPointerDefault |
-| @property id idDefault; |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
+| @property id idDefault;Note: the compiler warns: "no 'assign', 'retain', or 'copy' attribute is specified - 'assign' is assumed" | T@,VidDefault |
+| @property int \*intPointer; | T^i,VintPointer |
+| @property void \*voidPointerDefault; | T^v,VvoidPointerDefault |
+| @property int intSynthEquals;In the implementation block:@synthesize intSynthEquals=\_intSynthEquals; | Ti,V\_intSynthEquals |
+| @property\(getter=intGetFoo, setter=intSetFoo:\) int intSetterGetter; | Ti,GintGetFoo,SintSetFoo:,VintSetterGetter |
+| @property\(readonly\) int intReadonly; | Ti,R,VintReadonly |
+| @property\(getter=isIntReadOnlyGetter, readonly\) int intReadonlyGetter; | Ti,R,GisIntReadOnlyGetter |
 |  |  |
 
 
