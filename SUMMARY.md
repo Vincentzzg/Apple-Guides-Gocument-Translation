@@ -25,7 +25,14 @@
     * [Socket](chapter1/wang-luo/socket.md)
   * [存储](chapter1/cun-chu.md)
   * [渲染](chapter1/xuan-ran.md)
-  * [并发编程指南](chapter1/xian-cheng.md)
+  * [并发编程指南（Concurrency Programming Guide）](chapter1/xian-cheng.md)
+    * [介绍（Introduction）](chapter1/xian-cheng/jie-shaoff08-introduction.md)
+    * [并发性和应用程序设计（Concurrency and Application Design）](chapter1/xian-cheng/bing-fa-xing-he-ying-yong-cheng-xu-she-ji-ff08-concurrency-and-application-design.md)
+    * 操作队列（Operation Queues）
+    * 调度队列（Dispatch Queues）
+    * 调度来源（Dispatch Sources）
+    * 从线程迁移（Migrating Away from Threads）
+    * [词汇表（Glossary）](chapter1/xian-cheng/ci-hui-biao.md)
   * [Objective-C运行时编程指南（Objective-C Runtime Programming Guide）](chapter1/yun-xing-shi-ff08-runtime.md)
     * [介绍（Introduction）](chapter1/yun-xing-shi-ff08-runtime/jie-shaoff08-introduction.md)
     * [运行时版本和平台（Runtime Versions and Platforms）](chapter1/yun-xing-shi-ff08-runtime/yun-xing-shi-ban-ben-he-ping-tai-ff08-runtime-versions-and-platforms.md)
