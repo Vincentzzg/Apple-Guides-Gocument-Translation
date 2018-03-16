@@ -31,7 +31,7 @@
     * 操作队列（Operation Queues）
     * 调度队列（Dispatch Queues）
     * 调度来源（Dispatch Sources）
-    * 从线程迁移（Migrating Away from Threads）
+    * [从线程迁移（Migrating Away from Threads）](chapter1/xian-cheng/cong-xian-cheng-qian-yi-ff08-migrating-away-from-threads.md)
     * [词汇表（Glossary）](chapter1/xian-cheng/ci-hui-biao.md)
   * [Objective-C运行时编程指南（Objective-C Runtime Programming Guide）](chapter1/yun-xing-shi-ff08-runtime.md)
     * [介绍（Introduction）](chapter1/yun-xing-shi-ff08-runtime/jie-shaoff08-introduction.md)
