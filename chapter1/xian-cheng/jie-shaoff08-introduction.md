@@ -10,6 +10,16 @@
 
 ## 文档的组织（Organization of This Document）
 
+本文档包含下列章节：
+
+* 并发和应用程序（[Concurrency and Application Design](https://developer.apple.com/library/content/documentation/General/Conceptual/ConcurrencyProgrammingGuide/ConcurrencyandApplicationDesign/ConcurrencyandApplicationDesign.html#//apple_ref/doc/uid/TP40008091-CH100-SW1)）介绍了异步应用程序设计的基础以及异步执行你的自定义任务的技术。
+* 操作队列（[Operation Queues](https://developer.apple.com/library/content/documentation/General/Conceptual/ConcurrencyProgrammingGuide/OperationObjects/OperationObjects.html#//apple_ref/doc/uid/TP40008091-CH101-SW1)）展示了使用Objective-C对象封装和执行任务的方法。
+* 调度队列（[Dispatch Queues](https://developer.apple.com/library/content/documentation/General/Conceptual/ConcurrencyProgrammingGuide/OperationQueues/OperationQueues.html#//apple_ref/doc/uid/TP40008091-CH102-SW1)）展示了在基于C的应用程序中如何并行执行任务。
+* 调度来源（[Dispatch Sources](https://developer.apple.com/library/content/documentation/General/Conceptual/ConcurrencyProgrammingGuide/GCDWorkQueues/GCDWorkQueues.html#//apple_ref/doc/uid/TP40008091-CH103-SW1)）展示了如何异步处理系统事件。
+* 从线程迁移（[Migrating Away from Threads](https://developer.apple.com/library/content/documentation/General/Conceptual/ConcurrencyProgrammingGuide/ThreadMigration/ThreadMigration.html#//apple_ref/doc/uid/TP40008091-CH105-SW1)）提供了迁移现有基于线程的代码到使用更新技术的技术。
+
+文档也包括了定义相关术语的词汇表。
+
 ## 关于属于的说明（A Note About Terminology）
 
 ## 参考（See Also）
