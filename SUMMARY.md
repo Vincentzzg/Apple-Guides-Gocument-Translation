@@ -28,7 +28,7 @@
   * [并发编程指南（Concurrency Programming Guide）](chapter1/xian-cheng.md)
     * [介绍（Introduction）](chapter1/xian-cheng/jie-shaoff08-introduction.md)
     * [并发性和应用程序设计（Concurrency and Application Design）](chapter1/xian-cheng/bing-fa-xing-he-ying-yong-cheng-xu-she-ji-ff08-concurrency-and-application-design.md)
-    * 操作队列（Operation Queues）
+    * [操作队列（Operation Queues）](chapter1/xian-cheng/cao-zuo-dui-lie-ff08-operation-queues.md)
     * 调度队列（Dispatch Queues）
     * 调度来源（Dispatch Sources）
     * [从线程迁移（Migrating Away from Threads）](chapter1/xian-cheng/cong-xian-cheng-qian-yi-ff08-migrating-away-from-threads.md)

@@ -148,16 +148,13 @@ git branch -d <branch name> #删除分支
 **移除版本控制**
 
 将文件或文件夹移除版本控制
+
 ```
 git rm -r -n --cached "bin/" #-n：加上这个参数，执行命令时，是不会删除任何文件，而是展示此命令要删除的bin/文件夹下的文件列表预览。
 git rm -r --cached  "bin/" #最终执行命令. 删除bin/文件夹
 git commit -m "remove bin folder all file out of control"    #提交
 git push #提交到远程服务器
 ```
-
-
-
-
 
 _参考文章：_
 
