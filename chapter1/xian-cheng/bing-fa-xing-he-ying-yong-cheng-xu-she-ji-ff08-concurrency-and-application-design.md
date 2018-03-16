@@ -22,5 +22,7 @@
 
 ## 并发和其他技术（Concurrency and Other Technologies）
 
+OpenCL（_Open Computing Language_）和并发（OpenCL and Concurrency）
 
+什么时候使用线程（When to Use Threads）
 
