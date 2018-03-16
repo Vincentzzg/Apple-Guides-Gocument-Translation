@@ -32,5 +32,5 @@
 
 ## 参考（See Also）
 
-
+这个文档专注于在应用程序中实现并发的首选技术，但是不包括线程的使用。如果你需要关于使用线程以及其他线程相关的技术，参阅[_Threading Programming Guide_](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/Multithreading/Introduction/Introduction.html#//apple_ref/doc/uid/10000057i)。
 
