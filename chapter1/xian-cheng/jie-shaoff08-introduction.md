@@ -20,7 +20,15 @@
 
 文档也包括了定义相关术语的词汇表。
 
-## 关于属于的说明（A Note About Terminology）
+## 关于术语的说明（A Note About Terminology）
+
+在进入关于并行的讨论之前，有必要定义一些相关的术语来避免混淆。更熟悉UNIX系统或老的OS X技术的开发者可能发现“任务（task）”、“进程（process）”和“线程（thread）”这些术语在这个文档里使用起来有些不一样。本文档一下面的方式使用这些术语：
+
+* thread术语用来指代一个分离的执行代码的路径。OS X中线程的底层实现基于POSIX线程API。
+* process术语用来指代一个正在运行的可执行文件，它可以包含多条线程。
+* task术语用来指代需要执行的工作的抽象概念。
+
+本文档使用的这些以及其他关键术语的完整定义，参阅词汇表（[Glossary](https://developer.apple.com/library/content/documentation/General/Conceptual/ConcurrencyProgrammingGuide/Glossary/Glossary.html#//apple_ref/doc/uid/TP40008091-CH104-SW2)）。
 
 ## 参考（See Also）
 
