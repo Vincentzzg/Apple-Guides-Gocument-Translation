@@ -37,7 +37,7 @@
 
 你提交到调度队列的任务必须封装在函数或块对象中。块对象是OS X10.6和iOS4.0发布的C语言特性，概念上跟函数指针接近，但是有一些额外的益处。通常在其他函数或方法中定义块以至于它们可以从该函数或方法中获取其他变量，而不是在块自己的词法范围内定义它们。块也可以被移出它们的原始范围并且拷贝到堆中，这就是当你提交它们到调度队列时发生的。所有这些语义使用相对少的代码实现非常动态的任务变得可能。
 
-
+调度队列是GCD技术和C运行时的一部分。更多关于在应用程序中使用调度队列的信息，参[Dispatch Queues](https://developer.apple.com/library/content/documentation/General/Conceptual/ConcurrencyProgrammingGuide/OperationQueues/OperationQueues.html#//apple_ref/doc/uid/TP40008091-CH102-SW1)。更多关于块和它们的益处的信息，参阅[_Blocks Programming Topics_](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/Blocks/Articles/00_Introduction.html#//apple_ref/doc/uid/TP40007502)。
 
 ### 调度来源（Dispatch Sources）
 
