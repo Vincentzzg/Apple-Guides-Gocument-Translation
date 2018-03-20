@@ -39,7 +39,19 @@
 
 调度队列是GCD技术和C运行时的一部分。更多关于在应用程序中使用调度队列的信息，参[Dispatch Queues](https://developer.apple.com/library/content/documentation/General/Conceptual/ConcurrencyProgrammingGuide/OperationQueues/OperationQueues.html#//apple_ref/doc/uid/TP40008091-CH102-SW1)。更多关于块和它们的益处的信息，参阅[_Blocks Programming Topics_](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/Blocks/Articles/00_Introduction.html#//apple_ref/doc/uid/TP40007502)。
 
-### 调度来源（Dispatch Sources）
+### 调度源（Dispatch Sources）
+
+调度源是异步处理特定类型的系统事件的一个基于C的机制。调度源封装关于特定类型系统事件的信息并提交一个特定的块对象或函数到事件出现的调度队列。你可以使用调度源观察下列类型的系统事件：
+
+* 定时器
+* 信号处理器
+* 描述相关事件
+* 处理相关事件
+* Mach port events
+* 你触发的自定义事件
+
+调度源是GCD技术的一部分。关于在应用程序中使用调度源接收事件的更多信心，参阅[Dispatch Sources](https://developer.apple.com/library/content/documentation/General/Conceptual/ConcurrencyProgrammingGuide/GCDWorkQueues/GCDWorkQueues.html#//apple_ref/doc/uid/TP40008091-CH103-SW1)。  
+
 
 ### 操作队列（Operation Queues）
 
