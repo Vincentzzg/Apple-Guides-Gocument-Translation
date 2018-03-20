@@ -50,10 +50,11 @@
 * Mach port events
 * 你触发的自定义事件
 
-调度源是GCD技术的一部分。关于在应用程序中使用调度源接收事件的更多信心，参阅[Dispatch Sources](https://developer.apple.com/library/content/documentation/General/Conceptual/ConcurrencyProgrammingGuide/GCDWorkQueues/GCDWorkQueues.html#//apple_ref/doc/uid/TP40008091-CH103-SW1)。  
-
+调度源是GCD技术的一部分。关于在应用程序中使用调度源接收事件的更多信心，参阅[Dispatch Sources](https://developer.apple.com/library/content/documentation/General/Conceptual/ConcurrencyProgrammingGuide/GCDWorkQueues/GCDWorkQueues.html#//apple_ref/doc/uid/TP40008091-CH103-SW1)。
 
 ### 操作队列（Operation Queues）
+
+操作队列Cocoa等同于并行调度队列，通过NSOperationQueue类实现。鉴于调度队列总是以先进先出的顺序执行任务，操作队列在决定任务的执行顺序时把其他的因素考虑在内。这些因素中最主要的是任务是否依赖于其他任务的完成。当定义你的任务时设置依赖，你可以使用它们为你的任务创建复杂的执行顺序图。
 
 ## 异步设计技术（Asynchronous Design Techniques）
 
