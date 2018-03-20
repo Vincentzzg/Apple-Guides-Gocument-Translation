@@ -72,6 +72,8 @@
 
 ### 定义应用程序的预期行为（Define Your Application’s Expected Behavior）
 
+甚至在你考虑添加并发性到你的应用程序之前，你应该总是以定义你认为正确的应用程序行为作为开始。理解应用程序的期望行为给你一种后期证实设计的方法。它也提供了关于一些通过引入并发可能得到的性能提升的想法。
+
 ### 分解可执行的工作单元（Factor Out Executable Units of Work）
 
 ### 确定你需要的队列（Identify the Queues You Need）
