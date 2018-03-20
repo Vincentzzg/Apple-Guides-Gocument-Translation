@@ -60,6 +60,8 @@
 
 操作对象生成键值观（key-value observing）察通知，这可以是检测任务进度的非常有用的方式。尽管操作队列总是并发地执行操作，当需要的时候你可以使用依赖来确保它们串行地执行。
 
+更多关于如何使用操作队列以及如何定义自定义的操作对象的信息，参阅[Operation Queues](https://developer.apple.com/library/content/documentation/General/Conceptual/ConcurrencyProgrammingGuide/OperationObjects/OperationObjects.html#//apple_ref/doc/uid/TP40008091-CH101-SW1)。
+
 ## 异步设计技术（Asynchronous Design Techniques）
 
 ### 定义应用程序的预期行为（Define Your Application’s Expected Behavior）
