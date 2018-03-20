@@ -58,6 +58,8 @@
 
 提交给操作队列的任务必须是NSOperation类的实例。操作对象是一个Objective-C对象，它封装了你想执行的工作和执行它所需的任何数据。由于NSOperation类本质上是抽象基类，你通常定义自定义子类来执行你的任务。然而，Foundation框架确实包含一些可以创建并使用的具体子类来执行任务。
 
+操作对象生成键值观（key-value observing）察通知，这可以是检测任务进度的非常有用的方式。尽管操作队列总是并发地执行操作，当需要的时候你可以使用依赖来确保它们串行地执行。
+
 ## 异步设计技术（Asynchronous Design Techniques）
 
 ### 定义应用程序的预期行为（Define Your Application’s Expected Behavior）
