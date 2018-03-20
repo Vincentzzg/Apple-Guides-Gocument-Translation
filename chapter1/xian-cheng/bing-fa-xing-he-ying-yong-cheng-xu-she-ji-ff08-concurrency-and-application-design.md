@@ -56,8 +56,6 @@
 
 操作队列是并发调度队列的Cocoa等价物，通过NSOperationQueue类实现。鉴于调度队列总是以先进先出的顺序执行任务，操作队列在决定任务的执行顺序时把其他的因素考虑在内。这些因素中最主要的是任务是否依赖于其他任务的完成。当定义你的任务时设置依赖，你可以使用它们为你的任务创建复杂的执行顺序图。
 
-
-
 ## 异步设计技术（Asynchronous Design Techniques）
 
 ### 定义应用程序的预期行为（Define Your Application’s Expected Behavior）
