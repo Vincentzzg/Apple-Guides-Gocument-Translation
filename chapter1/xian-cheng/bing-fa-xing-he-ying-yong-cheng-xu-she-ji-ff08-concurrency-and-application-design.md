@@ -64,6 +64,8 @@
 
 ## 异步设计技术（Asynchronous Design Techniques）
 
+在你曾经考虑重新设计你的代码以支持并发之前，你应该问下自己什么时候有必要这样做。并发可以通过确保主线程轻松的响应用户事件来提升代码的响应灵敏度。
+
 ### 定义应用程序的预期行为（Define Your Application’s Expected Behavior）
 
 ### 分解可执行的工作单元（Factor Out Executable Units of Work）
