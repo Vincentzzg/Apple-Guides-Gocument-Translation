@@ -12,7 +12,7 @@
   * [值和集合（Values and Collections）](yu-yan/zhi-he-ji-he-ff08-values-and-collections.md)
   * [使用块（Working with Blocks）](yu-yan/kuai-ff08-blocks.md)
   * [处理错误（Dealing with Errors）](yu-yan/chu-li-cuo-wu-ff08-dealing-with-errors.md)
-  * [约定（Conventions）](yu-yan/yu-yan/yue-ding-ff08-conventions.md)
+  * [约定（Conventions）](yu-yan/yue-ding-ff08-conventions.md)
   * [语言](yu-yan/yu-yan.md)
 * [高级内存管理指南（Advanced Memory Management Programming Guide）](gao-ji-nei-cunguan-li-zhi-nan-ff08-advanced-memory-management-programming-guide.md)
   * [介绍（Introduction）](gao-ji-nei-cunguan-li-zhi-nan-ff08-advanced-memory-management-programming-guide/jie-shaoff08-introduction.md)
