@@ -123,3 +123,5 @@
 
 线程仍然是实现必须实时运行的代码的好方法。调度队列尽可能快地执行它们的任务，但它们不解决实时限制。如果您需要在后台运行的代码具有更多可预测的行为，那么线程仍然可以提供更好的选择。
 
+与任何线程编程一样，你应该总是审慎地使用线程并且仅在绝对需要的时候。有关线程包的更多信息以及如何使用它们，参阅[_Threading Programming Guide_](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/Multithreading/Introduction/Introduction.html#//apple_ref/doc/uid/10000057i)。
+
