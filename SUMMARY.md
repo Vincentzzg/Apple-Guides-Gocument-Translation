@@ -35,5 +35,5 @@
   * [消息转发（Message Forwarding）](chapter1/yun-xing-shi-ff08-runtime/xiao-xi-zhuan-fa-ff08-message-forwarding.md)
   * [类型编码（Type Encodings）](chapter1/yun-xing-shi-ff08-runtime/lei-xing-bian-ma-ff08-type-encodings.md)
   * [声明的属性（Declared Properties）](chapter1/yun-xing-shi-ff08-runtime/sheng-ming-deshu-xing-ff08-declared-properties.md)
-* [Objective-C中的编程概念（Concepts in Objective-C Programming）](chapter1/objective-czhong-de-bian-cheng-gai-nian-ff08-concepts-in-objective-c-programming.md)
+* [Objective-C中的编程概念（Concepts in Objective-C Programming）](objective-czhong-de-bian-cheng-gai-nian-ff08-concepts-in-objective-c-programming.md)
 
