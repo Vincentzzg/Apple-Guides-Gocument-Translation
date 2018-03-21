@@ -1,7 +1,7 @@
 # Summary
 
 * [简介](README.md)
-* [用Objective-C编程（Programming with Objective-C）](chapter1/yu-yan.md)
+* [用Objective-C编程（Programming with Objective-C）](yu-yan.md)
   * [NSObject](/nsobject.md)
   * [属性（property）](chapter1/yu-yan/shu-xing-zi-duan.md)
   * [类、对象](lei-he-dui-xiang.md)
@@ -18,7 +18,7 @@
   * [内存管理策略（Memory Management Policy）](gao-ji-nei-cunguan-li-zhi-nan-ff08-advanced-memory-management-programming-guide/nei-cun-guan-li-ce-lveff08-memory-management-policy.md)
   * [实用的内存管理（Practical Memory Management）](gao-ji-nei-cunguan-li-zhi-nan-ff08-advanced-memory-management-programming-guide/shi-yong-de-nei-cun-guan-li-ff08-practical-memory-management.md)
   * [使用自动释放池块（Using Autorelease Pool Blocks）](gao-ji-nei-cunguan-li-zhi-nan-ff08-advanced-memory-management-programming-guide/shi-yong-zi-dong-shi-fang-chi-kuai-ff08-using-autorelease-pool-blocks.md)
-* [并发编程指南（Concurrency Programming Guide）](chapter1/xian-cheng.md)
+* [并发编程指南（Concurrency Programming Guide）](xian-cheng.md)
   * [介绍（Introduction）](chapter1/xian-cheng/jie-shaoff08-introduction.md)
   * [并发性和应用程序设计（Concurrency and Application Design）](chapter1/xian-cheng/bing-fa-xing-he-ying-yong-cheng-xu-she-ji-ff08-concurrency-and-application-design.md)
   * [操作队列（Operation Queues）](chapter1/xian-cheng/cao-zuo-dui-lie-ff08-operation-queues.md)
@@ -26,7 +26,7 @@
   * [调度来源（Dispatch Sources）](chapter1/xian-cheng/diao-du-lai-yuan-ff08-dispatch-sources.md)
   * [从线程迁移（Migrating Away from Threads）](chapter1/xian-cheng/cong-xian-cheng-qian-yi-ff08-migrating-away-from-threads.md)
   * [词汇表（Glossary）](chapter1/xian-cheng/ci-hui-biao.md)
-* [Objective-C运行时编程指南（Objective-C Runtime Programming Guide）](chapter1/yun-xing-shi-ff08-runtime.md)
+* [Objective-C运行时编程指南（Objective-C Runtime Programming Guide）](yun-xing-shi-ff08-runtime.md)
   * [介绍（Introduction）](chapter1/yun-xing-shi-ff08-runtime/jie-shaoff08-introduction.md)
   * [运行时版本和平台（Runtime Versions and Platforms）](chapter1/yun-xing-shi-ff08-runtime/yun-xing-shi-ban-ben-he-ping-tai-ff08-runtime-versions-and-platforms.md)
   * [与运行时交互（Interacting with the Runtime）](chapter1/yun-xing-shi-ff08-runtime/yu-yun-xing-shi-jiao-hu-ff08-interacting-with-the-runtime.md)
