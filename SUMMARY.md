@@ -43,10 +43,10 @@
     * [类型编码（Type Encodings）](chapter1/yun-xing-shi-ff08-runtime/lei-xing-bian-ma-ff08-type-encodings.md)
     * [声明的属性（Declared Properties）](chapter1/yun-xing-shi-ff08-runtime/sheng-ming-deshu-xing-ff08-declared-properties.md)
   * [Objective-C中的编程概念（Concepts in Objective-C Programming）](chapter1/objective-czhong-de-bian-cheng-gai-nian-ff08-concepts-in-objective-c-programming.md)
-* 需求
-* 质量
-* 效率
-* 进阶
+* [需求](xu-qiu.md)
+* [质量](zhi-liang.md)
+* [效率](xiao-lv.md)
+* [进阶](jin-jie.md)
 * [应用安全开发](ying-yong-kai-fa-an-quan.md)
 * [Git](git.md)
 * [算法与数据结构](suan-fa-yu-shu-ju-jie-gou.md)
