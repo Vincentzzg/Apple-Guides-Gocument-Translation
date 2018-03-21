@@ -115,7 +115,7 @@
 
 ### OpenCL和并发（OpenCL and Concurrency）
 
-在OS X中，Open Computing Language（OpenCL）是一个在计算机的图形处理器上执行通用目的计算的基于标准的技术。如果您想要应用于大型数据集的计划明确，则OpenCL是一种很好的技术。
+在OS X中，Open Computing Language（OpenCL）是一个在计算机的图形处理器上执行通用目的计算的基于标准的技术。如果您想要应用于大型数据集的计划明确，则OpenCL是一种很好的技术。例如，你可以使用OpenCLass对图像的像素执行滤波计算，或使用它对多个值一次执行复杂的数学计算。换句话说，OpenGL更适合于可以并行操作数据的问题集。
 
 ### 什么时候使用线程（When to Use Threads）
 
