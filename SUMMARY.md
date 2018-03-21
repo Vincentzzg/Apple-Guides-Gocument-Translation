@@ -1,7 +1,7 @@
 # Summary
 
 * [简介](README.md)
-* [用Objective-C编程（Programming with Objective-C）](yu-yan.md)
+* [用Objective-C编程（Programming with Objective-C）](yong-objective-c-bian-cheng-ff08-programming-with-objective-c.md)
   * [NSObject](/nsobject.md)
   * [属性（property）](chapter1/yu-yan/shu-xing-zi-duan.md)
   * [类、对象](lei-he-dui-xiang.md)
