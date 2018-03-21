@@ -107,7 +107,11 @@
 
 不管是使用队列还是线程，在引入任何数量的并发到你的代码之前，你应该总是收集一组反映你的应用程序当前性能的基准指标。引入你的改变之后，你应该随后收集额外的指标并比较它们和你的基准看是否你的应用程序的总体性能获得了提升。如果并发的引入是应用程序性能更差或更不灵敏，你应该使用可用的性能工具检查潜在的原因。
 
+对于性能和可用的性能工具的介绍，以及更先进的性能相关的话题的链接，参阅[_Performance Overview_](https://developer.apple.com/library/content/documentation/Performance/Conceptual/PerformanceOverview/Introduction/Introduction.html#//apple_ref/doc/uid/TP40001410)。
+
 ## 并发和其他技术（Concurrency and Other Technologies）
+
+分解你的代码到模块化的任务是尝试以及提升应用程序并发量的最好方法。然而，这种设计方法可能不能满足每一个场景下的每一个应用的需求。可能有可以提供额外应用程序整体性能提升的其他选择，这取决于你的任务。本节概述了作为设计一部分考虑使用的其他一些技术。
 
 ### OpenCL（_Open Computing Language_）和并发（OpenCL and Concurrency）
 
