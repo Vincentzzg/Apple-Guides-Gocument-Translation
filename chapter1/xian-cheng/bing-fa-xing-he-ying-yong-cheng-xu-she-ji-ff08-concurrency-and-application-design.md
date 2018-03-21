@@ -113,7 +113,9 @@
 
 分解你的代码到模块化的任务是尝试以及提升应用程序并发量的最好方法。然而，这种设计方法可能不能满足每一个场景下的每一个应用的需求。可能有可以提供额外应用程序整体性能提升的其他选择，这取决于你的任务。本节概述了作为设计一部分考虑使用的其他一些技术。
 
-### OpenCL（_Open Computing Language_）和并发（OpenCL and Concurrency）
+### OpenCL和并发（OpenCL and Concurrency）
+
+在OS X中，Open Computing Language（OpenCL）是一个在计算机的图形处理骑上执行通用目的计算的基于标准的技术。如果您想要应用于大型数据集的计划明确，则OpenCL是一种很好的技术。
 
 ### 什么时候使用线程（When to Use Threads）
 
