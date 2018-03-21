@@ -94,6 +94,10 @@
 
 ### 提高效率的指示（Tips for Improving Efficiency）
 
+除了简单把你的代码分解成更小的任务并添加它们到队列，还有其他方法可以使用队列提升代码的整体性能：
+
+
+
 ## 性能意义（Performance Implications）
 
 ## 并发和其他技术（Concurrency and Other Technologies）
