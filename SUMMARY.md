@@ -12,6 +12,7 @@
   * [值和集合（Values and Collections）](zhi-he-ji-he-ff08-values-and-collections.md)
   * [使用块（Working with Blocks）](kuai-ff08-blocks.md)
   * [处理错误（Dealing with Errors）](chu-li-cuo-wu-ff08-dealing-with-errors.md)
+  * [语言](yu-yan.md)
 * [高级内存管理指南（Advanced Memory Management Programming Guide）](gao-ji-nei-cunguan-li-zhi-nan-ff08-advanced-memory-management-programming-guide.md)
   * [介绍（Introduction）](gao-ji-nei-cunguan-li-zhi-nan-ff08-advanced-memory-management-programming-guide/jie-shaoff08-introduction.md)
   * [内存管理策略（Memory Management Policy）](gao-ji-nei-cunguan-li-zhi-nan-ff08-advanced-memory-management-programming-guide/nei-cun-guan-li-ce-lveff08-memory-management-policy.md)
@@ -21,8 +22,8 @@
   * [介绍（Introduction）](chapter1/xian-cheng/jie-shaoff08-introduction.md)
   * [并发性和应用程序设计（Concurrency and Application Design）](chapter1/xian-cheng/bing-fa-xing-he-ying-yong-cheng-xu-she-ji-ff08-concurrency-and-application-design.md)
   * [操作队列（Operation Queues）](chapter1/xian-cheng/cao-zuo-dui-lie-ff08-operation-queues.md)
-  * 调度队列（Dispatch Queues）
-  * 调度来源（Dispatch Sources）
+  * [调度队列（Dispatch Queues）](chapter1/xian-cheng/diao-du-dui-lie-ff08-dispatch-queues.md)
+  * [调度来源（Dispatch Sources）](chapter1/xian-cheng/diao-du-lai-yuan-ff08-dispatch-sources.md)
   * [从线程迁移（Migrating Away from Threads）](chapter1/xian-cheng/cong-xian-cheng-qian-yi-ff08-migrating-away-from-threads.md)
   * [词汇表（Glossary）](chapter1/xian-cheng/ci-hui-biao.md)
 * [Objective-C运行时编程指南（Objective-C Runtime Programming Guide）](chapter1/yun-xing-shi-ff08-runtime.md)
