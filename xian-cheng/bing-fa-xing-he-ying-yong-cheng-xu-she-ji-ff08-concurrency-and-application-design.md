@@ -117,6 +117,10 @@
 
 在OS X中，Open Computing Language（OpenCL）是一个在计算机的图形处理器上执行通用目的计算的基于标准的技术。如果您想要应用于大型数据集的计划明确，则OpenCL是一种很好的技术。例如，你可以使用OpenCLass对图像的像素执行滤波计算，或使用它对多个值一次执行复杂的数学计算。换句话说，OpenGL更适合于可以并行操作数据的问题集。
 
+尽管OpenCL适合执行大规模数据并行操作，但不适合更通用的计算。 准备数据和将所需的工作内核传输到图形卡以便可以通过GPU对其进行操作需要花费大量精力。 同样，检索OpenCL生成的任何结果也需要花费大量精力。 因此，与系统交互的任何任务通常都不推荐用于OpenCL。 例如，您不会使用OpenCL处理来自文件或网络流的数据。 相反，使用OpenCL执行的工作必须更加独立，才能将其转移到图形处理器并独立计算。
+
+更多关于OpenCL以及如何使用它的信息，参阅[_OpenCL Programming Guide for Mac_](https://developer.apple.com/library/content/documentation/Performance/Conceptual/OpenCL_MacProgGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40008312)。
+
 ### 什么时候使用线程（When to Use Threads）
 
 尽管操作队列和调度队列是并发执行任务优先选择的方法，但它们不是万能药。根据您的应用程序，您可能仍然有时需要创建自定义线程。如果你创建自定义线程，你应该努力创建尽量少的线程并且你应该仅为不能用其他方式实现的特定任务使用这些线程。
