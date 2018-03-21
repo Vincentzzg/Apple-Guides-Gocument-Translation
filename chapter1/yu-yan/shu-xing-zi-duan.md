@@ -2,9 +2,9 @@
 
 ## **@property**
 
-对象通过属性来封装数据（encapsulates data），属性控制着对象的数据访问
+对象通过属性来封装数据（encapsulatesdata），属性控制着对象的数据访问
 
-属性声明包含在在一个类的接口中，like this:
+属性声明包含在在一个类的接口中，likethis:
 
 ```
 @interface XYZPerson : NSObject
@@ -16,7 +16,18 @@
 语法
 
 ```
-@property (<#attributes#>) <#type#> <#name#>;
+@property (
+<
+#attributes#
+>
+) 
+<
+#type#
+>
+<
+#name#
+>
+;
 ```
 
 @property声明的属性，编译器会自动合成存取器（getter、setter）方法
@@ -102,8 +113,6 @@ badgeView只应该只维护设置给firstName和lastName属性的任何字符串
 }
 ```
 
-
-
 #### 关键字
 
 @property的常用属性关键字有nonatomic、atomic、readonly、writeonly、readwrite、assign、retain、copy、strong、weak、unsafe\_unretained、nonnull、nullable、null\_resettable，看着挺多的，但是经常用的也就那几个。
@@ -117,7 +126,7 @@ badgeView只应该只维护设置给firstName和lastName属性的任何字符串
 2.是否成成setter方法
 
 * readwrite：默认关键字，表示可读可写，无需写出
-* readonly：编译器会合成getter方法，不合成setter方法，当你希望属性不能通过setter方法被修改，但是可以访问时使用。 
+* readonly：编译器会合成getter方法，不合成setter方法，当你希望属性不能通过setter方法被修改，但是可以访问时使用。
 * writeonly: 只能写\(setter\)，不能读\(getter\)。一般用不到。
 
 3.setter方法中如何传递所有权等内存管理策略，ARC环境默认为strong
